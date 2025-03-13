@@ -1,0 +1,67 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"); */
+@import url("./fonts.css");
+@import url("./variables.css");
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+	--ifm-color-primary: #2e8555;
+	--ifm-color-primary-dark: #29784c;
+	--ifm-color-primary-darker: #277148;
+	--ifm-color-primary-darkest: #205d3b;
+	--ifm-color-primary-light: #33925d;
+	--ifm-color-primary-lighter: #359962;
+	--ifm-color-primary-lightest: #3cad6e;
+	--ifm-code-font-size: 95%;
+	--docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+html[data-theme="dark"] {
+	--ifm-background-color: var(--color-green-dark-2);
+	--ifm-color-primary: #1afd80;
+	--ifm-color-primary-dark: #02f971;
+	--ifm-color-primary-darker: #02eb6b;
+	--ifm-color-primary-darkest: #02c258;
+	--ifm-color-primary-light: #36fd8f;
+	--ifm-color-primary-lighter: #43fd97;
+	--ifm-color-primary-lightest: #6dfeae;
+	--docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+	/* footer colors */
+	--ifm-footer-background-color: var(--color-green-dark-1);
+
+	/* fonts */
+	--ifm-font-family-base: var(--regular), sans-serif;
+	--ifm-heading-font-family: var(--extrabold), sans-serif;
+	h1,
+	h2 {
+		font-family: var(--extrabold), sans-serif;
+		font-size: 43.41px;
+		line-height: 105%;
+		text-transform: uppercase;
+		background: var(--gradient-white);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		font-optical-sizing: auto;
+		font-weight: 800;
+		font-style: normal;
+	}
+
+	h2 {
+		font-size: 26.81px;
+		text-transform: uppercase;
+		background: -webkit-linear-gradient(0deg, #19fc7f, #054120);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	strong {
+		font-family: var(--bold), sans-serif;
+	}
+}
