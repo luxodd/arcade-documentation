@@ -1,0 +1,27 @@
+:root {
+	--color-black: #000000;
+	--color-white: #ffffff;
+	--color-white-transparent: #ffffff60;
+	--color-green: #1afe81;
+	--gradient-green: linear-gradient(0deg, #19fc7f, #054120);
+	--gradient-white: linear-gradient(50deg, #ffffff, #ffffff60 80%);
+
+	--color-green-dark-1: #0b120d;
+	--color-green-dark-2: #131e19;
+	--color-green-dark-3: #0d3721;
+
+	--extrabold: "alexandria-extrabold";
+	--semibold: "alexandria-semibold";
+	--regular: "figtree-regular";
+	--bold: "figtree-bold";
+
+	--font-0: clamp(0.6rem, 1vw, 0.8rem);
+	--font-1: clamp(0.8rem, 1vw, 1rem);
+	--font-2: clamp(1rem, 1vw, 1.2rem);
+	--font-3: clamp(1.2rem, 1vw, 1.5rem);
+	--font-4: clamp(1.5rem, 1vw, 2rem);
+	--font-5: clamp(2rem, 1vw, 2.5rem);
+	--font-6: clamp(2.5rem, 1vw, 3.5rem);
+	--font-7: clamp(3.5rem, 1vw, 5.5rem);
+	--font-8: clamp(4.5rem, 1vw, 6.5rem);
+}
