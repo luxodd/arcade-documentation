@@ -3,26 +3,29 @@
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
-	src: url("../../static/fonts/alexandria-extrabold.woff") format("woff");
+	src: url("/fonts/alexandria-extrabold.woff") format("woff");
 }
+
 @font-face {
 	font-family: "alexandria-semibold";
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
-	src: url("../../static/fonts/alexandria-semibold.woff") format("woff");
+	src: url("/fonts/alexandria-semibold.woff") format("woff");
 }
+
 @font-face {
 	font-family: "figtree-regular";
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
-	src: url("../../static/fonts/figtree-regular.woff") format("woff");
+	src: url("/fonts/figtree-regular.woff") format("woff");
 }
+
 @font-face {
 	font-family: "figtree-bold";
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
-	src: url("../../static/fonts/figtree-bold.woff") format("woff");
+	src: url("/fonts/figtree-bold.woff") format("woff");
 }
