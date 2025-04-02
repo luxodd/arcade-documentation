@@ -18,6 +18,24 @@
 	--ifm-color-primary-lightest: #3cad6e;
 	--ifm-code-font-size: 95%;
 	--docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+	
+	/* Apply fonts globally */
+	--ifm-font-family-base: "figtree-regular", Helvetica, Arial, sans-serif;
+	--ifm-heading-font-family: "alexandria-extrabold", Helvetica, Arial, sans-serif;
+}
+
+/* Force font-family on body */
+body {
+	font-family: "figtree-regular", Helvetica, Arial, sans-serif !important;
+}
+
+/* Force font-family on headings */
+h1, h2, h3, h4, h5, h6 {
+	font-family: "alexandria-extrabold", Helvetica, Arial, sans-serif !important;
+}
+
+strong {
+	font-family: "figtree-bold", Helvetica, Arial, sans-serif !important;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */

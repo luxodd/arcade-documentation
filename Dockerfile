@@ -9,7 +9,8 @@ COPY . .
 
 RUN npm run build
 
-RUN npm install express
+# Ensure fonts are properly copied to the build output
+RUN mkdir -p build/fonts && cp -r static/fonts/* build/fonts/
 
 EXPOSE 8080
 
