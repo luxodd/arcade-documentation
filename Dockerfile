@@ -9,8 +9,8 @@ COPY . .
 
 RUN npm run build
 
-RUN npm install -g http-server
+RUN npm install express
 
 EXPOSE 8080
 
-CMD ["http-server", "build", "-p", "8080"]
+CMD ["node", "server.js"]
