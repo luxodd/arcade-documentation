@@ -1,0 +1,259 @@
+.support {
+	/* min-height: 100dvh; */
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem 0;
+}
+
+.container {
+	position: relative;
+	padding: 4em 5em;
+	border-radius: 10px;
+	background-color: #1e3126;
+	background-image: url("/img/arcade/topography.svg");
+
+	display: flex;
+	gap: 2em;
+	align-items: center;
+	width: 80%;
+
+	justify-content: center;
+	margin-block: 2em;
+	max-width: 1520px;
+}
+
+.arcade {
+	flex: 1;
+	position: relative;
+	display: flex;
+	align-items: flex-end;
+	scale: 0.9;
+	z-index: 1;
+}
+
+.pawn {
+	transform: translateY(8%);
+}
+
+.shadow {
+	position: absolute;
+	top: 10%;
+	left: -15%;
+	z-index: -1;
+	width: 120%;
+	height: 100%;
+}
+
+.title {
+	flex: 1;
+}
+
+.title h2 {
+	font-size: 45px !important;
+	line-height: 1;
+	font-family: "alexandria-extrabold", "figtree-bold", Helvetica, Arial,
+		sans-serif !important;
+	text-transform: uppercase;
+	background: var(--gradient-white) !important;
+	background-clip: text !important;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-optical-sizing: auto;
+}
+
+.title p {
+	color: #998f8f;
+	font-size: 20px;
+	line-height: 1.2;
+}
+
+.title a {
+	border: none;
+	background-color: #3bdf6c;
+	border-radius: 500px;
+	padding: 20px 30px;
+	width: 100%;
+	color: #131e18;
+
+	font-size: 18px;
+	line-height: 1;
+	font-family: "alexandria-semibold", "figtree-bold", Helvetica, Arial,
+		sans-serif !important;
+	text-transform: uppercase;
+
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	transition: all 0.3s;
+}
+
+.title a:hover {
+	background-color: #1afe81;
+}
+
+.discordIcon {
+	align-items: center;
+	background-color: #131e18;
+	border-radius: 50%;
+	display: flex;
+	aspect-ratio: 1/1;
+	width: 50px;
+	height: 50px;
+	justify-content: center;
+	margin: 0 12px 0 0;
+	transition: fill 0.3s;
+}
+
+.title a svg {
+	min-width: 24px;
+	width: 24px;
+	fill: #3bdf6c;
+}
+
+@media screen and (max-width: 1440px) {
+	.arcade {
+		scale: 0.7;
+		align-self: flex-start;
+	}
+
+	.title h2 {
+		font-size: 40px !important;
+	}
+	.title button {
+		padding: 0.5em;
+	}
+}
+
+@media screen and (max-width: 1300px) {
+	.arcade {
+		scale: 0.6;
+	}
+}
+
+@media screen and (max-width: 1250px) {
+	.arcade {
+		display: none;
+	}
+	.title button {
+		width: 55%;
+		font-size: 18px;
+	}
+}
+
+@media screen and (max-width: 1089px) {
+	.container {
+		padding: 3em 4em;
+	}
+	.title h2 {
+		font-size: 30px !important;
+	}
+	.title p {
+		font-size: 18px;
+	}
+	.title a {
+		width: fit-content;
+		font-size: 16px;
+		padding: 1em;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.container {
+		width: 90%;
+		margin-block: 1.5em;
+	}
+}
+
+@media screen and (max-width: 539px) {
+	.title a {
+		font-size: 14px;
+	}
+
+	.container {
+		padding: 2.5em 3em;
+	}
+
+	.title h2 {
+		font-size: 28px !important;
+	}
+
+	.title p {
+		font-size: 16px;
+	}
+
+	.discordIcon {
+		width: 40px;
+		height: 40px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.container {
+		padding: 2em 2.5em;
+		width: 95%;
+		margin-block: 1em;
+	}
+
+	.title h2 {
+		font-size: 26px !important;
+	}
+
+	.title p {
+		font-size: 15px;
+	}
+}
+
+@media screen and (max-width: 470px) {
+	.title a {
+		font-size: 12px;
+	}
+
+	.discordIcon {
+		width: 35px;
+		height: 35px;
+		margin-right: 8px;
+	}
+
+	.title a svg {
+		min-width: 20px;
+		width: 20px;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.support {
+		padding: 1rem 0;
+	}
+
+	.container {
+		padding: 1.5em 1.2em;
+		width: 95%;
+		margin-block: 0.8em;
+	}
+
+	.title h2 {
+		font-size: 22px !important;
+	}
+
+	.title p {
+		font-size: 13px;
+	}
+
+	.title a {
+		font-size: 11px;
+		padding: 0.8em;
+	}
+
+	.discordIcon {
+		width: 30px;
+		height: 30px;
+		margin-right: 6px;
+	}
+
+	.title a svg {
+		min-width: 16px;
+		width: 16px;
+	}
+}

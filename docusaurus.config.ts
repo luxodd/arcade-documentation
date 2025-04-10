@@ -73,12 +73,26 @@ const config: Config = {
 			respectPrefersColorScheme: false,
 		},
 		navbar: {
-			title: "",
 			logo: {
 				alt: "Luxodd Logo",
 				src: "img/logo.png",
 			},
 			items: [
+				{
+					to: "https://landing-page-195979437523.us-west1.run.app",
+					label: "Home",
+					position: "left",
+				},
+				{
+					to: "https://landing-page-195979437523.us-west1.run.app/reservation",
+					label: "Reservation",
+					position: "left",
+				},
+				{
+					to: "https://landing-page-195979437523.us-west1.run.app/#timeline",
+					label: "Timeline",
+					position: "left",
+				},
 				{
 					type: "docSidebar",
 					sidebarId: "tutorialSidebar",
@@ -138,7 +152,7 @@ const config: Config = {
 				},
 			],
 			copyright:
-				"© Luxodd. All Rights Reserved. | Redefining the Arcade Experience 🚀",
+				"© Luxodd. All Rights Reserved. | Luck is odd and strategy makes you a fortune 🚀",
 		},
 		prism: {
 			theme: prismThemes.oneDark,

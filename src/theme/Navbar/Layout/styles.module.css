@@ -1,0 +1,29 @@
+.navbarHideable {
+	transition: transform var(--ifm-transition-fast) ease;
+}
+
+.navbarHidden {
+	transform: translate3d(0, calc(-100% - 2px), 0);
+}
+
+.customNavBar {
+	padding: 15px 80px;
+	height: auto;
+	background-color: var(--ifm-background-color);
+}
+
+@media screen and (max-width: 996px) {
+	.customNavBar {
+		padding: 15px 50px;
+		height: auto;
+		background-color: var(--ifm-background-color);
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.customNavBar {
+		padding: 20px;
+		height: auto;
+		background-color: var(--ifm-background-color);
+	}
+}
