@@ -53,10 +53,10 @@ const server = http.createServer((req, res) => {
         
         const data = fs.readFileSync(fontPath);
         
-        // Set headers for fonts
+        // Set headers for fonts with appropriate caching
         const headers = {
           'Content-Type': contentType,
-          'Cache-Control': 'public, max-age=31536000',
+          'Cache-Control': 'public, max-age=86400', // 1 day for fonts
           'Access-Control-Allow-Origin': '*'
         };
         
@@ -89,7 +89,13 @@ const server = http.createServer((req, res) => {
         return;
       }
       
-      res.writeHead(200, { 'Content-Type': 'text/html; charset=UTF-8' });
+      // No caching for HTML files
+      res.writeHead(200, { 
+        'Content-Type': 'text/html; charset=UTF-8',
+        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      });
       res.end(data);
     });
     return;
@@ -109,7 +115,13 @@ const server = http.createServer((req, res) => {
           return;
         }
         
-        res.writeHead(200, { 'Content-Type': 'text/html; charset=UTF-8' });
+        // No caching for HTML files
+        res.writeHead(200, { 
+          'Content-Type': 'text/html; charset=UTF-8',
+          'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0'
+        });
         res.end(indexData);
       });
       return;
@@ -118,16 +130,29 @@ const server = http.createServer((req, res) => {
     // Determine the correct content type
     const contentType = mimeTypes[ext] || 'application/octet-stream';
     
-    // Set headers
+    // Set appropriate cache headers based on file type
     const headers = {
-      'Content-Type': contentType,
-      'Cache-Control': 'public, max-age=31536000' // 1 year for static assets
+      'Content-Type': contentType
     };
-    
-    // Add CORS headers for fonts
-    if (contentType.includes('font')) {
+
+    // Different caching strategies for different file types
+    if (contentType.includes('text/html')) {
+      // No caching for HTML files
+      headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, proxy-revalidate';
+      headers['Pragma'] = 'no-cache';
+      headers['Expires'] = '0';
+    } else if (contentType.includes('font')) {
+      // 1 day for fonts
+      headers['Cache-Control'] = 'public, max-age=86400';
       headers['Access-Control-Allow-Origin'] = '*';
-      console.log(`[${new Date().toISOString()}] FONT SERVED: ${filePath} (${contentType})`);
+    } else if (contentType.includes('image') || contentType.includes('javascript') || contentType.includes('css')) {
+      // 1 hour for images, JS, and CSS
+      headers['Cache-Control'] = 'public, max-age=3600';
+    } else {
+      // Default: no caching
+      headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, proxy-revalidate';
+      headers['Pragma'] = 'no-cache';
+      headers['Expires'] = '0';
     }
     
     res.writeHead(200, headers);
