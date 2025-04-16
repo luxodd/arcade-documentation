@@ -1,4 +1,4 @@
-# UI logic arvhitecture
+# UI logic architecture
 
 ### CustomProperty
 
