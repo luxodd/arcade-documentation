@@ -76,9 +76,10 @@ const config: Config = {
 			},
 			items: [
 				{
-					to: "https://landing-page-195979437523.us-west1.run.app",
+					to: "/",
 					label: "Home",
 					position: "left",
+					activeBaseRegex: "^/$",
 				},
 				{
 					to: "https://landing-page-195979437523.us-west1.run.app/reservation",

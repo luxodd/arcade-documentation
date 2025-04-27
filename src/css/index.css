@@ -39,7 +39,7 @@ body {
 }
 
 .activeNavbarItem {
-	color: var(--color-green);
+	color: var(--color-green) !important;
 	position: relative;
 }
 
@@ -51,6 +51,19 @@ body {
 	width: 100%;
 	height: 2px;
 	background-color: var(--color-green);
+	display: block !important;
+}
+
+/* Override Docusaurus built-in active class to ensure it's visible */
+.navbar__link--active::after {
+	content: "";
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background-color: var(--color-green);
+	display: block !important;
 }
 
 /* Force font-family on headings */
