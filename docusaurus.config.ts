@@ -76,7 +76,7 @@ const config: Config = {
 			},
 			items: [
 				{
-					to: "/",
+					to: "https://landing-page-195979437523.us-west1.run.app",
 					label: "Home",
 					position: "left",
 					activeBaseRegex: "^/$",
@@ -92,10 +92,14 @@ const config: Config = {
 					position: "left",
 				},
 				{
-					type: "docSidebar",
-					sidebarId: "tutorialSidebar",
+					to: "https://landing-page-195979437523.us-west1.run.app/crowdfund",
+					label: "Crowdfund",
 					position: "left",
-					label: "Tutorial",
+				},
+				{
+					to: "https://landing-page-195979437523.us-west1.run.app/developer",
+					label: "Build with Us",
+					position: "left",
 				},
 				{ to: "/blog", label: "Blog & Articles", position: "left" },
 				{
@@ -103,6 +107,12 @@ const config: Config = {
 					href: "https://github.com/luxodd/arcade-documentation/issues/new?title=Feedback&labels=feedback",
 					position: "right",
 				},
+				{
+					to: "/",
+					label: "Documentation",
+					position: "left",
+					activeBaseRegex: "^/$",
+				}
 			],
 		},
 		footer: {
