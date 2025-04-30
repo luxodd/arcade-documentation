@@ -111,7 +111,7 @@ const config: Config = {
 					to: "/",
 					label: "Documentation",
 					position: "left",
-					activeBaseRegex: "^(\/|\/docs)",
+					activeBaseRegex: "^(\/($|docs))",
 				}
 			],
 		},

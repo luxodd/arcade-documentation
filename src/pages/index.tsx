@@ -21,7 +21,7 @@ export default function Home(): ReactNode {
 							<p>Discover Luxodd game integration in less than 5 minutes</p>
 						</a>
 						
-						<a href="/docs/arcade-lanuch/unity-plugin/overview" className={styles.link}>
+						<a href="/docs/arcade-launch/unity-plugin/overview" className={styles.link}>
 							<h2>Unity Plugin</h2>
 							<p>Learn how to integrate your Unity games with Luxodd's arcade platform</p>
 						</a>
