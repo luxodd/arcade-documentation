@@ -37,9 +37,14 @@
 
 .links {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   width: 100%;
+  margin-bottom: 2rem;
+}
+
+.links:last-child {
+  margin-bottom: 0;
 }
 
 .link {
@@ -74,6 +79,14 @@
   line-height: 1.5;
 }
 
+/* Tablet size */
+@media (max-width: 996px) {
+  .links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile size */
 @media (max-width: 768px) {
   .main {
     padding: 2rem 0;
@@ -89,5 +102,6 @@
 
   .links {
     grid-template-columns: 1fr;
+    margin-bottom: 1rem;
   }
 }

@@ -16,19 +16,36 @@ export default function Home(): ReactNode {
 					<p className={styles.description}>Everything you need to build and deploy your games on Luxodd</p>
 					
 					<div className={styles.links}>
-						<a href="/docs/onboard" className={styles.link}>
-							<h2>Onboard Your Game</h2>
-							<p>Learn how to integrate your game with Luxodd's platform</p>
+						<a href="/docs/intro" className={styles.link}>
+							<h2>Getting Started</h2>
+							<p>Discover Luxodd game integration in less than 5 minutes</p>
 						</a>
 						
-						<a href="/docs/deployments" className={styles.link}>
-							<h2>Arcade Deployments</h2>
-							<p>Guide to deploying your game to physical arcades</p>
+						<a href="/docs/arcade-lanuch/unity-plugin/overview" className={styles.link}>
+							<h2>Unity Plugin</h2>
+							<p>Learn how to integrate your Unity games with Luxodd's arcade platform</p>
 						</a>
 						
-						<a href="/docs/example-game" className={styles.link}>
-							<h2>Example Game Documentation</h2>
-							<p>Reference implementation and best practices</p>
+						<a href="/docs/game-integration" className={styles.link}>
+							<h2>Game Integration</h2>
+							<p>Step-by-step guide to integrate your game with our system</p>
+						</a>
+					</div>
+
+					<div className={styles.links}>
+						<a href="/docs/getting-started/introduction" className={styles.link}>
+							<h2>Introduction</h2>
+							<p>Understand the fundamentals of Luxodd's gaming platform</p>
+						</a>
+						
+						<a href="/docs/knowledge-base/game-logic-architecture" className={styles.link}>
+							<h2>Game Logic Architecture</h2>
+							<p>Deep dive into the game logic architecture</p>
+						</a>
+						
+						<a href="/docs/knowledge-base/ui-logic-architecture" className={styles.link}>
+							<h2>UI Logic Architecture</h2>
+							<p>Learn about the UI logic architecture for Luxodd games</p>
 						</a>
 					</div>
 				</div>
