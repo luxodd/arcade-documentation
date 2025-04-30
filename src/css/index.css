@@ -33,8 +33,10 @@ body {
 .customNavBarItem {
 	color: var(--color-white);
 	font-family: var(--regular);
-	font-size: var(--font-1);
-	margin: 0 0 0 20px;
+	font-size: 0.97rem;
+	font-weight: 600;
+	margin: 0 0 0 30px;
+	padding: 0.5rem 0;
 	transition: all 0.3s;
 }
 
@@ -46,7 +48,7 @@ body {
 .activeNavbarItem::after {
 	content: "";
 	position: absolute;
-	bottom: -5px;
+	bottom: 0;
 	left: 0;
 	width: 100%;
 	height: 2px;
@@ -58,7 +60,7 @@ body {
 .navbar__link--active::after {
 	content: "";
 	position: absolute;
-	bottom: -5px;
+	bottom: 0;
 	left: 0;
 	width: 100%;
 	height: 2px;
@@ -124,4 +126,193 @@ html[data-theme="dark"] {
 	strong {
 		font-family: var(--bold), sans-serif;
 	}
+}
+
+/* Mobile navbar styles */
+@media screen and (max-width: 1024px) {
+	.navbar {
+		padding: 20px 30px !important;
+	}
+	
+	.navbar.navbar--fixed-top {
+		padding: 10px 30px !important;
+	}
+	
+	.navbar__logo img {
+		max-width: 110px;
+	}
+	
+	.navbar__toggle {
+		display: flex !important;
+		align-items: center;
+		justify-content: center;
+		margin-left: auto;
+		position: relative;
+		z-index: 101;
+	}
+   
+	.navbar__items {
+		justify-content: space-between;
+	}
+   
+	.navbar-sidebar {
+		background-color: var(--color-green-dark-3) !important;
+		border-right: 1px solid var(--color-green-dark-2) !important;
+		width: 50% !important;
+		padding-top: 0 !important;
+	}
+   
+	/* Adjust the logo area styling */
+	.navbar-sidebar__brand {
+		margin-bottom: 45px;
+		padding: 80px 30px 0 !important;
+		box-shadow: none !important;
+		position: relative;
+		border-bottom: none !important;
+		width: 100%;
+	}
+	
+	.navbar-sidebar__brand .navbar__logo {
+		margin-top: 0;
+		margin-bottom: 30px;
+		display: block;
+	}
+	
+	.navbar-sidebar__brand .navbar__logo img {
+		max-width: 110px;
+	}
+   
+	.navbar-sidebar__items {
+		padding: 0 !important;
+	}
+	
+	.navbar-sidebar__items .menu {
+		padding: 0 30px 30px !important;
+	}
+	
+	.menu__list {
+		margin: 0 !important;
+	}
+   
+	.menu__link {
+		font-size: var(--font-2);
+		padding: 15px 0 !important;
+		width: 100%;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		transition: all 0.3s;
+		color: var(--color-white) !important;
+		font-weight: 600 !important;
+	}
+	
+	.menu__link:last-child {
+		border-bottom: none;
+	}
+   
+	.menu__link:hover {
+		color: var(--color-green) !important;
+		background: transparent !important;
+	}
+   
+	.menu__link--active {
+		color: var(--color-green) !important;
+		background: transparent !important;
+		font-weight: 700 !important;
+	}
+	
+	/* Add separator line for menu items */
+	.menu__list-item {
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		width: 100%;
+	}
+	
+	.menu__list-item:last-child {
+		border-bottom: none;
+	}
+   
+	.navbar-sidebar__backdrop {
+		background-color: rgba(0, 0, 0, 0.5) !important;
+	}
+	
+	/* Ensure no shadow on navbar items */
+	.navbar-sidebar * {
+		box-shadow: none !important;
+	}
+}
+
+/* Custom hamburger icon - need to override Docusaurus default */
+.navbar__toggle {
+	position: relative !important;
+	padding: 0 !important;
+	width: 40px !important;
+	height: 40px !important;
+	border: none !important;
+	background-color: transparent !important;
+}
+
+.navbar__toggle::before,
+.navbar__toggle::after {
+	content: "";
+	position: absolute;
+	height: 3px;
+	border-radius: 50px;
+	background-color: var(--color-white);
+	transition: all 0.3s;
+}
+
+.navbar__toggle::before {
+	width: 40px;
+	top: 12px;
+	right: 0;
+}
+
+.navbar__toggle::after {
+	width: 30px;
+	bottom: 12px;
+	right: 0;
+}
+
+.navbar__toggle[aria-expanded="true"]::before {
+	transform: rotate(45deg);
+	top: 19px;
+}
+
+.navbar__toggle[aria-expanded="true"]::after {
+	width: 40px;
+	transform: rotate(-45deg);
+	bottom: 19px;
+}
+
+/* Hide the default Docusaurus hamburger icon */
+.navbar__toggle .navbar__toggle-icon,
+.navbar__toggle svg,
+button.navbar__toggle svg {
+	display: none !important;
+	opacity: 0 !important;
+	pointer-events: none !important;
+	visibility: hidden !important;
+}
+
+/* Hide menu toggle icon in sidebar */
+.menu__button,
+.navbar-sidebar button.clean-btn {
+	display: none !important;
+	opacity: 0 !important;
+	pointer-events: none !important;
+	visibility: hidden !important;
+}
+
+/* Hide any other default icons */
+.navbar-sidebar__close,
+.navbar-sidebar__close svg,
+.clean-btn svg,
+button.clean-btn svg {
+	display: none !important;
+	opacity: 0 !important;
+	pointer-events: none !important;
+	visibility: hidden !important;
+}
+
+/* Also hide any extra hamburger icons in mobile menu */
+.navbar-sidebar .clean-btn {
+	display: none !important;
 }
