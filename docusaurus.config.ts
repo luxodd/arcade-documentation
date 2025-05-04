@@ -80,26 +80,31 @@ const config: Config = {
 					label: "Home",
 					position: "left",
 					activeBaseRegex: "^/$",
+					target: "_self"
 				},
 				{
 					to: "https://landing-page-195979437523.us-west1.run.app/reservation",
 					label: "Reservation",
 					position: "left",
+					target: "_self"
 				},
 				{
 					to: "https://landing-page-195979437523.us-west1.run.app/#timeline",
 					label: "Timeline",
 					position: "left",
+					target: "_self"
 				},
 				{
 					to: "https://landing-page-195979437523.us-west1.run.app/crowdfund",
 					label: "Crowdfund",
 					position: "left",
+					target: "_self"
 				},
 				{
 					to: "https://landing-page-195979437523.us-west1.run.app/developer",
 					label: "Build with Us",
 					position: "left",
+					target: "_self"
 				},
 				{ to: "/blog", label: "Blog & Articles", position: "left" },
 				{
