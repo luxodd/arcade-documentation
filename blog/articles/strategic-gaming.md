@@ -1,6 +1,7 @@
 ---
 title: "Strategic Betting™: Skill-Based Wagering in the Digital Age"
 description: "A Luxodd White Paper exploring a novel approach to wagering that emphasizes player skill over chance."
+date: "2025-05-05"
 ---
 
 # Strategic Betting™: Skill-Based Wagering in the Digital Age
