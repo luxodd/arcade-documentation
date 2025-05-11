@@ -1,0 +1,326 @@
+---
+sidebar_position: 1
+title: WebSocket Postman Collection
+description: Learn how to use Postman collection to test with websocket connection
+---
+
+import {
+	PostmanButton,
+	PostmanButtonContainer,
+} from "@site/src/components/PostmanButton";
+
+# WebSocket API Reference
+
+This document provides a comprehensive reference for the WebSocket API commands available for Luxodd game integration. Use these commands to interact with the Luxodd platform from your game.
+
+## Postman Collection
+
+To help you test and understand these WebSocket commands, we've created a public Postman collection that you can use:
+
+<PostmanButtonContainer>
+	<PostmanButton url="https://www.postman.com/luxodd-team/luxodd-public-game-dev/collection/681886238c4b51f645ce9787/game-dev-collection?action=share&creator=44609532" />
+</PostmanButtonContainer>
+
+:::tip
+Using the Postman collection is the fastest way to get familiar with our WebSocket API. You can see example requests and responses, and test the API directly without writing any code.
+:::
+
+## Player Commands
+
+### Get Player Profile
+
+**Summary:** Retrieve the player's basic profile information.
+
+#### Request:
+
+```json
+{
+	"type": "GetProfileRequest"
+}
+```
+
+#### Response:
+
+```json
+{
+	"msgver": "1",
+	"type": "GetProfileResponse",
+	"ts": "2025-05-01T12:09:19.547410383Z",
+	"status": 200,
+	"payload": {
+		"game_handle": "user_nickname",
+		"email": "user_name@gmail.com",
+		"name": "User Name",
+		"profile_picture": "https://link_to_the_photo_url"
+	}
+}
+```
+
+**Description:** Returns player's public profile, including username, name, email, and profile image URL. In the game, we use only "game_handle".
+
+---
+
+### Get User Balance
+
+**Summary:** Retrieve the current balance of the user.
+
+#### Request:
+
+```json
+{
+	"type": "GetUserBalanceRequest"
+}
+```
+
+#### Response:
+
+```json
+{
+	"msgver": "1",
+	"type": "GetUserBalanceResponse",
+	"ts": "2025-05-01T12:09:46.551790058Z",
+	"status": 200,
+	"payload": {
+		"balance": 336
+	}
+}
+```
+
+**Description:** Returns the numeric balance (credits) currently available to the user.
+
+---
+
+## Balance Management
+
+### Add Balance to User
+
+**Summary:** Add a specific amount to the user's in-game balance.
+
+#### Request:
+
+```json
+{
+	"type": "AddBalanceRequest",
+	"payload": {
+		"amount": 5,
+		"pin": "12345"
+	}
+}
+```
+
+#### Response:
+
+```json
+{
+	"msgver": "1",
+	"type": "AddBalanceResponse",
+	"ts": "2025-05-01T12:10:57.850147664Z",
+	"status": 200,
+	"payload": null
+}
+```
+
+**Description:** Credits the user's balance by the specified amount. PIN authorization is required.
+
+:::caution
+The PIN is a sensitive piece of information and should be handled securely.
+:::
+
+---
+
+### Charge User Balance
+
+**Summary:** Deduct a specific amount from the user's in-game balance.
+
+#### Request:
+
+```json
+{
+	"type": "ChargeUserBalanceRequest",
+	"payload": {
+		"amount": 7,
+		"pin": "12345"
+	}
+}
+```
+
+#### Response:
+
+```json
+{
+	"msgver": "1",
+	"type": "ChargeUserBalanceResponse",
+	"ts": "2025-05-01T12:11:54.567471662Z",
+	"status": 200,
+	"payload": null
+}
+```
+
+**Description:** Subtracts the specified amount from the user's balance after PIN validation.
+
+---
+
+## Leaderboard
+
+### Leaderboard Request
+
+**Summary:** Retrieve the current leaderboard and the player's position.
+
+#### Request:
+
+```json
+{
+	"type": "leaderboard_request",
+	"version": "1.0",
+	"payload": {}
+}
+```
+
+#### Response:
+
+```json
+{
+	"msgver": "1",
+	"type": "leaderboard_response",
+	"ts": "2025-05-01T12:12:34.145418326Z",
+	"status": 200,
+	"payload": {
+		"current_user": {
+			"game_handle": "rahul23",
+			"rank": 1,
+			"score_total": 9901
+		},
+		"leaderboard": [
+			{
+				"rank": 2,
+				"game_handle": "max008",
+				"score_total": 9731
+			},
+			{
+				"rank": 3,
+				"game_handle": "test-1",
+				"score_total": 7494
+			},
+			{
+				"rank": 4,
+				"game_handle": "Renata",
+				"score_total": 6982
+			}
+		]
+	}
+}
+```
+
+**Description:** Returns the top players and the current player's rank and score.
+
+---
+
+## Game Progress Tracking
+
+### Level Begin
+
+**Summary:** Log the beginning of a level.
+
+#### Request:
+
+```json
+{
+	"type": "level_begin",
+	"version": "1.0",
+	"payload": {
+		"level": 1
+	}
+}
+```
+
+#### Response:
+
+```json
+{
+	"msgver": "1",
+	"type": "level_begin_response",
+	"ts": "2025-05-01T12:13:14.286825605Z",
+	"status": 200,
+	"payload": null
+}
+```
+
+**Description:** Called when the player starts a level. Used for analytics and session tracking.
+
+---
+
+### Level End
+
+**Summary:** Send the result of the completed level.
+
+#### Request:
+
+```json
+{
+	"type": "level_end",
+	"version": "1.0",
+	"payload": {
+		"score": 2376,
+		"level": 1,
+		"status": "completed",
+		"time_taken": 218,
+		"coins_collected": 50,
+		"powerups_used": 2,
+		"deaths": 3,
+		"completion_percentage": 100
+	}
+}
+```
+
+#### Response:
+
+```json
+{
+	"msgver": "1",
+	"type": "level_end_response",
+	"ts": "2025-05-01T12:14:15.667607089Z",
+	"status": 200,
+	"payload": null
+}
+```
+
+**Description:** Sends the final result for the level, including score, completion time, coins, and other stats. Useful for analytics, leaderboard, and session validation.
+
+---
+
+## System Commands
+
+### Health Status Check
+
+**Summary:** Check the availability and current operational status of the WebSocket server.
+
+#### Request:
+
+```json
+{
+	"type": "health_status_check",
+	"version": "1.0",
+	"payload": {}
+}
+```
+
+#### Response:
+
+```json
+{
+	"msgver": "1",
+	"type": "health_status_check_response",
+	"ts": "2025-05-01T16:52:43.873802762Z",
+	"status": 200,
+	"payload": {
+		"status": "ok",
+		"timestamp": "2025-05-01T16:52:43.87379981Z"
+	}
+}
+```
+
+**Description:** This is a lightweight system command used to confirm that the WebSocket server is online and responsive. It returns the current server time and a status flag.
+
+:::tip
+Use this command to check connectivity before starting a game session.
+:::

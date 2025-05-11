@@ -76,35 +76,35 @@ const config: Config = {
 			},
 			items: [
 				{
-					to: "https://landing-page-195979437523.us-west1.run.app",
+					to: "https://landing-page-195979437523.us-central1.run.app",
 					label: "Home",
 					position: "left",
 					activeBaseRegex: "^/$",
-					target: "_self"
+					target: "_self",
 				},
 				{
-					to: "https://landing-page-195979437523.us-west1.run.app/reservation",
+					to: "https://landing-page-195979437523.us-central1.run.app/reservation",
 					label: "Reservation",
 					position: "left",
-					target: "_self"
+					target: "_self",
 				},
 				{
-					to: "https://landing-page-195979437523.us-west1.run.app/#timeline",
+					to: "https://landing-page-195979437523.us-central1.run.app/#timeline",
 					label: "Timeline",
 					position: "left",
-					target: "_self"
+					target: "_self",
 				},
 				{
-					to: "https://landing-page-195979437523.us-west1.run.app/crowdfund",
+					to: "https://landing-page-195979437523.us-central1.run.app/crowdfund",
 					label: "Crowdfund",
 					position: "left",
-					target: "_self"
+					target: "_self",
 				},
 				{
-					to: "https://landing-page-195979437523.us-west1.run.app/developer",
+					to: "https://landing-page-195979437523.us-central1.run.app/developer",
 					label: "Build with Us",
 					position: "left",
-					target: "_self"
+					target: "_self",
 				},
 				{ to: "/blog", label: "Blog & Articles", position: "left" },
 				{
@@ -116,8 +116,8 @@ const config: Config = {
 					to: "/",
 					label: "Documentation",
 					position: "left",
-					activeBaseRegex: "^(\/($|docs))",
-				}
+					activeBaseRegex: "^(/($|docs))",
+				},
 			],
 		},
 		footer: {
