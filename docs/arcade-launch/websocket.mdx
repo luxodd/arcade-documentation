@@ -324,3 +324,90 @@ The PIN is a sensitive piece of information and should be handled securely.
 :::tip
 Use this command to check connectivity before starting a game session.
 :::
+
+---
+
+### Get User Data
+
+**Summary:** Retrieve the full custom user data block associated with the player (e.g., progress, preferences).
+
+#### Request:
+
+```json
+{
+    "type": "GetUserDataRequest",
+    "version": "1.0",
+    "payload": {}
+}
+```
+
+#### Response:
+
+```json
+{
+    "msgver":"1",
+    "type":"GetUserDataResponse",
+    "ts":"2025-05-09T12:47:52.437584407Z",
+    "status":200,
+    "payload":{
+        "user_data":{
+            "user_data":{
+                "player_progress":{
+                    "current_level":1,
+                    "level_states":[2]
+                }
+            }
+        }
+    }
+}
+```
+
+**Description:** Returns the player's stored custom data object. In this example, it includes `player_progress` with fields:
+- `current_level`: current level the player is on
+- `level_states`: array of completed or unlocked levels
+
+This structure is flexible and can store more nested progress or settings.
+
+---
+
+### Set User Data
+
+**Summary:** Write/update the user's custom data block on the server (e.g., progress, save state).
+
+#### Request:
+
+```json
+{
+    "type":"SetUserDataRequest",
+    "payload":{
+        "user_data":{
+            "player_progress":{
+                "current_level":1,
+                "level_states":[2]
+            }
+        }
+    }
+}
+```
+
+#### Response:
+
+```json
+{
+    "msgver":"1",
+    "type":"SetUserDataResponse",
+    "ts":"2025-05-09T12:58:08.715786687Z",
+    "status":200,
+    "payload":{
+        "status":"ok",
+        "timestamp":"2025-05-09T12:58:08.715783738Z"
+    }
+}
+```
+
+**Description:** Saves or updates the specified custom user data on the server. The structure inside `user_data` is flexible and defined by the client, but must be JSON-serializable.
+
+**Common Use Cases:**
+- Store level progress
+- Save achievements
+- Sync settings across arcades
