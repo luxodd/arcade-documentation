@@ -38,8 +38,8 @@ Below steps can be skipped if you already have access to Luxodd Game Dev Portal.
 1. Log in to our [Luxodd Admin Portal](https://admin.luxodd.com)
 2. Upload your game, provide game information like name, posters etc, along with a game zip file
 3. As soon as the game is uploaded, its status will automatically move to _Draft_ state
-4. Devloper ensures the following [checks](link to checks)
-5. Once checks are passed and satisfactory, developer can toggles their game to the _Review_ state
+4. Developer ensures the following [checks](link to checks)
+5. Once checks have been passed, the developer can toggle their game to the _Review_ state
 6. Luxodd reviews the game. If approved then the status changed to _Approved_ state.
 - If rejected it will be moved to _Rejected_ state a custom email with reason will be sent back to developer. Developer treats this state as _Draft_ (start back at step 3).
 - If approved it will be moved to _Approved_ state an automated email will be send back to developer, and the game moves into phase 4.
