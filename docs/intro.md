@@ -42,7 +42,7 @@ Below steps can be skipped if you already have access to Luxodd Game Dev Portal.
 5. Once checks are passed and satisfactory, developer can toggles their game to the _Review_ state
 6. Luxodd reviews the game. If approved then the status changed to _Approved_ state.
 - If rejected it will be moved to _Rejected_ state a custom email with reason will be sent back to developer. Developer treats this state as _Draft_ (start back at step 3).
-- If approved it will be moved to _Approved_ state an automated email will be send back to developer, and the gamemoves into stage 4.
+- If approved it will be moved to _Approved_ state an automated email will be send back to developer, and the game moves into phase 4.
 7. If a merchant deploys the game, the game will be transitioned from the _Approved_ to _Live_ state.
 
 
