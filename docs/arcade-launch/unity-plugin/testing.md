@@ -13,7 +13,7 @@ Open the example scene to test plugin functionality:
 ![Example Scene](./assets/image10.png)
 
 ## Available Test Functions
-Use the following buttons in the scene:
+Use the following buttons in the scene: test
 - Connect to Server — initiates a server connection
 - Get User Profile — requests the user's profile and credit balance
 - Toggle Health Check — sends a health_status_check every 2 seconds
