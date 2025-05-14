@@ -21,30 +21,30 @@ _An infographic visually representing the steps below will be displayed here. It
 Below steps can be skipped if you already have access to Luxodd Game Dev Portal.
 :::
 
-1. Create an account on [Luxodd](https://app.luxodd.com/registration?redirect=/home)
-2. Click on the link (link somewhere on landing page) that will open a google form, fill out the form to get access to Luxodd portal
-3. Once we verify the game developer (by reviewing game developer info). We send an acknowledgement email to the developer for both accepted and rejected cases
-4. If we accepted the developer to be part of Luxodd game developer, then the developer can login to Luxodd portal with the same credentials as [Luxodd](https://app.luxodd.com/registration?redirect=/home)
+1. Fill out our [form](https://forms.gle/ixqvtC9uKjJUNL5k8)
+2. We will verify your account.
+3. If accepted you recieve an email with your login information to the [Luxodd Admin Portal](https://admin.luxodd.com)  
+   - You'll also be issued an account (if not already made) to our [Luxodd Game Server](https://app.luxodd.com/registration?redirect=/home)
+   - A Developer API token will be issued for integration. API token is used in phase 2.
+  
 
-### Phase 2: How to add games to Luxodd
+### Phase 2: Game Integration and Testing
 
-1. Developer login to Luxodd portal
-2. Get the API key (this API key is used in unity-plugin so that developer can update and verify the game compatibility that follows Luxodd game integration guidelines)
-3. Provide game information like name, posters etc, along with a game zip file
-4. As soon as the game is uploaded, its status will automatically move to _Review_ state
-5. In the review process if the game passes all the checks. Then the status changed to _Approved_ state
-6. There is another state of the game which is _Live_ state. This means the game is published and is currently used by Luxodd and the developer can track their earnings
-
-### Phase 3: Game Integration and Testing
-
-1. Download and integrate the Luxodd Arcade Plugin for Unity
+1. Download the [Luxodd Arcade Unity Plugin](link to github.com/luxodd/unity-plugin)
 2. Integrate the API into your game (see [Arcade Deployments](/docs/category/arcade-deployments) for detailed integration steps)
-3. Test your game thoroughly in the staging environment:
-   - Verify core gameplay
-   - Test Luxodd API integrations (login, betting, metrics reporting)
-   - Check performance and stability
-   - Simulate player progression
-   - Test strategic betting features extensively
+
+### Phase 3: How to add games to Luxodd
+
+1. Log in to our [Luxodd Admin Portal](https://admin.luxodd.com)
+2. Upload your game, provide game information like name, posters etc, along with a game zip file
+3. As soon as the game is uploaded, its status will automatically move to _Draft_ state
+4. Developer ensures the following [checks](link to checks)
+5. Once checks have been passed, the developer can toggle their game to the _Review_ state
+6. Luxodd reviews the game. If approved then the status changed to _Approved_ state.
+- If rejected it will be moved to _Rejected_ state a custom email with reason will be sent back to developer. Developer treats this state as _Draft_ (start back at step 3).
+- If approved it will be moved to _Approved_ state an automated email will be send back to developer, and the game moves into phase 4.
+7. If a merchant deploys the game, the game will be transitioned from the _Approved_ to _Live_ state.
+
 
 ### Phase 4: Review and Deployment
 
@@ -69,3 +69,4 @@ If your game passes the review, it will be deployed to production. If issues are
 3. Arcade operators (Merchants) can now select your game for their venues
 4. When a Merchant chooses your game, it's automatically deployed to their specific Luxodd arcade cabinet(s)
 5. Your game is now live and accessible to players in that Merchant's location!
+  - If this was the first time your game has been selected by a merchant, your game transistions form the _Approved_ to _Live_ state.
