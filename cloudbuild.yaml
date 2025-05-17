@@ -1,20 +1,18 @@
 steps:
-  # Step 1: Build the Docker image
+  # Build the container image
   - name: 'gcr.io/cloud-builders/docker'
-    args:
-      - 'build'
-      - '-t'
-      - 'gcr.io/$PROJECT_ID/arcade-documentation'
-      - '.'
+    args: [
+      'build',
+      '--build-arg', 'LANDING_PAGE_URL=${_LANDING_PAGE_URL}',
+      '-t', 'gcr.io/$PROJECT_ID/arcade-documentation:$COMMIT_SHA',
+      '.'
+    ]
 
-  # Step 2: Push the Docker image to Google Container Registry (GCR)
+  # Push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args:
-      - 'push'
-      - 'gcr.io/$PROJECT_ID/arcade-documentation'
-    # You can add logging options here as well if needed
+    args: ['push', 'gcr.io/$PROJECT_ID/arcade-documentation:$COMMIT_SHA']
 
-  # Step 3: Deploy to Cloud Run
+  # Deploy container image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args:
@@ -22,16 +20,21 @@ steps:
       - 'deploy'
       - 'arcade-documentation'
       - '--image'
-      - 'gcr.io/$PROJECT_ID/arcade-documentation'
+      - 'gcr.io/$PROJECT_ID/arcade-documentation:$COMMIT_SHA'
       - '--region'
       - 'us-central1'
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated'
-    # You can add logging options here as well if needed
-
-options:
-  default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
+      - '--set-env-vars'
+      - 'LANDING_PAGE_URL=${_LANDING_PAGE_URL}'
 
 images:
-  - 'gcr.io/$PROJECT_ID/arcade-documentation'
+  - 'gcr.io/$PROJECT_ID/arcade-documentation:$COMMIT_SHA'
+
+substitutions:
+  _LANDING_PAGE_URL: 'https://luxodd.com'  # Default value, can be overridden in Cloud Build trigger
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
