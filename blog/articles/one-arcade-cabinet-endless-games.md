@@ -44,30 +44,18 @@ Instead of trying to import a dedicated machine (which might have taken weeks an
 ![Download New Games In Minutes](./articles-images/download-new-games-in-minutes.png)
 
 In minutes, that same cabinet in the corner – the one that yesterday was running a racing game – had the new fighting game installed and ready. When his arcade opened the next day, regular players were amazed to see a new game on the very same machine they played last night.
-
-
-<div style="text-align:center; margin:2rem 0;">
-  <a href="https://luxoddgames.com/presale"
-     style="
-       display:inline-block;
-       padding:14px 32px;
-       background:#00ff8a;
-       color:#0b0b0b;
-       font-family:'Inter',Arial,sans-serif;
-       font-size:1rem;
-       font-weight:700;
-       text-decoration:none;
-       border-radius:999px;
-       box-shadow:0 0 8px #00ff8a, 0 0 20px rgba(0,255,138,.6);
-       transition:transform .15s ease, box-shadow .15s ease;
-     "
-     onmouseover="this.style.transform='scale(1.04)';this.style.boxShadow='0 0 12px #00ff8a, 0 0 28px rgba(0,255,138,.8)';"
-     onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 8px #00ff8a, 0 0 20px rgba(0,255,138,.6)';">
+<div style="text-align:center;margin:2rem 0;">
+  <a href="www.luxoddgames.com/reservation"
+     style="display:inline-block;padding:14px 32px;background:#00ff8a;color:#0b0b0b;
+            font-family:'Inter',Arial,sans-serif;font-size:1rem;font-weight:700;
+            text-decoration:none;border-radius:999px;
+            box-shadow:0 0 8px #00ff8a,0 0 20px rgba(0,255,138,.6);
+            transition:transform .15s ease,box-shadow .15s ease;"
+     onmouseover="this.style.transform='scale(1.04)';this.style.boxShadow='0 0 12px #00ff8a,0 0 28px rgba(0,255,138,.8)';"
+     onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 0 8px #00ff8a,0 0 20px rgba(0,255,138,.6)';">
     🔥 Reserve your Luxodd cabinet at <strong>30 % OFF</strong>
   </a>
 </div>
-
-
 
 ## “So you’re telling me you’ll never replace that cabinet?”
 
@@ -101,7 +89,7 @@ Instead, he started with a few Luxodd machines and immediately had a full lineup
 
 
 <div style="text-align:center; margin:2rem 0;">
-  <a href="https://luxoddgames.com/presale"
+  <a href="www.luxoddgames.com/reservation"
      style="
        display:inline-block;
        padding:14px 32px;
@@ -161,7 +149,7 @@ He then chuckles to himself, “Luck’s odd, but with Luxodd, arcades finally f
 
 
 <div style="text-align:center; margin:2rem 0;">
-  <a href="https://luxoddgames.com/presale"
+  <a href="www.luxoddgames.com/reservation"
      style="
        display:inline-block;
        padding:14px 32px;
