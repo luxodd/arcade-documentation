@@ -16,6 +16,8 @@ Now, as an adult running his own arcade, Rohan is witnessing a revolution. He’
 
 In this story, we’ll explore how Luxodd’s “one cabinet, many games” approach trumps the traditional arcade model. Along the way, we’ll see how it benefits players, arcade owners, and game developers alike,  all through Rohan’s eyes.
 
+<!-- truncate -->
+
 ## The Old Way: When New Games Meant New Machines
 
 Rohan remembers the traditional arcade days vividly. Back then, each arcade cabinet was dedicated to a single game. If an arcade wanted a hot new title, it often meant buying an entire new machine (often thousands of dollars each) or swapping out hardware parts in an old one. 
@@ -42,6 +44,13 @@ Instead of trying to import a dedicated machine (which might have taken weeks an
 ![Download New Games In Minutes](./articles-images/download-new-games-in-minutes.png)
 
 In minutes, that same cabinet in the corner – the one that yesterday was running a racing game – had the new fighting game installed and ready. When his arcade opened the next day, regular players were amazed to see a new game on the very same machine they played last night.
+
+<div align="center">
+
+[🔥 Reserve your Luxodd cabinet at **30 % off** – limited presale spots →](https://landing-page-staging-195979437523.us-central1.run.app/reservation)
+
+</div>
+
 
 ## “So you’re telling me you’ll never replace that cabinet?”
 
@@ -72,6 +81,13 @@ Instead, he started with a few Luxodd machines and immediately had a full lineup
 - **Easy Updates & Maintenance**: All the game management happens through a digital dashboard. Rohan can update games or system software online (Luxodd pushes updates like bug fixes or new features regularly). Maintenance is simpler too, since he’s dealing with standardized hardware across all games. No need to hunt down a rare replacement part for a 20-year-old cabinet; Luxodd machines use modern components and are built to be serviced easily.
 
 - **Space Efficiency**: Arcade real estate is precious. With multi-game cabinets, a small venue can offer a big library. Rohan’s arcade has a cozy footprint, but thanks to Luxodd, each cabinet is like 5 machines in one. He can rotate titles to keep the lineup interesting without crowding the floor with more equipment. This also means lower electricity usage and less clutter.
+
+<div align="center">
+
+Ready to cut hardware costs and download new games in minutes?  
+[Grab your Luxodd cabinet now — save 30 % during presale →](https://landing-page-staging-195979437523.us-central1.run.app/reservation)
+
+</div>
 
 ![Cost Efficiency of the Luxodd Arcade.png](./articles-images/cost-efficiency-of-the-luxodd-arcade.png)
 
@@ -108,6 +124,13 @@ Rohan often finds himself explaining this to curious customers, and he does so w
 Rohan locks up his arcade for the night, but he’s not done working. With a few clicks on the Luxodd Marketplace, he queues up a new game download to surprise his customers tomorrow. As the soft neon glow from his Luxodd cabinet flickers across the quiet arcade floor, Rohan takes one last look before locking up. 
 
 He then chuckles to himself, “Luck’s odd, but with Luxodd, arcades finally feel like a sure bet.” Rohan smiles and heads out, already excited for what tomorrow’s download will bring.
+
+<div align="center">
+
+Be part of the arcade evolution with Rohan and the rest of the Luxodd community.  
+[Lock in your cabinet at **30 % off** before the presale ends →](https://landing-page-staging-195979437523.us-central1.run.app/reservation)
+
+</div>
 
 
  
