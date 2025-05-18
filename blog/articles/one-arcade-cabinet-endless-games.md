@@ -27,7 +27,7 @@ It was costly, time-consuming, and physically demanding (those classic cabinets 
 
 Rohan recalls how excited he was to play Street Fighter II at his local arcade, only to find the machine replaced a year later by a different game. The owner had to keep things fresh to survive, as an arcade cabinet’s shelf life was maybe 6-12 months before players moved on. 
 
-![Luxodd Keeps Things Fresh](./articles-images/Luxodd-Keeps-Things-Fresh.png)
+![Luxodd Keeps Things Fresh](./articles-images/luxodd-keeps-things-fresh.png)
 
 Unfortunately, that meant constantly rotating machines. It was the only way back then: new game, new machine.
 
@@ -39,7 +39,7 @@ In other words, one cabinet can host an entire library of games. No wrench-turni
 
 Instead of trying to import a dedicated machine (which might have taken weeks and cost a fortune), Rohan simply browsed the Luxodd Marketplace, found the game, and clicked “Download”. 
 
-![Download New Games In Minutes](./articles-images/Download-New-Games-In-Minutes.png)
+![Download New Games In Minutes](./articles-images/download-new-games-in-minutes.png)
 
 In minutes, that same cabinet in the corner – the one that yesterday was running a racing game – had the new fighting game installed and ready. When his arcade opened the next day, regular players were amazed to see a new game on the very same machine they played last night.
 
@@ -73,7 +73,7 @@ Instead, he started with a few Luxodd machines and immediately had a full lineup
 
 - **Space Efficiency**: Arcade real estate is precious. With multi-game cabinets, a small venue can offer a big library. Rohan’s arcade has a cozy footprint, but thanks to Luxodd, each cabinet is like 5 machines in one. He can rotate titles to keep the lineup interesting without crowding the floor with more equipment. This also means lower electricity usage and less clutter.
 
-![Cost Efficiency of the Luxodd Arcade.png](./articles-images/Cost-Efficiency-of-the-Luxodd-Arcade.png)
+![Cost Efficiency of the Luxodd Arcade.png](./articles-images/cost-efficiency-of-the-luxodd-arcade.png)
 
 - Rohan often uses the phrase “set it and forget it” for his Luxodd cabinets. Once a game is downloaded, it just works. And if he ever wants to shake things up, it’s a few clicks, not a weekend project with screwdrivers and dollies. The result? Better ROI for his business and a lot less stress.
 
@@ -93,7 +93,7 @@ Rohan has seen this first-hand. He added Renata’s indie game to his arcade and
 
 Throughout this journey, Rohan serves as a living example of how Luxodd’s model benefits everyone:
 
-![Luxodd Stakeholder Benefits](./articles-images/Luxodd-Stakeholder-Benefits.png)
+![Luxodd Stakeholder Benefits](./articles-images/luxodd-stakeholder-benefits.png)
 
 - As a player, young Rohan wished for more games without losing the ones he loved. Today’s arcades deliver exactly that, thanks to flexible cabinets.
 
