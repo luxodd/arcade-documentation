@@ -141,4 +141,4 @@ No. It's the first time in decades that an arcade platform:
 
 👀 Want in before everyone else catches on?
 
-[Pre-Order Now At 30% OFF >>](https://landing-page-195979437523.us-west1.run.app/reservation) 
+[Pre-Order Now At 30% OFF >>](https://luxodd.com/reservation) 

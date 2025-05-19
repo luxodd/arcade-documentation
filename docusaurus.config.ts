@@ -1,8 +1,13 @@
 import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import dotenv from "dotenv";
+
+// Load environment variables
+dotenv.config();
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+const LANDING_PAGE_URL = process.env.LANDING_PAGE_URL || "https://landing-page-195979437523.us-central1.run.app";
 
 const config: Config = {
 	title: "Luxodd Game Docs",
@@ -76,32 +81,32 @@ const config: Config = {
 			},
 			items: [
 				{
-					to: "https://landing-page-195979437523.us-central1.run.app",
+					to: LANDING_PAGE_URL,
 					label: "Home",
 					position: "left",
 					activeBaseRegex: "^/$",
 					target: "_self",
 				},
 				{
-					to: "https://landing-page-195979437523.us-central1.run.app/reservation",
+					to: `${LANDING_PAGE_URL}/reservation`,
 					label: "Reservation",
 					position: "left",
 					target: "_self",
 				},
 				{
-					to: "https://landing-page-195979437523.us-central1.run.app/#timeline",
+					to: `${LANDING_PAGE_URL}/#timeline`,
 					label: "Timeline",
 					position: "left",
 					target: "_self",
 				},
 				{
-					to: "https://landing-page-195979437523.us-central1.run.app/crowdfund",
+					to: `${LANDING_PAGE_URL}/crowdfund`,
 					label: "Crowdfund",
 					position: "left",
 					target: "_self",
 				},
 				{
-					to: "https://landing-page-195979437523.us-central1.run.app/developer",
+					to: `${LANDING_PAGE_URL}/developer`,
 					label: "Build with Us",
 					position: "left",
 					target: "_self",
