@@ -109,6 +109,37 @@ SendLeaderboardRequestCommand(Action<LeaderboardDataResponse> onSuccessCallback,
 Fetches the latest leaderboard data to show top players and their ranks.
 :::
 
+## 8. Working with User State
+To get and set user-defined persistent state stored on the server:
+
+```csharp
+SendGetUserDataRequestCommand(Action<object> onSuccessCallback, Action<int, string> onFailureCallback)
+```
+
+:::tip
+Requests the user state from the server. On the first request, the value may be `null` if no state is stored yet.
+:::
+
+```csharp
+SendSetUserDataRequestCommand(object userData, Action onSuccessCallback, Action<int, string> onFailureCallback)
+```
+
+:::tip
+Sends a new user state object to the server to be saved. Can be used to persist user-specific parameters.
+:::
+
+:::note
+### Tips for Using User State
+- It is recommended to use a simple class containing primitive types (`int`, `float`, `string`) that can be easily serialized into JSON.
+- For more flexible or dynamic data structures, use:
+    ```csharp
+    Dictionary<string, object> userData
+    ```
+    This key–value format makes it easier to handle complex state updates and partial modifications.
+:::
+
+
+
 ## Next Steps
 - [Review API documentation](./api-reference.md)
 - [Check arcade compatibility guidelines](./arcade-compatibility.md) 
