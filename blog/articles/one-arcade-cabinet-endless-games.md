@@ -111,7 +111,7 @@ Instead, he started with a few Luxodd machines and immediately had a full lineup
 
 
 
-![Cost Efficiency of the Luxodd Arcade.png](./articles-images/cost-efficiency-of-the-luxodd-arcade.png)
+![Cost Efficiency of the Luxodd Arcade.png|308x463](./articles-images/cost-efficiency-of-the-luxodd-arcade.png)
 
 - Rohan often uses the phrase “set it and forget it” for his Luxodd cabinets. Once a game is downloaded, it just works. And if he ever wants to shake things up, it’s a few clicks, not a weekend project with screwdrivers and dollies. The result? Better ROI for his business and a lot less stress.
 
