@@ -145,7 +145,7 @@ Rohan often finds himself explaining this to curious customers, and he does so w
 
 Rohan locks up his arcade for the night, but he’s not done working. With a few clicks on the Luxodd Marketplace, he queues up a new game download to surprise his customers tomorrow. As the soft neon glow from his Luxodd cabinet flickers across the quiet arcade floor, Rohan takes one last look before locking up. 
 
-He then chuckles to himself, “Luck’s odd, but with Luxodd, arcades finally feel like a sure bet.” Rohan smiles and heads out, already excited for what tomorrow’s download will bring.
+He then chuckles to himself, “Luck’s odd, but with Luxodd, arcades finally feel like a sure bet” Rohan smiles and heads out, already excited for what tomorrow’s download will bring.
 
 
 <div style="text-align:center; margin:2rem 0;">
