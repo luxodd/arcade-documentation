@@ -47,7 +47,7 @@ In minutes, that same cabinet in the corner – the one that yesterday was runni
 
 <div className="text-center my-8">
   <a 
-    href="www.luxodd.com/reservation"
+    href="https://luxodd.com/reservation"
     className="inline-block px-8 py-3.5 bg-[#00ff8a] text-[#0b0b0b] font-['Inter',Arial,sans-serif] text-base font-bold no-underline rounded-full shadow-[0_0_8px_#00ff8a,0_0_20px_rgba(0,255,138,.6)] transition-all duration-150 ease-in-out hover:scale-105 hover:shadow-[0_0_12px_#00ff8a,0_0_28px_rgba(0,255,138,.8)]"
   >
     🔥 Reserve your Luxodd cabinet at <strong>30 % OFF</strong>
@@ -86,7 +86,7 @@ Instead, he started with a few Luxodd machines and immediately had a full lineup
 
 <div className="text-center my-8">
   <a 
-    href="www.luxodd.com/reservation"
+    href="https://luxodd.com/reservation"
     className="inline-block px-8 py-3.5 bg-[#00ff8a] text-[#0b0b0b] font-['Inter',Arial,sans-serif] text-base font-bold no-underline rounded-full shadow-[0_0_8px_#00ff8a,0_0_20px_rgba(0,255,138,.6)] transition-all duration-150 ease-in-out hover:scale-105 hover:shadow-[0_0_12px_#00ff8a,0_0_28px_rgba(0,255,138,.8)]"
   >
     💡 Cut costs—download new games in minutes. <strong>Save 30 %</strong>
@@ -131,7 +131,7 @@ He then chuckles to himself, "Luck's odd, but with Luxodd, arcades finally feel 
 
 <div className="text-center my-8">
   <a 
-    href="www.luxodd.com/reservation"
+    href="https://luxodd.com/reservation"
     className="inline-block px-8 py-3.5 bg-[#00ff8a] text-[#0b0b0b] font-['Inter',Arial,sans-serif] text-base font-bold no-underline rounded-full shadow-[0_0_8px_#00ff8a,0_0_20px_rgba(0,255,138,.6)] transition-all duration-150 ease-in-out hover:scale-105 hover:shadow-[0_0_12px_#00ff8a,0_0_28px_rgba(0,255,138,.8)]"
   >
     🚀 Join the arcade evolution—lock in <strong>30 % OFF</strong>
