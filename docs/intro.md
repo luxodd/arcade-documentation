@@ -34,7 +34,7 @@ Below steps can be skipped if you already have access to Luxodd Game Dev Portal.
 
 ### Phase 2: Game Integration and Testing
 
-1. Download the [Luxodd Arcade Unity Plugin](link to github.com/luxodd/unity-plugin)
+1. Download the [Luxodd Arcade Unity Plugin](https://github.com/luxodd/unity-plugin/releases)
 2. Integrate the API into your game (see [Arcade Launch Overview](/docs/arcade-launch/unity-plugin/overview) for detailed integration steps)
 
 ### Phase 3: Add a game that's ready for Luxodd 
