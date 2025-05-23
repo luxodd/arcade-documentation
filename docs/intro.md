@@ -43,7 +43,7 @@ Below steps can be skipped if you already have access to Luxodd Game Dev Portal.
 2. Click the Games drop down from the menu, then click `List`
 3. Click to `edit` your game
 4. Fill in the rest of the missing game information **Image URL, Game File, Video ID, Price, Status** and **Mission**
-5. Developer ensures the following [checks](link to checks)
+5. Developer ensures the following [checks](arcade-launch/game-submission-checklist.md)
 6. Once checks have been passed, the developer can toggle their game to the _Review_ state
 7. Luxodd reviews the game. If approved then the status will change to _Approved_
 - If rejected the games stays will change to _Rejected_. A custom email with the reason will be sent back to developer. Developer will then fix the issues (start back at step 2)
