@@ -15,7 +15,7 @@ When it comes to arcade cabinets, Luxodd’s modern arcade platform is a whole n
 
 <!-- truncate -->
 
-**What Is Luxodd?**
+## What Is Luxodd? 
 
 Luxodd is a next-generation arcade gaming platform that bills itself as the “world’s first strategic betting arcade” designed to create a competitive, high-revenue ecosystem. Unlike classic arcade machines that typically play a single game, a Luxodd cabinet is a multi-game, connected system with built-in features like pay-to-play gaming, Strategic BettingTM (mission-based skill betting), and tournaments. 
 
@@ -23,7 +23,7 @@ In other words, Luxodd isn’t just another arcade machine – it’s an entire 
 
 Now, how does that compare to the good old traditional arcade cabinets we grew up with? Let’s break it down by key aspects, and see what it all means for different folks in the arcade world (merchants, players, developers – everyone!). 
 
-**Financials: Cost Potential**
+## Financials: Cost Potential 
 
 From a business standpoint, money talks, so let’s start with cost and revenue. Traditional arcade cabinets often come with a hefty upfront price tag. A brand-new arcade unit in 2025 could cost anywhere from around $5,000 to $10,000 on average, and popular deluxe titles can exceed $15,000 each. 
 
@@ -39,7 +39,7 @@ An arcade owner could turn the same Luxodd cabinet in the corner from a racing g
 
 Read more about it here
 
-**Financials: Multiple Revenue Streams**
+## Financials: Multiple Revenue Streams 
 
 On the revenue side, traditional machines typically earn money through pay-per-play – a few quarters or a swipe of a game card for each session. That’s basically one revenue stream per machine. 
 
@@ -53,7 +53,7 @@ In fact, Luxodd markets itself as having “triple the revenue streams of the ty
 
 For arcade operators and venue owners, this is huge. It means better ROI on each square foot of floor space. A single Luxodd machine might pull in what two or three separate traditional machines would, by keeping players spending in different ways. 
 
-**Enhanced Player Experience and Engagement Via Tournaments**
+## Enhanced Player Experience and Engagement Via Tournaments 
 
 Let’s switch over to the players . After all, happy players pump tokens (or tap credit cards) into these machines. 
 
@@ -71,25 +71,26 @@ Arcades that host events and tournaments have seen increased foot traffic and pl
 
 In short, for players, Luxodd cabinets promise more choices, more competition, and more reasons to stay engaged. It’s like the difference between an arcade where the lineup is static versus one where there’s always a new high score to chase or a new game to master. A traditional arcade cab might be a fun one-time fling; a Luxodd feels more like an ongoing relationship that evolves with the player.
 
-**Ease of Setup, Updates, and Maintenance**
+## Ease of Setup, Updates, and Maintenance 
 
 If you’ve ever owned or managed an arcade game, you know they can be labor-intensive. Traditional cabinets often require careful setup: tuning the monitor, setting DIP switches for game options, adjusting coin mechs, etc. 
 
 When something breaks (and in a public arcade, things will break eventually), you might need to roll up your sleeves and replace parts or call a technician. And when it’s time to update the game, well… that usually isn’t even possible unless you have a conversion kit or a whole new PCB (printed circuit board) to install.
 
-![luxodd-ease-of-setup](./luxodd-ease-of-setup.png)
+![luxodd-ease-of-setup](./articles-images/luxodd-ease-of-setup.png)
 
 Luxodd takes a much more modern, plug-and-play approach. Setting up a Luxodd cabinet involves connecting it to the internet and powering it on, rather than fussing with hardware settings. You can expect a user-friendly interface. 
 
 In fact, Luxodd has an admin portal (a web-based dashboard) for arcade owners. Through this portal, an operator can choose which games to run, schedule updates, check earnings, and more – all without opening up the machine’s back panel. This is a far cry from traditional cabs where switching games means physical work (swapping boards or cabinets).
 
-**Analytics and control**
+## Analytics and control 
 
 Another aspect is analytics and control. A traditional arcade game might have a mechanical coin counter or an internal bookkeeping menu to tell you how many plays it got. Luxodd, by contrast, gives you rich data through its admin portal: which games are most popular, what times of day see the most play, your total revenue, etc. 
 
 For an operator, these insights are gold. It’s like having Google Analytics for your arcade cabinet. Plus, remote control means you could switch the game or adjust pricing on the fly in response to what you see, without even being on site.
 
-**Two Sizes for Increased Flexibility**  
+## Two Sizes for Increased Flexibility   
+
 Real estate inside an arcade or venue is precious. Traditional arcade cabinets, especially the commercial-grade ones, can be huge. They often use “heavily reinforced hardware” and are “really bulky and heavy”.
 
 Think of those driving simulators with full seats, or light-gun games with giant screens – they take up a lot of space and are not easy to move once in place. Even a standard upright cabinet is roughly the size of a refrigerator (and some are heavier than one!). 
@@ -112,7 +113,7 @@ Here’s a quick size breakdown for perspective:
 
 Bottom line? Bigger isn’t always better. In Luxodd’s case, compact and flexible wins the day. Merchants get to make every inch of their venue work harder, not just for fun, but for your bottom line too. A  small coffee shop with a single versatile cabinet (something not feasible with bulky traditional machines) is now a lot easier to accomplish. 
 
-**Conclusion**
+## Conclusion
 In this friendly face-off between Luxodd and traditional arcade cabinets, it’s clear that Luxodd brings a flexible, modern, “arcade-as-a-platform” philosophy, whereas traditional cabinets carry the legacy of dedicated, single-game experiences. 
 
 Each has its charm. But for today’s arcade operators looking to thrive, Luxodd offers a compelling vision: one where games are swapped like magic, players compete in new ways, and every stakeholder from the venue owner to the game creator can benefit.
