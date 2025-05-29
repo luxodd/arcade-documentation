@@ -7,7 +7,9 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
-const LANDING_PAGE_URL = process.env.LANDING_PAGE_URL || "https://landing-page-195979437523.us-central1.run.app";
+const LANDING_PAGE_URL =
+	process.env.LANDING_PAGE_URL ||
+	"https://landing-page-195979437523.us-central1.run.app";
 
 const config: Config = {
 	title: "Luxodd Game Docs",
@@ -82,7 +84,7 @@ const config: Config = {
 			items: [
 				{
 					to: LANDING_PAGE_URL,
-					label: "Home",
+					label: "Website",
 					position: "left",
 					activeBaseRegex: "^/$",
 					target: "_self",
@@ -111,7 +113,7 @@ const config: Config = {
 					position: "left",
 					target: "_self",
 				},
-				{ to: "/blog", label: "Blog & Articles", position: "left" },
+				{ to: "/blog", label: "Articles", position: "left" },
 				{
 					label: "Feedback",
 					href: "https://github.com/luxodd/arcade-documentation/issues/new?title=Feedback&labels=feedback",
