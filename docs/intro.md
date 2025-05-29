@@ -15,51 +15,84 @@ _An infographic visually representing the steps below will be displayed here. It
 :::
 
 
-### Phase 1: Get a Luxodd API Key
+### Step 1: Developer Account Registration & Verification
 
 :::note
 Below steps can be skipped if you already have access to Luxodd Game Dev Portal.
 :::
 
 1. Fill out our [form](https://forms.gle/ixqvtC9uKjJUNL5k8)
-2. We will verify your account
+2. We will verify your account.
 3. If accepted you will receive an email with your login information to the [Luxodd Admin Portal](https://admin.luxodd.com)  
    - You'll also be issued an account (if not already made) to our [Luxodd Game Server](https://app.luxodd.com/registration?redirect=/home)
-4. Log in to our [Luxodd Admin Portal](https://admin.luxodd.com)
-6. Click the `Games` drop down from the menu, then click `New`
-7. Fill in the minimum information: game name, game description (these can be changed later) and click `save`
-8. As soon as the game is uploaded, it's status will automatically move to the _Draft_ state
-9. **Get your Developer API token** - You're game will then appear in the `Games`/`List` menu. Click `Create Developer Token` and a new token will then be generated for this game, you can use this to integrate your game into our api
 
-
-### Phase 2: Game Integration and Testing
-
-1. Download the [Luxodd Arcade Unity Plugin](https://github.com/luxodd/unity-plugin/releases)
-2. Integrate the API into your game (see [Arcade Launch Overview](/docs/arcade-launch/unity-plugin/overview) for detailed integration steps)
-
-### Phase 3: Add a game that's ready for Luxodd 
+### Step 2: Register Your Game _(Draft State)_
 
 1. Log in to our [Luxodd Admin Portal](https://admin.luxodd.com)
-2. Click the Games drop down from the menu, then click `List`
-3. Click to `edit` your game
-4. Fill in the rest of the missing game information **Image URL, Game File, Video ID, Price, Status** and **Mission**
-5. Developer ensures the following [checks](arcade-launch/game-submission-checklist.md)
-6. Once checks have been passed, the developer can toggle their game to the _Review_ state
-7. Luxodd reviews the game. If approved then the status will change to _Approved_
-- If rejected the games stays will change to _Rejected_. A custom email with the reason will be sent back to developer. Developer will then fix the issues (start back at step 2)
-- If approved game will be moved to the _Approved_ state by a Luxodd admin and an automated email will be sent to notify you of the approval
-8. At this point the game will be advertised to merchants to deploy in phase 4
+2. Navigate to `Games > New`
+3. Fill in the following minimum details:
+   - Game Title
+   - Game Description
+4. Click `Save`. The game will be saved in the _Draft_ state.
 
 
-### Phase 4: Going Live
+### Step 3: Dev API Token & Integration _(Draft State)_
 
-1. Upon successful validation, your game is deployed to our Production Environment
-2. The game is added to the Luxodd Games Merchant Catalog
-3. Arcade operators (Merchants) can now select your game for their venues
-4. When a Merchant chooses your game, it's automatically deployed to their specific Luxodd arcade cabinet(s)
-5. Your game is now live and accessible to players in that Merchant's location!
-  - If this was the first time your game has been selected by a merchant, your game transistions from the _Approved_ to _Live_ state
+📦 **Download Plugin & Documentation**
+  - Download the [Luxodd Arcade Unity Plugin](link to github.com/luxodd/unity-plugin)
+  - view unity Plugin [Documentation](https://staging-docs.luxodd.com/docs/category/unity-plugin)
 
+🔌 **Integration Summary**
+  - In The Admin Portal, generate your `Developer Token`
+  - Import the Plugin into your Unity project
+  - Use the token to authenticate game API calls
+  - Refer to the [Arcade Launch Overview](/docs/arcade-launch/overview) for detailed setup instructions
+
+  :::info
+  _💡 Use the [app.luxodd.com](https://app.luxodd.com) API for testing during development, while in a non-approved state, all credit card transactions will be mocked (no actual money is used)._
+  :::
+
+### Step 4: Complete Game Details _(Draft -> Review State)_ 
+
+1. Go to `Games > List` and click `Edit(Complete)` on your game
+   - Complete the following required fields:
+     - Cover Image URL (Minimum 800x600)
+     - Game File (zip archive)
+     - Add YouTube Gameplay Video ID
+     - Price (in USD)
+     - Game Mission / Objectives
+2. Perform your own review on the game. Run through all of these [checks](arcade-launch/game-submission-checklist.md)
+3. Once all the checks look good on your end. Set the game status to the _Review_ state
+
+### Step 5: Game Review Process _(Review -> Approved/Rejected State)_
+  - Our review team will evaluate your game (1 ~ 3 business days typical)
+  - Status will update as follows:
+    - _Approved_: You'll receive an email notification
+    - _Rejected_: You'll receive an email with feedback and required changes
+
+    ⚠️ If rejected, update your game and resubmit it by switching back to _`Review`_.
+
+
+### Step 6: Going Live _(Approved -> Live State)_
+
+  - Once approved, your game transitions to the Approved -> Live State
+  - Your game will appear in the Luxodd Merchant Catalog
+  - Arcade venue operators can now select and deploy your game
+  - Your game becomes playable on  real Luxodd arcade cabinets
+
+  :::info
+  _🚀 The first time your game is selected by a merchant, it officially transitions to `Live` status._
+  :::
+
+### Frequently Asked Questions(FAQ)
+**Q: How do I update my game later?**
+A: Edit the existing game entry and upload a new file. Version history is tracked automatically.
+
+**Q: Can I test in a sandbox before going live?**
+A: Yes, we provide a dedicated `Sandbox Mode` for testing purposes.
+
+**Q: How is revenue managed?**
+A: Once your game is live, monthly reports are sent to your email. Payouts are processed via your registered payment method.
 
 # Revenue Share
 
