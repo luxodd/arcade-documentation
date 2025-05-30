@@ -38,6 +38,12 @@ const config: Config = {
 		locales: ["en"],
 	},
 
+	customFields: {
+		ADMIN_URL: process.env.ADMIN_PAGE_URL,
+		APP_URL: process.env.APP_PAGE_URL,
+		UNITY_DOCS_URL: process.env.UNITY_DOCS_URL,
+	},
+
 	presets: [
 		[
 			"classic",
