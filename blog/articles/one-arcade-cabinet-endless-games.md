@@ -1,6 +1,6 @@
 ---
 title: "One Arcade Cabinet, Endless Games"
-description: "Why One Luxodd Cabinet Is All You'll Ever Needy"
+description: "Why One Luxodd Cabinet Is All You'll Ever Need"
 date: "2025-05-11"
 ---
 
