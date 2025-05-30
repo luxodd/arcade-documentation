@@ -7,8 +7,8 @@ export default function Home(): ReactNode {
 	const { siteConfig } = useDocusaurusContext();
 	return (
 		<Layout
-			title={`${siteConfig.title}`}
-			description="Onboard game devs to integrate games to Luxxod"
+			title="Developer Documentation"
+			description="Onboard game devs to integrate games to Luxodd"
 		>
 			<main className={styles.main}>
 				<div className={styles.container}>
