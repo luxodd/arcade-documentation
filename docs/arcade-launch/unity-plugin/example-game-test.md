@@ -64,7 +64,7 @@ To test the plugin connection:
     /index.html?token=your_dev_token
     ```
 
-    - Replace `your_dev_token` with the developer token you received upon registration.
+    - Replace `your_dev_token` with a developer token you generate for your game in the admin portal.
 
 3.  Press Enter to reload the page with the provided token
 

@@ -15,7 +15,7 @@ sidebar_position: 3
 - **Screen:** 55" TV
 - **Resolution:** 4K, 2K, Full HD
 - **Aspect Ratio:** 9:16
-- **Operating System:** Linux
+- **Operating System:** Windows 11
 - **Browser:** Chrome
 - **POS Terminal & Printer**
 
@@ -32,7 +32,7 @@ This unit consists of two screens within a single device and is designed for pub
 - **Screen:** 24" Monitor
 - **Resolution:** 4K, 2K, Full HD
 - **Aspect Ratio:** 9:16
-- **Operating System:** Linux
+- **Operating System:** Windows 11
 - **Browser:** Chrome
 - **POS Terminal & Printer**
 

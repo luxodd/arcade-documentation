@@ -8,9 +8,7 @@ description: Guidelines for ensuring your game works well on arcade machines
 
 ## UI Requirements
 
-:::note
 Since your game is meant for arcade machines, make sure your UI is fully navigable using a joystick and six input buttons.
-:::
 
 ## Recommended Actions
 
@@ -22,9 +20,8 @@ Since your game is meant for arcade machines, make sure your UI is fully navigab
 
 ### Example Project
 
-:::tip
-For a practical reference, see how arcade interaction is handled in the included example project: "Ship Battle Game"
-:::
+For a practical reference, see how arcade interaction is handled in the included example project: [Ship Battle Game](../../example-arcade-shooter.md)
+
 
 ## Next Steps
 
