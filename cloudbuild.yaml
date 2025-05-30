@@ -28,12 +28,18 @@ steps:
       - '--allow-unauthenticated'
       - '--set-env-vars'
       - 'LANDING_PAGE_URL=${_LANDING_PAGE_URL}'
+      - 'ADMIN_PAGE_URL=${_ADMIN_PAGE_URL}'
+      - 'UNITY_DOCS_URL=${_UNITY_DOCS_URL}'
+      - 'APP_PAGE_URL=${_APP_PAGE_URL}'
 
 images:
   - 'gcr.io/$PROJECT_ID/arcade-documentation:$COMMIT_SHA'
 
 substitutions:
   _LANDING_PAGE_URL: 'https://luxodd.com'  # Default value, can be overridden in Cloud Build trigger
+  _ADMIN_PAGE_URL: 'https://admin.luxodd.com'
+  _UNITY_DOCS_URL: 'https://docs.luxodd.com/docs/category/unity-plugin'
+  _APP_PAGE_URL: 'https://app.luxodd.com'
 
 options:
   logging: CLOUD_LOGGING_ONLY
