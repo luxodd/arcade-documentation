@@ -27,10 +27,7 @@ steps:
       - 'managed'
       - '--allow-unauthenticated'
       - '--set-env-vars'
-      - 'LANDING_PAGE_URL=${_LANDING_PAGE_URL}'
-      - 'ADMIN_PAGE_URL=${_ADMIN_PAGE_URL}'
-      - 'UNITY_DOCS_URL=${_UNITY_DOCS_URL}'
-      - 'APP_PAGE_URL=${_APP_PAGE_URL}'
+      - 'LANDING_PAGE_URL=${_LANDING_PAGE_URL},ADMIN_PAGE_URL=${_ADMIN_PAGE_URL},UNITY_DOCS_URL=${_UNITY_DOCS_URL},APP_PAGE_URL=${_APP_PAGE_URL}'
 
 images:
   - 'gcr.io/$PROJECT_ID/arcade-documentation:$COMMIT_SHA'
