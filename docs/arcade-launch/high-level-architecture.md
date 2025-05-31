@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+description: Diagram of the Luxodd Game Launch System
 ---
 
 # High-level architecture
