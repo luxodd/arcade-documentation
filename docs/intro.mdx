@@ -28,7 +28,7 @@ export const AppLink = ({ children, ...props }) => {
 export const UnityDocsLink = ({ children, ...props }) => {
 	const { siteConfig } = useDocusaurusContext();
 	return (
-		<a href={siteConfig.customFields.DOCS_URL} {...props}>
+		<a href={siteConfig.customFields.UNITY_DOCS_URL} {...props}>
 			{children}
 		</a>
 	);
