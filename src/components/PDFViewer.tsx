@@ -9,6 +9,7 @@ interface PDFViewerProps {
 
 export const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl, title, children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Convert Google Drive view URL to embed URL
   const getEmbedUrl = (url: string) => {
@@ -21,10 +22,16 @@ export const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl, title, children })
 
   const openPDF = () => {
     setIsOpen(true);
+    setIsLoading(true);
   };
 
   const closePDF = () => {
     setIsOpen(false);
+    setIsLoading(true);
+  };
+
+  const handleIframeLoad = () => {
+    setIsLoading(false);
   };
 
   return (
@@ -63,6 +70,11 @@ export const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl, title, children })
               </div>
             </div>
             <div className="pdf-content">
+              {isLoading && (
+                <div className="pdf-loading">
+                  <span>Loading PDF...</span>
+                </div>
+              )}
               <iframe
                 src={getEmbedUrl(pdfUrl)}
                 width="100%"
@@ -70,6 +82,7 @@ export const PDFViewer: React.FC<PDFViewerProps> = ({ pdfUrl, title, children })
                 frameBorder="0"
                 title={title}
                 allow="autoplay"
+                onLoad={handleIframeLoad}
               />
             </div>
           </div>

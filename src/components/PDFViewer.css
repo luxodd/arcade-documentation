@@ -131,8 +131,7 @@
 }
 
 /* Loading State */
-.pdf-content::before {
-  content: "Loading PDF...";
+.pdf-loading {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -141,6 +140,13 @@
   font-size: 16px;
   z-index: 1;
   pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pdf-loading.hidden {
+  display: none;
 }
 
 /* Responsive Design */
