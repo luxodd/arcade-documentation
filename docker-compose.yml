@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  arcade-docs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - LANDING_PAGE_URL=${LANDING_PAGE_URL}
+        - ADMIN_PAGE_URL=${ADMIN_PAGE_URL}
+        - APP_PAGE_URL=${APP_PAGE_URL}
+        - UNITY_DOCS_URL=${UNITY_DOCS_URL}
+    ports:
+      - "8080:8080"
+    environment:
+      - LANDING_PAGE_URL=${LANDING_PAGE_URL}
+      - ADMIN_PAGE_URL=${ADMIN_PAGE_URL}
+      - APP_PAGE_URL=${APP_PAGE_URL}
+      - UNITY_DOCS_URL=${UNITY_DOCS_URL}
+    env_file:
+      - .env
+    restart: unless-stopped 

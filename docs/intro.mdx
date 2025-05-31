@@ -1,9 +1,11 @@
 ---
 sidebar_position: 1
+title: Onboard your Game
 ---
 
 import React from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import "../src/css/custom.css";
 
 export const AdminLink = ({ children, ...props }) => {
 	const { siteConfig } = useDocusaurusContext();
@@ -26,11 +28,28 @@ export const AppLink = ({ children, ...props }) => {
 export const UnityDocsLink = ({ children, ...props }) => {
 	const { siteConfig } = useDocusaurusContext();
 	return (
-		<a href={siteConfig.customFields.DOCS_URL} {...props}>
+		<a href={siteConfig.customFields.UNITY_DOCS_URL} {...props}>
 			{children}
 		</a>
 	);
 };
+
+export const Step = ({ number, title, children, imagePath }) => (
+  <div className="step-container">
+    <div className="step-header">
+      <div className="step-number">{number}</div>
+      <h3 className="step-title">{title}</h3>
+    </div>
+    <div className="step-content">
+      {imagePath && (
+        <img src={imagePath} alt={`${title} infographic`} className="step-infographic" />
+      )}
+      <div className="step-description">
+        {children}
+      </div>
+    </div>
+  </div>
+);
 
 # Onboard your Game
 
@@ -40,93 +59,117 @@ Welcome developers to Luxodd! We're thrilled you're considering bringing your cr
 
 Getting your game onto the Luxodd platform involves a clear, structured process designed for quality and smooth integration. Below, we detail the steps involved, from initial signup to seeing your game live on merchant arcades.
 
-:::info
-_An infographic visually representing the steps below will be displayed here. It will provide a quick, at-a-glance overview of the developer onboarding journey._
-:::
-
-
-### Step 1: Developer Account Registration & Verification
-
-:::note
-Below steps can be skipped if you already have access to Luxodd Game Dev Portal.
-:::
-
-1. Fill out our [form](https://forms.gle/ixqvtC9uKjJUNL5k8)
-2. We will verify your account.
-3. If accepted you will receive an email with your login information to the <AdminLink target="_blank">Luxodd Admin Portal</AdminLink>
-   - You'll also be issued an account (if not already made) to our <AppLink target="_blank">Luxodd Game Server</AppLink>
-
-### Step 2: Register Your Game _(Draft State)_
-
-1. Log in to our <AdminLink target="_blank">Luxodd Admin Portal</AdminLink>
-2. Navigate to ***Games > New***
-3. Fill in the following minimum details:
-   - Game Title
-   - Game Description
-4. Click ***Save***. The game will be saved in the _Draft_ state.
-
-
-### Step 3: Dev API Token & Integration _(Draft State)_
-
-📦 **Download Plugin & Documentation**
-  - Download the [Luxodd Arcade Unity Plugin](link to github.com/luxodd/unity-plugin)
-  - view unity Plugin <UnityDocsLink target="_blank">Documentation</UnityDocsLink>
-
-🔌 **Integration Summary**
-  - In The Admin Portal, generate your ***Developer Token***
-  - Import the Plugin into your Unity project
-  - Use the token to authenticate game API calls
-  - Refer to the [Arcade Launch Overview](/docs/arcade-launch/unity-plugin/overview) for detailed setup instructions
-
-  :::info
-  _💡 Use the <AppLink target="_blank">app.luxodd.com</AppLink> API for testing during development, while in a non-approved state, all credit card transactions will be mocked (no actual money is used)._
+<Step 
+  number="1" 
+  title="Developer Account Registration & Verification" 
+  imagePath="/img/developer-account-registration-infographic.png"
+>
+  :::note
+  Below steps can be skipped if you already have access to Luxodd Game Dev Portal.
   :::
 
-### Step 4: Complete Game Details _(Draft -> Review State)_ 
+  1. Fill out our [form](https://forms.gle/ixqvtC9uKjJUNL5k8)
+  2. We will verify your account.
+  3. If accepted you will receive an email with your login information to the <AdminLink target="_blank">Luxodd Admin Portal</AdminLink>
+     - You'll also be issued an account (if not already made) to our <AppLink target="_blank">Luxodd Game Server</AppLink>
+</Step>
 
-1. Go to ***Games > List*** and click ***Edit(Complete)*** on your game
-   - Complete the following required fields:
-     - Cover Image URL (Minimum 800x600)
-     - Game File (zip archive)
-     - Add YouTube Gameplay Video ID
-     - Price (in USD)
-     - Game Mission / Objectives
-2. Perform your own review on the game. Run through all of these [checks](arcade-launch/game-submission-checklist.md)
-3. Once all the checks look good on your end. Set the game status to the _Review_ state
+<Step 
+  number="2" 
+  title="Register Your Game (Draft State)" 
+  imagePath="/img/step-2-register-your-game.png"
+>
+  1. Log in to our <AdminLink target="_blank">Luxodd Admin Portal</AdminLink>
+  2. Navigate to ***Games > New***
+  3. Fill in the following minimum details:
+     - Game Title
+     - Game Description
+  4. Click ***Save***. The game will be saved in the _Draft_ state.
+</Step>
 
-### Step 5: Game Review Process _(Review -> Approved/Rejected State)_
+
+<Step 
+  number="3" 
+  title="Dev API Token & Integration (Draft State)" 
+  imagePath="/img/dev-api-token-infographic.png"
+>
+  📦 **Download Plugin & Documentation**
+    - Download the [Luxodd Arcade Unity Plugin](https://github.com/luxodd/unity-plugin/releases)
+    - view unity Plugin <UnityDocsLink target="_blank">Documentation</UnityDocsLink>
+
+  🔌 **Integration Summary**
+    - In The Admin Portal, generate your ***Developer Token***
+    - Import the Plugin into your Unity project
+    - Use the token to authenticate game API calls
+    - Refer to the [Arcade Launch Overview](/docs/arcade-launch/unity-plugin/overview) for detailed setup instructions
+
+    :::info
+    _💡 Use the <AppLink target="_blank">app.luxodd.com</AppLink> API for testing during development, while in a non-approved state, all credit card transactions will be mocked (no actual money is used)._
+    :::
+</Step>
+
+<Step 
+  number="4" 
+  title="Complete Game Details (Draft → Review State)" 
+  imagePath="/img/complete-game-details-infographic.png"
+>
+  1. Go to ***Games > List*** and click ***Edit(Complete)*** on your game
+     - Complete the following required fields:
+       - Cover Image URL (Minimum 800x600)
+       - Game File (zip archive)
+       - Add YouTube Gameplay Video ID
+       - Price (in USD)
+       - Game Mission / Objectives
+  2. Perform your own review on the game. Run through all of these [checks](arcade-launch/game-submission-checklist.md)
+  3. Once all the checks look good on your end. Set the game status to the _Review_ state
+</Step>
+
+  <Step 
+  number="5" 
+  title="Game Review Process (Review → Approved/Rejected State)" 
+  imagePath="/img/step-game-review-process.png"
+  >
   - Our review team will evaluate your game (1 ~ 3 business days typical)
   - Status will update as follows:
     - _Approved_: You'll receive an email notification
     - _Rejected_: You'll receive an email with feedback and required changes
 
-    ⚠️ If rejected, update your game and resubmit it by switching back to ***Review***.
+  ⚠️ If rejected, update your game and resubmit it by switching back to ***Review***.
+  </Step>
 
 
-### Step 6: Going Live _(Approved -> Live State)_
-
-  - Once approved, your game transitions to the Approved -> Live State
+  <Step 
+  number="6" 
+  title="Going Live (Approved → Live State)" 
+  imagePath="/img/go-live-step-6-infographic.png"
+  >
+  - Once approved, your game transitions to the Approved → Live State
   - Your game will appear in the Luxodd Merchant Catalog
   - Arcade venue operators can now select and deploy your game
-  - Your game becomes playable on  real Luxodd arcade cabinets
+  - Your game becomes playable on real Luxodd arcade cabinets
 
   :::info
   _🚀 The first time your game is selected by a merchant, it officially transitions to ***Live*** status._
   :::
+  </Step>
 
-### 💡 Frequently Asked Questions(FAQ)
-**Q: How do I update my game later?**
-  - A: Edit the existing game entry and upload a new file. Version history is tracked automatically.
+<div className="faq-container">
+  <h3 className="faq-title">💡 Frequently Asked Questions</h3>
 
-**Q: Can I test in a sandbox before going live?**
-  - A: Yes, we provide a dedicated ***Sandbox Mode*** for testing purposes.
+  <div className="faq-question">Q: How do I update my game later?</div>
+  <div className="faq-answer">A: Edit the existing game entry and upload a new file. Version history is tracked automatically.</div>
 
-**Q: How is revenue managed?**
-  - A: Once your game is live, monthly reports are sent to your email. Payouts are processed via your registered payment method.
+  <div className="faq-question">Q: Can I test in a sandbox before going live?</div>
+  <div className="faq-answer">A: Yes, we provide a dedicated ***Sandbox Mode*** for testing purposes.</div>
 
-# Revenue Share
+  <div className="faq-question">Q: How is revenue managed?</div>
+  <div className="faq-answer">A: Once your game is live, monthly reports are sent to your email. Payouts are processed via your registered payment method.</div>
+</div>
 
-Players will be compensated based on what merchants pay them to deploy to their arcade, and are compensated for 10% of each session played.
+<div className="step-container">
+  <h2>Revenue Share</h2>
 
-Several other revenue strategies we have in development are outlined in our revenue [playbook](needs a link).
+  <p>Players will be compensated based on what merchants pay them to deploy to their arcade, and are compensated for 10% of each session played.</p>
 
+  <p>Several other revenue strategies we have in development are outlined in our revenue <a href="#">playbook</a> (link coming soon).</p>
+</div>

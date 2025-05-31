@@ -4,6 +4,9 @@ steps:
     args: [
       'build',
       '--build-arg', 'LANDING_PAGE_URL=${_LANDING_PAGE_URL}',
+      '--build-arg', 'ADMIN_PAGE_URL=${_ADMIN_PAGE_URL}',
+      '--build-arg', 'APP_PAGE_URL=${_APP_PAGE_URL}',
+      '--build-arg', 'UNITY_DOCS_URL=${_UNITY_DOCS_URL}',
       '-t', 'gcr.io/$PROJECT_ID/arcade-documentation-staging:$COMMIT_SHA',
       '.'
     ]
