@@ -5,6 +5,7 @@ title: Onboard your Game
 
 import React from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import { PDFViewer } from "../src/components";
 import "../src/css/custom.css";
 
 export const AdminLink = ({ children, ...props }) => {
@@ -171,5 +172,9 @@ Getting your game onto the Luxodd platform involves a clear, structured process 
 
   <p>Players will be compensated based on what merchants pay them to deploy to their arcade, and are compensated for 10% of each session played.</p>
 
-  <p>Several other revenue strategies we have in development are outlined in our revenue <a href="#">playbook</a> (link coming soon).</p>
+  <p>Several other revenue strategies we have in development are outlined in our revenue <PDFViewer 
+    pdfUrl="https://drive.google.com/file/d/1MMvjRvZvb6FtxUDF_4YmPJLDsmKf-ayL/view" 
+    title="Luxodd Revenue Playbook">
+    playbook
+  </PDFViewer>.</p>
 </div>
