@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+title: Onboard your Game
 ---
 
 import React from "react";
@@ -8,7 +9,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 export const AdminLink = ({ children, ...props }) => {
 	const { siteConfig } = useDocusaurusContext();
 	return (
-		<a href={siteConfig.customFields.ADMIN_URL} {...props}>
+		<a href={`${siteConfig.customFields.ADMIN_URL}`} {...props}>
 			{children}
 		</a>
 	);
@@ -26,7 +27,7 @@ export const AppLink = ({ children, ...props }) => {
 export const UnityDocsLink = ({ children, ...props }) => {
 	const { siteConfig } = useDocusaurusContext();
 	return (
-		<a href={siteConfig.customFields.DOCS_URL} {...props}>
+		<a href={`${siteConfig.customFields.DOCS_URL}`} {...props}>
 			{children}
 		</a>
 	);
@@ -69,7 +70,7 @@ Below steps can be skipped if you already have access to Luxodd Game Dev Portal.
 ### Step 3: Dev API Token & Integration _(Draft State)_
 
 📦 **Download Plugin & Documentation**
-  - Download the [Luxodd Arcade Unity Plugin](link to github.com/luxodd/unity-plugin)
+  - Download the [Luxodd Arcade Unity Plugin](https://github.com/luxodd/unity-plugin)
   - view unity Plugin <UnityDocsLink target="_blank">Documentation</UnityDocsLink>
 
 🔌 **Integration Summary**
@@ -128,5 +129,5 @@ Below steps can be skipped if you already have access to Luxodd Game Dev Portal.
 
 Players will be compensated based on what merchants pay them to deploy to their arcade, and are compensated for 10% of each session played.
 
-Several other revenue strategies we have in development are outlined in our revenue [playbook](needs a link).
+Several other revenue strategies we have in development are outlined in our revenue [playbook](https://drive.google.com/file/d/1MMvjRvZvb6FtxUDF_4YmPJLDsmKf-ayL/view?usp=sharing).
 
