@@ -3,7 +3,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'build',
-      '--build-arg', 'LANDING_PAGE_URL=${_LANDING_PAGE_URL}',
+      '--build-arg', 'LANDING_PAGE_URL=${_LANDING_PAGE_URL},ADMIN_PAGE_URL=${_ADMIN_PAGE_URL},UNITY_DOCS_URL=${_UNITY_DOCS_URL},APP_PAGE_URL=${_APP_PAGE_URL}',
       '-t', 'gcr.io/$PROJECT_ID/arcade-documentation-staging:$COMMIT_SHA',
       '.'
     ]
