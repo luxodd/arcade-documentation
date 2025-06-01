@@ -1,7 +1,7 @@
 ---
 sidebar_position: 4
-title: Testing
-description: Test the Unity plugin integration with the example scene
+title: Testing in Unity
+description: Test the Unity plugin integration with the example scene in Unity Editor
 ---
 
 # Testing the Integration
@@ -15,6 +15,7 @@ Open the example scene to test plugin functionality:
 
 ## Available Test Functions
 Use the following buttons in the scene:
+
 ### Main Command Panel
 - **Connect to Server** — initiates a server connection
 - **Get User Profile** — requests the user's profile and credit balance
@@ -32,7 +33,7 @@ These are only test parameters for internal state, not actual gameplay values.
 :::
 
 - **Clear User State** - Sends a command to the server that clears all saved data (sends null as the user state).
-- **Get User State** -  Requests the current user state from the server and applies it locally on the client.
+- **Get User State** - Requests the current user state from the server and applies it locally on the client.
 - **Set User State** - Sends the current client-side user state to the server.
 - **Back** - Returns to the Main Command Panel.
 
