@@ -1,7 +1,7 @@
 ---
 sidebar_position: 7
 title: API Reference
-description: Detailed API documentation for the Unity plugin
+description: Complete API reference for the Unity plugin
 ---
 
 # API Reference
@@ -71,5 +71,4 @@ Triggers automatically when connection to the server is lost and attempts to res
 
 ## Next Steps
 
-- [Check arcade compatibility guidelines](./arcade-compatibility.md)
 - [Return to integration guide](./integration.md)

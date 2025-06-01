@@ -1,6 +1,6 @@
 ---
-sidebar_position: 8
-title: Building and Testing the Example Game
+sidebar_position: 5
+title: Building and Testing in the Browser
 description: Building and Testing the Example Game (WebGL Deployment)
 ---
 
@@ -66,6 +66,6 @@ To test the plugin connection:
 
     - Replace `your_dev_token` with a developer token you generate for your game in the admin portal.
 
-3.  Press Enter to reload the page with the provided token
+3.  Press Enter to reload the page with the provided token.
 
 ✅ Now the plugin will operate correctly within the browser environment, allowing you to fully test server connections, arcade interactions, and the complete plugin lifecycle.
