@@ -1,1 +1,2 @@
-export { PDFViewer } from './PDFViewer'; 
+export { PDFViewer } from "./PDFViewer";
+export { ApiMethodTable } from "./ApiMethodTable";
