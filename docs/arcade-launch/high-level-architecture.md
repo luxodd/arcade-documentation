@@ -9,7 +9,7 @@ description: Diagram of the Luxodd Game Launch System
 
 ## Actors:
 
-**Game Developers** - The Developer manages their own games on the [Luxodd Admin Portal](https://admin.luxodd.com)  , and will have access to test out the API commands on our [POSTMAN socket API interface](./websocket.mdx). When they onboard they can access the Server Front-End as a **Online User** w/ limited access to test their games on Luxodd after uploading.
+**Game Developers** - The Developer manages their own games on the [Luxodd Admin Portal](https://admin.luxodd.com) , and will have access to test out the API commands on our [POSTMAN socket API interface](./websocket.mdx). When they onboard they can access the Server Front-End as a **Online User** w/ limited access to test their games on Luxodd after uploading.
 
 **Local Players** - Players who are physically at the arcade. They will onboard and start playing games in various ways. Either register at the arcade using their credit card, or online with a browser.
 
@@ -27,20 +27,19 @@ description: Diagram of the Luxodd Game Launch System
 
 ## Game Services
 
-- Marked in light blue, are game developer assets that are manged by the game developer. The Admin Portal manages the WebGL Game static files, and teh game developer can connect to external services for their games provide additional functionality. All external services much first be approved before they are allowed. 
+- Marked in light blue, are game developer assets that are manged by the game developer. The Admin Portal manages the WebGL Game static files, and teh game developer can connect to external services for their games provide additional functionality. All external services much first be approved before they are allowed.
 
 ## Game Server Functions
 
-- The game server provides a suite of different capabilities. 
+- The game server provides a suite of different capabilities.
 
-    - Hosts an IFRAME between the WEBGL game and the arcade. This enables the arcade to commuincate with the game and keep in control of its own session. Other things can be done with this such as time the game out, and provide new future capabilites directly from the server
-    - Provides a Socket Gateway Api Service that enables webgl games to communicate with backend services hosted on the server. This includes integrations with our POS and payment gateway service, as well as ensuring that the system can pull the current users session data into the game. Session data includes session keys which highly restricts the access of the webgl to the current users session for this specific game. All games are only allowed to pull their own game session data and tailored only to the user whose session key is provided. Various other endpoints are provided, and documented in our [API Reference](unity-plugin/api-reference.md) page.
-    - Provides a server side event (SSE) To identify clients when they connect to the system. It connects up with Pub/Sub infrastructure to secure its communications with the Arcade and to control its onboard hardware such as monitor location, Printer, and POS. The Pub/Sub communication on the Arcades, allows for the arcade to have limitless ways to for it to integrate new services quickly.
+  - Hosts an IFRAME between the WEBGL game and the arcade. This enables the arcade to commuincate with the game and keep in control of its own session. Other things can be done with this such as time the game out, and provide new future capabilites directly from the server
+  - Provides a Socket Gateway Api Service that enables webgl games to communicate with backend services hosted on the server. This includes integrations with our POS and payment gateway service, as well as ensuring that the system can pull the current users session data into the game. Session data includes session keys which highly restricts the access of the webgl to the current users session for this specific game. All games are only allowed to pull their own game session data and tailored only to the user whose session key is provided. Various other endpoints are provided, and documented in our [API Reference](unity-plugin/api-reference.mdx) page.
+  - Provides a server side event (SSE) To identify clients when they connect to the system. It connects up with Pub/Sub infrastructure to secure its communications with the Arcade and to control its onboard hardware such as monitor location, Printer, and POS. The Pub/Sub communication on the Arcades, allows for the arcade to have limitless ways to for it to integrate new services quickly.
 
 ## Admin Functions
 
 - The two primary admin functions are to upload new games to the system and walk the developer through the onboarding process. It is also used by Merchants to manage games seen on their arcade. It will additionally provide metrics and statistics on players, games, income, and general performance.
-
 
 ## Game Launch Session Token
 
