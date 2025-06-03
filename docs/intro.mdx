@@ -98,16 +98,17 @@ Getting your game onto the Luxodd platform involves a clear, structured process 
     - In The Admin Portal, generate your ***Developer Token***
     - Import the Plugin into your Unity project
     - Use the token to authenticate game API calls
-    - Refer to the [Arcade Launch Overview](/docs/arcade-launch/unity-plugin/overview) for detailed setup instructions
+  
 
   📦 **Integrate the Unity Plugin**
     - Download the [Luxodd Arcade Unity Plugin](https://github.com/luxodd/unity-plugin/releases)
-    - Follow this  steps 1-4 in the <UnityDocsLink target="_blank">Unity Plugin Guide</UnityDocsLink> to install and test the plugin on Unity.
-    - Integrate your game leveraging on 
+    - Follow the stops in the [Unity Plugin Guide](/docs/arcade-launch/unity-plugin/overview.md) for detailed setup instructions
+      - Follow *steps 1-4* to install/test on unity and *steps 5-6* to integrate this plugin into your game
 
 
-    :::info
-    _💡 Use the <AppLink target="_blank">app.luxodd.com</AppLink> API for testing during development, while in a non-approved state, all credit card transactions will be mocked (no actual money is used)._
+
+    :::tip
+    _💡 Use your API token to test with before touching Unity: [Websocket Postman Collection](/docs/arcade-launch/websocket.mdx).
     :::
 </Step>
 
@@ -116,15 +117,20 @@ Getting your game onto the Luxodd platform involves a clear, structured process 
   title="Complete Game Details (Draft → Review State)" 
   imagePath="/img/step-4.png"
 >
-  1. Go to ***Games > List*** and click ***Edit(Complete)*** on your game
-     - Complete the following required fields:
-       - Cover Image URL (Minimum 800x600)
-       - Game File (zip archive)
-       - Add YouTube Gameplay Video ID
-       - Price (in USD)
-       - Game Mission / Objectives
+  1. Upload your game to the Luxodd Server: 
+    - Go to ***Games > List*** and click **edit**
+      - Fill out the following fields:
+        - Game File: upload a Unity webgl game zip (index.html is expected in the root folder)
+        - Cover Image URL (Minimum 800x600)
+        - Video ID: YouTube Gameplay Video ID 
+          - Plays video in the background on our game selection page (not required)
+        - Price: (in USD)
   2. Perform your own review on the game. Run through all of these [checks](arcade-launch/game-submission-checklist.md)
   3. Once all the checks look good on your end. Set the game status to the _Review_ state
+
+    :::info
+    _💡 Use the <AppLink target="_blank">app.luxodd.com/selectGame</AppLink> API for testing during development, while in a non-approved state, all credit card transactions will be mocked (no actual money is used)._
+    :::
 </Step>
 
   <Step 
@@ -160,19 +166,24 @@ Getting your game onto the Luxodd platform involves a clear, structured process 
   <h3 className="faq-title">💡 Frequently Asked Questions</h3>
 
   <div className="faq-question">Q: How do I update my game later?</div>
-  <div className="faq-answer">A: Edit the existing game entry and upload a new file. Version history is tracked automatically.</div>
+  <div className="faq-answer">A: This feature is not yet available on the <AdminLink target="_blank">Luxodd Admin Portal</AdminLink>. 
+  For now email admin@luxodd.com  or join our discord server and ask. We'll work with you to get it updated.</div>
 
   <div className="faq-question">Q: Can I test in a sandbox before going live?</div>
-  <div className="faq-answer">A: Yes, we provide a dedicated ***Sandbox Mode*** for testing purposes.</div>
+  <div className="faq-answer">A: Yes, sandbox mode is offered is offered on <AppLink target="_blank">app.luxodd.com/selectGame</AppLink> 
+  while your game state is in *draft*. Once you've transitioned to *Approved* or *Live* your 
+  game is then hooked up to our payment gateway and will cost money to play</div>
 
   <div className="faq-question">Q: How is revenue managed?</div>
-  <div className="faq-answer">A: Once your game is live, monthly reports are sent to your email. Payouts are processed via your registered payment method.</div>
+  <div className="faq-answer">A: Once your game is live, monthly reports are sent to your email. 
+  Payouts are processed via your registered payment method. Once your game is approved we will 
+  email you a form to fill out, you will then select your desired payment method and fill in the details.</div>
 </div>
 
 <div className="step-container">
   <h2>Revenue Share</h2>
 
-  <p>Players will be compensated based on what merchants pay them to deploy to their arcade, and are compensated for 10% of each session played.</p>
+  <p>Your game will earn 10% of every session played.</p>
 
   <p>Several other revenue strategies we have in development are outlined in our revenue <PDFViewer 
     pdfUrl="https://drive.google.com/file/d/1MMvjRvZvb6FtxUDF_4YmPJLDsmKf-ayL/view" 
