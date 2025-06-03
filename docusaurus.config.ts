@@ -145,7 +145,7 @@ const config: Config = {
 					title: "Docs",
 					items: [
 						{
-							label: "Introduction",
+							label: "Onboard your game",
 							to: "/docs/intro",
 						},
 					],
