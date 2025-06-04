@@ -13,18 +13,6 @@ on:
       - 'tsconfig.json'
       - 'sidebars.ts'
       - '.github/workflows/docker-build-validation.yml'
-  push:
-    branches: [ main, staging ]
-    paths:
-      - 'Dockerfile'
-      - 'package*.json'
-      - 'src/**'
-      - 'docs/**'
-      - 'static/**'
-      - 'docusaurus.config.ts'
-      - 'tsconfig.json'
-      - 'sidebars.ts'
-      - '.github/workflows/docker-build-validation.yml'
 
 jobs:
   docker-build-validation:
