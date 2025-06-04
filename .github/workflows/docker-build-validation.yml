@@ -44,6 +44,7 @@ jobs:
       - name: Test Docker container
         run: |
           # Start container in background
+          echo "Starting container..."
           CONTAINER_ID=$(docker run -d -p 8080:8080 \
             -e LANDING_PAGE_URL=https://example.com \
             -e ADMIN_PAGE_URL=https://admin.example.com \
@@ -54,35 +55,61 @@ jobs:
           echo "Container ID: $CONTAINER_ID"
           
           # Wait for container to start
-          sleep 10
+          echo "Waiting for container to start..."
+          sleep 15
           
-          # Check if container is running
-          if ! docker ps | grep -q "$CONTAINER_ID"; then
-            echo "❌ Container failed to start"
-            docker logs "$CONTAINER_ID"
+          # Debug: Show all running containers
+          echo "All running containers:"
+          docker ps
+          
+          # Debug: Show container IDs only
+          echo "Container IDs from docker ps:"
+          docker ps --format "{{.ID}}"
+          
+          # Debug: Test grep command
+          echo "Testing grep for container ID:"
+          if docker ps --format "{{.ID}}" | grep "$CONTAINER_ID"; then
+            echo "✅ Grep found container ID"
+            CONTAINER_FOUND=true
+          else
+            echo "❌ Grep did not find container ID"
+            CONTAINER_FOUND=false
+          fi
+          
+          # Check container status regardless
+          echo "Container status details:"
+          docker inspect "$CONTAINER_ID" --format='{{.State}}' 2>/dev/null || echo "Cannot inspect container"
+          
+          # Check if container is running using different method
+          CONTAINER_STATE=$(docker inspect "$CONTAINER_ID" --format='{{.State.Running}}' 2>/dev/null || echo "unknown")
+          echo "Container running state: $CONTAINER_STATE"
+          
+          if [ "$CONTAINER_STATE" != "true" ]; then
+            echo "❌ Container is not in running state"
+            echo "Container logs:"
+            docker logs "$CONTAINER_ID" 2>/dev/null || true
+            docker stop "$CONTAINER_ID" 2>/dev/null || true
+            docker rm "$CONTAINER_ID" 2>/dev/null || true
             exit 1
           fi
           
+          echo "✅ Container is confirmed running"
+          
           # Test HTTP endpoint
-          MAX_RETRIES=30
-          RETRY_INTERVAL=2
-          
-          for i in $(seq 1 $MAX_RETRIES); do
-            if curl -f http://localhost:8080; then
-              echo "✅ Application is responding correctly"
-              break
-            elif [ $i -eq $MAX_RETRIES ]; then
-              echo "❌ Application failed to respond after $MAX_RETRIES retries"
-              docker logs "$CONTAINER_ID"
-              exit 1
-            else
-              echo "Attempt $i/$MAX_RETRIES failed, retrying in ${RETRY_INTERVAL}s..."
-              sleep $RETRY_INTERVAL
-            fi
-          done
-          
-          echo "✅ Docker build and validation successful!"
+          echo "Testing HTTP endpoint..."
+          if curl -f --connect-timeout 10 --max-time 30 http://localhost:8080 >/dev/null 2>&1; then
+            echo "✅ Application is responding correctly"
+            echo "✅ Docker build and validation successful!"
+          else
+            echo "❌ Application failed to respond"
+            echo "Container logs:"
+            docker logs "$CONTAINER_ID" 2>/dev/null || true
+            docker stop "$CONTAINER_ID" 2>/dev/null || true
+            docker rm "$CONTAINER_ID" 2>/dev/null || true
+            exit 1
+          fi
           
           # Clean up
-          docker stop "$CONTAINER_ID"
-          docker rm "$CONTAINER_ID" 
+          echo "Cleaning up container..."
+          docker stop "$CONTAINER_ID" 2>/dev/null || true
+          docker rm "$CONTAINER_ID" 2>/dev/null || true 
