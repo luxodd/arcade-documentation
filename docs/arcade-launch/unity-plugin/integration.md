@@ -9,10 +9,12 @@ description: Step-by-step guide to integrate the Unity plugin into your game
 Below are the required steps and code changes to integrate your game into our system:
 
 ## 1. Add Plugin Prefab
+
 Drag the Network prefab to your scene: `Assets/Luxodd.Game/Prefabs/Network`
 This prefab contains all essential components to initialize the plugin.
 
 ## 2. WebSocket Connection
+
 Use WebSocketService to connect to the server:
 
 ```csharp
@@ -24,6 +26,7 @@ Establishes a WebSocket connection to the server and prepares the plugin for com
 :::
 
 ## 3. Health Status Check
+
 After the game connects to the server, enable the health status check command by using HealthStatusCheckService and its Activate/Deactivate methods:
 
 ```csharp
@@ -37,6 +40,7 @@ By default, the command is sent every 2 seconds. You can change this interval in
 :::
 
 ## 4. Obtaining Player Profile Data
+
 Use the command to request basic player info such as username and profile data:
 
 ```csharp
@@ -44,6 +48,7 @@ WebSocketCommandHandler.SendProfileRequestCommand(Action<string> onSuccessCallba
 ```
 
 ## 5. Obtaining the Player's Credit Balance
+
 Use the command to retrieve the player's current credit balance:
 
 ```csharp
@@ -51,6 +56,7 @@ WebSocketCommandHandler.SendUserBalanceRequestCommand(Action<int> onSuccessCallb
 ```
 
 ## 6. Tracking Game Events
+
 At the beginning of each level, send the command that notifies the system that the player has started a level.:
 
 ```csharp
@@ -64,6 +70,7 @@ WebSocketCommandHandler.SendLevelEndRequestCommand(int level, int score, Action 
 ```
 
 ## 7. Credit Operations (Optional)
+
 If your game requires various operations with in-game currency, use the following:
 
 Add credits to a player (if the player does not have enough credits for an operation):
@@ -86,11 +93,13 @@ Deducts credits from the player's account. Used for retrying or continuing gamep
 Always display a popup for PIN code input before credit-related operations.
 
 Errors:
+
 - Incorrect PIN → error code 412
 - Other credit errors → handle with retry logic
-:::
+  :::
 
 ## 8. Leaderboards
+
 To generate the leaderboard, it is mandatory to send the commands described in Step 6, particularly SendLevelEndRequestCommand with the player's score as one of the parameters.
 
 If everything is done correctly and the end-of-level command is sent successfully with the score, a leaderboard will be formed on the server.
@@ -106,6 +115,7 @@ Fetches the latest leaderboard data to show top players and their ranks.
 :::
 
 ## 9. User State (Optional)
+
 If your game needs to save any player state (such as settings, current level, level completion status, purchases, completed missions, etc.), use these commands to get and set user state:
 
 ```csharp
@@ -125,14 +135,17 @@ Sends a new user state object to the server to be saved. Can be used to persist 
 :::
 
 :::note
+
 ### Tips for Using User State
+
 - It is recommended to use a simple class containing primitive types (`int`, `float`, `string`) that can be easily serialized into JSON.
 - For more flexible or dynamic data structures, use:
-    ```csharp
+  `csharp
     Dictionary<string, object> userData
-    ```
-    This key–value format makes it easier to handle complex state updates and partial modifications.
-:::
+    `
+  This key–value format makes it easier to handle complex state updates and partial modifications.
+  :::
 
 ## Next Steps
-- [Review API documentation](./api-reference.md) 
+
+- [Review API documentation](./api-reference.mdx)

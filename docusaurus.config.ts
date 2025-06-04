@@ -145,7 +145,7 @@ const config: Config = {
 					title: "Docs",
 					items: [
 						{
-							label: "Tutorial",
+							label: "Onboard your game",
 							to: "/docs/intro",
 						},
 					],
@@ -155,15 +155,19 @@ const config: Config = {
 					items: [
 						{
 							label: "Facebook",
-							href: "#",
+							href: "https://web.facebook.com/profile.php?id=61558767922849#",
+						},
+						{
+							label: "X",
+							href: "https://x.com/luxoddgames",
+						},
+						{
+							label: "LinkedIn",
+							href: "https://www.linkedin.com/showcase/luxodd-games/",
 						},
 						{
 							label: "Discord",
-							href: "#",
-						},
-						{
-							label: "Instagram",
-							href: "#",
+							href: "https://discord.gg/vSfXMeC2BX",
 						},
 					],
 				},
@@ -171,7 +175,7 @@ const config: Config = {
 					title: "More",
 					items: [
 						{
-							label: "Blog",
+							label: "Articles",
 							to: "/blog",
 						},
 					],

@@ -11,6 +11,7 @@ This documentation provides a step-by-step guide to integrating our Unity plugin
 ## Plugin Features
 
 The plugin includes:
+
 - Required folders, DLLs, and connection files
 - Pre-built functionality for sending/receiving server commands
 - An example scene showcasing plugin usage
@@ -22,4 +23,4 @@ The plugin includes:
 3. [Testing in Unity](./testing.md) - Test the integration with the example scene in Unity Editor
 4. [Building and Testing in the Browser](./example-game-test.md) - Build and test your game in WebGL
 5. [Integration Guide](./integration.md) - Step-by-step integration process
-6. [API Reference](./api-reference.md) - Detailed API documentation 
+6. [API Reference](./api-reference.mdx) - Detailed API documentation
