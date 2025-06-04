@@ -58,42 +58,22 @@ jobs:
           echo "Waiting for container to start..."
           sleep 15
           
-          # Debug: Show all running containers
-          echo "All running containers:"
-          docker ps
-          
-          # Debug: Show container IDs only
-          echo "Container IDs from docker ps:"
-          docker ps --format "{{.ID}}"
-          
-          # Debug: Test grep command
-          echo "Testing grep for container ID:"
-          if docker ps --format "{{.ID}}" | grep "$CONTAINER_ID"; then
-            echo "✅ Grep found container ID"
-            CONTAINER_FOUND=true
-          else
-            echo "❌ Grep did not find container ID"
-            CONTAINER_FOUND=false
-          fi
-          
-          # Check container status regardless
-          echo "Container status details:"
-          docker inspect "$CONTAINER_ID" --format='{{.State}}' 2>/dev/null || echo "Cannot inspect container"
-          
-          # Check if container is running using different method
+          # Check if container is running
           CONTAINER_STATE=$(docker inspect "$CONTAINER_ID" --format='{{.State.Running}}' 2>/dev/null || echo "unknown")
           echo "Container running state: $CONTAINER_STATE"
           
           if [ "$CONTAINER_STATE" != "true" ]; then
-            echo "❌ Container is not in running state"
+            echo "❌ Container is not running"
             echo "Container logs:"
             docker logs "$CONTAINER_ID" 2>/dev/null || true
+            echo "Container status:"
+            docker inspect "$CONTAINER_ID" --format='{{.State}}' 2>/dev/null || true
             docker stop "$CONTAINER_ID" 2>/dev/null || true
             docker rm "$CONTAINER_ID" 2>/dev/null || true
             exit 1
           fi
           
-          echo "✅ Container is confirmed running"
+          echo "✅ Container is running"
           
           # Test HTTP endpoint
           echo "Testing HTTP endpoint..."
