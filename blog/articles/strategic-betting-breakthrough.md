@@ -64,7 +64,7 @@ Here's how:
 - Caps and cooldowns. Operators (or parents) can set limits on how often younger players can place bets or how much they can stake. This is made possible with the player profile feature we've implemented into all our systems!
 - No chasing losses. The system doesn't let players throw money at the screen hoping to win it back. Each round is a clean slate.
 - Transparency. Players always know what's at stake and how to win. No hidden odds or algorithms. If a mission says "complete in 60 seconds for 2x," that's exactly what it means.
-![kid-friendly](./articles-images/luxodd-solves-gambling-for-kids.png.png)
+![kid-friendly](./articles-images/luxodd-solves-gambling-for-kids-png.png)
 And let's be honest: Kids already spend money in arcades. They buy tokens. They swipe cards. They try the claw machine ten times in a row hoping it actually grabs something. Luxodd just gives that spending some structure. Some strategy. Some actual reward for skill.
 
 In fact, we'd argue that Luxodd helps teach kids good gaming habits. It rewards practice, persistence, and smart decision-making. It builds confidence. It's more like training for a tournament than spinning a wheel for luck.
