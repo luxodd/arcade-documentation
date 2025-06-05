@@ -21,7 +21,7 @@ Spoiler: it's not just another gimmick; it's a smarter, fairer, and way more fun
 Here's the gist: Strategic Betting™ lets players bet on themselves. Not on a roulette wheel, not on a random card pull, but on their own performance in a game.
 
 It's like this: Before starting a mission in one of our games (say, Tactical Storm), a player decides: "Alright, I'm feeling confident. I bet I can clear this level without losing a life." They put a small stake down and then dive into the mission.
-
+![streatgic-betting-let's-you-bet-on-yourself](./articles-images/what-is-strategic-betting.png)
 If they nail it? They get a payout of actual $$. If not? They lose their money. Either way, the outcome is 100% up to them.
 
 This is what sets Luxodd apart. You're not spinning a slot machine and hoping for luck. You're making decisions, assessing your abilities, and going in with a strategy. That layer of risk-reward, mixed with real gameplay, adds a thrill that traditional arcades just can't match.
@@ -41,7 +41,7 @@ Here's why: There's a clear line—legally and logically—between games of skil
 A game of chance? That's a lottery, a slot machine, or roulette. You pull the lever or press a button and hope the universe is in your favor. It's random. There's nothing you can do to get better at it.
 
 A game of skill? That's Luxodd. Your outcome depends on your own reflexes, decisions, timing, and gameplay. You practice, you improve, and your chances of success go way up. That's not luck…that's merit.
-
+![streatgic-betting-vs-gambling](./articles-images/gambling-vs-strategic-betting.png)
 In fact, regulators around the world recognize this distinction. Games of chance get hit with strict age limits, licenses, and restrictions, especially to protect minors. But skill-based competitions? They're often treated more like sports than gambling.
 
 Take chess tournaments or esports; no one thinks of those as gambling, right? That's because they're not. They're competitions. That's exactly the model we've built Luxodd around.
@@ -64,7 +64,7 @@ Here's how:
 - Caps and cooldowns. Operators (or parents) can set limits on how often younger players can place bets or how much they can stake. This is made possible with the player profile feature we've implemented into all our systems!
 - No chasing losses. The system doesn't let players throw money at the screen hoping to win it back. Each round is a clean slate.
 - Transparency. Players always know what's at stake and how to win. No hidden odds or algorithms. If a mission says "complete in 60 seconds for 2x," that's exactly what it means.
-
+![kid-friendly](./articles-images/luxodd-solves-gambling-for-kids.png)
 And let's be honest: Kids already spend money in arcades. They buy tokens. They swipe cards. They try the claw machine ten times in a row hoping it actually grabs something. Luxodd just gives that spending some structure. Some strategy. Some actual reward for skill.
 
 In fact, we'd argue that Luxodd helps teach kids good gaming habits. It rewards practice, persistence, and smart decision-making. It builds confidence. It's more like training for a tournament than spinning a wheel for luck.
