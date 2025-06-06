@@ -11,6 +11,13 @@ const LANDING_PAGE_URL =
 	process.env.LANDING_PAGE_URL ||
 	"https://landing-page-195979437523.us-central1.run.app";
 
+// PostHog configuration
+const POSTHOG_KEY = process.env.POSTHOG_KEY;
+const POSTHOG_HOST = process.env.POSTHOG_HOST || "https://us.i.posthog.com";
+
+// Check if we're in staging environment to disable PostHog
+const isStaging = LANDING_PAGE_URL.toLowerCase().includes('staging');
+
 const config: Config = {
 	title: "Luxodd Game Docs",
 	tagline: "",
@@ -42,6 +49,9 @@ const config: Config = {
 		ADMIN_URL: process.env.ADMIN_PAGE_URL,
 		APP_URL: process.env.APP_PAGE_URL,
 		UNITY_DOCS_URL: process.env.UNITY_DOCS_URL,
+		POSTHOG_KEY: POSTHOG_KEY,
+		POSTHOG_HOST: POSTHOG_HOST,
+		LANDING_PAGE_URL: LANDING_PAGE_URL,
 	},
 
 	presets: [
@@ -72,6 +82,19 @@ const config: Config = {
 				},
 			} satisfies Preset.Options,
 		],
+	],
+
+	plugins: [
+		// Only include PostHog plugin if not in staging and we have a key
+		...((!isStaging && POSTHOG_KEY) ? [[
+			"posthog-docusaurus",
+			{
+				apiKey: POSTHOG_KEY,
+				appUrl: POSTHOG_HOST,
+				enableInDevelopment: false, // Disabled in development, but we handle staging separately
+			},
+		]] : []),
+		'./src/plugins/posthog-enhancements.js',
 	],
 
 	themeConfig: {
