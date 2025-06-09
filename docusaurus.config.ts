@@ -119,8 +119,8 @@ const config: Config = {
 					target: "_self",
 				},
 				{
-					to: `${LANDING_PAGE_URL}/reservation`,
-					label: "Reservation",
+					to: `${LANDING_PAGE_URL}/pre-order`,
+					label: "Pre-Order",
 					position: "left",
 					target: "_self",
 				},
