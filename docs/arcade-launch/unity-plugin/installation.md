@@ -6,9 +6,8 @@ description: Step-by-step guide to install the Unity plugin
 
 # Installation Guide
 
-## Step 1: Download the Plugin
-Download the .unitypackage from the provided link:
-[Insert plugin link here]
+## Step 1: Download the Latest Unity Plugin 
+This [plugin](https://github.com/luxodd/unity-plugin/releases) .unitypackage is just about all you'll need to get your game integrated with Luxodd.
 
 ## Step 2: Import into Unity
 1. Open your Unity project

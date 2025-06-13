@@ -74,7 +74,7 @@ Want to develop a game for Luxodd?
 
 Learn more about how to integrate your game into our Strategic Betting™ ecosystem\!
 
-**CTA**: Visit Developer Hub to Get Started \> [www.luxoddgames.com/developer](http://www.luxoddgames.com/developer)
+**CTA**: Visit Developer Hub to Get Started > [https://luxodd.com/developer](https://luxodd.com/developer)
 
 **Why Deterministic Gaming?**
 

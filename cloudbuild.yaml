@@ -4,6 +4,11 @@ steps:
     args: [
       'build',
       '--build-arg', 'LANDING_PAGE_URL=${_LANDING_PAGE_URL}',
+      '--build-arg', 'ADMIN_PAGE_URL=${_ADMIN_PAGE_URL}',
+      '--build-arg', 'APP_PAGE_URL=${_APP_PAGE_URL}',
+      '--build-arg', 'UNITY_DOCS_URL=${_UNITY_DOCS_URL}',
+      '--build-arg', 'POSTHOG_KEY=${_POSTHOG_KEY}',
+      '--build-arg', 'POSTHOG_HOST=${_POSTHOG_HOST}',
       '-t', 'gcr.io/$PROJECT_ID/arcade-documentation:$COMMIT_SHA',
       '.'
     ]
@@ -27,13 +32,18 @@ steps:
       - 'managed'
       - '--allow-unauthenticated'
       - '--set-env-vars'
-      - 'LANDING_PAGE_URL=${_LANDING_PAGE_URL}'
+      - 'LANDING_PAGE_URL=${_LANDING_PAGE_URL},ADMIN_PAGE_URL=${_ADMIN_PAGE_URL},UNITY_DOCS_URL=${_UNITY_DOCS_URL},APP_PAGE_URL=${_APP_PAGE_URL},POSTHOG_KEY=${_POSTHOG_KEY},POSTHOG_HOST=${_POSTHOG_HOST}'
 
 images:
   - 'gcr.io/$PROJECT_ID/arcade-documentation:$COMMIT_SHA'
 
 substitutions:
   _LANDING_PAGE_URL: 'https://luxodd.com'  # Default value, can be overridden in Cloud Build trigger
+  _ADMIN_PAGE_URL: 'https://admin.luxodd.com'
+  _UNITY_DOCS_URL: 'https://docs.luxodd.com/docs/category/unity-plugin'
+  _APP_PAGE_URL: 'https://app.luxodd.com'
+  _POSTHOG_KEY: ''  # PostHog API key - set in Cloud Build trigger
+  _POSTHOG_HOST: 'https://us.i.posthog.com'  # PostHog host
 
 options:
   logging: CLOUD_LOGGING_ONLY

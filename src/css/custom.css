@@ -1,0 +1,100 @@
+/* Custom styling for onboarding steps */
+.step-container {
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-right: 1rem;
+  border-radius: 50%;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.step-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.step-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-infographic {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 1.5rem auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.step-description {
+  padding: 0.5rem 0;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .step-content {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .step-infographic {
+    width: 45%;
+    margin: 0;
+  }
+
+  .step-description {
+    flex: 1;
+  }
+}
+
+/* FAQ styling */
+.faq-container {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-title {
+  color: var(--ifm-color-primary);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.faq-question {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary-dark);
+}
+
+.faq-answer {
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--ifm-color-primary-lighter);
+}

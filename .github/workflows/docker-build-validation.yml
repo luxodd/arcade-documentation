@@ -1,0 +1,95 @@
+name: Docker Build Validation
+
+on:
+  pull_request:
+    branches: [ main, staging ]
+    paths:
+      - 'Dockerfile'
+      - 'package*.json'
+      - 'src/**'
+      - 'docs/**'
+      - 'static/**'
+      - 'docusaurus.config.ts'
+      - 'tsconfig.json'
+      - 'sidebars.ts'
+      - '.github/workflows/docker-build-validation.yml'
+
+jobs:
+  docker-build-validation:
+    runs-on: ubuntu-latest
+    name: Docker Build and Validation
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: false
+          tags: arcade-docs:test
+          build-args: |
+            LANDING_PAGE_URL=https://example.com
+            ADMIN_PAGE_URL=https://admin.example.com
+            APP_PAGE_URL=https://app.example.com
+            UNITY_DOCS_URL=https://docs.example.com
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          load: true
+
+      - name: Test Docker container
+        run: |
+          # Start container in background
+          echo "Starting container..."
+          CONTAINER_ID=$(docker run -d -p 8080:8080 \
+            -e LANDING_PAGE_URL=https://example.com \
+            -e ADMIN_PAGE_URL=https://admin.example.com \
+            -e APP_PAGE_URL=https://app.example.com \
+            -e UNITY_DOCS_URL=https://docs.example.com \
+            arcade-docs:test)
+          
+          echo "Container ID: $CONTAINER_ID"
+          
+          # Wait for container to start
+          echo "Waiting for container to start..."
+          sleep 15
+          
+          # Check if container is running
+          CONTAINER_STATE=$(docker inspect "$CONTAINER_ID" --format='{{.State.Running}}' 2>/dev/null || echo "unknown")
+          echo "Container running state: $CONTAINER_STATE"
+          
+          if [ "$CONTAINER_STATE" != "true" ]; then
+            echo "❌ Container is not running"
+            echo "Container logs:"
+            docker logs "$CONTAINER_ID" 2>/dev/null || true
+            echo "Container status:"
+            docker inspect "$CONTAINER_ID" --format='{{.State}}' 2>/dev/null || true
+            docker stop "$CONTAINER_ID" 2>/dev/null || true
+            docker rm "$CONTAINER_ID" 2>/dev/null || true
+            exit 1
+          fi
+          
+          echo "✅ Container is running"
+          
+          # Test HTTP endpoint
+          echo "Testing HTTP endpoint..."
+          if curl -f --connect-timeout 10 --max-time 30 http://localhost:8080 >/dev/null 2>&1; then
+            echo "✅ Application is responding correctly"
+            echo "✅ Docker build and validation successful!"
+          else
+            echo "❌ Application failed to respond"
+            echo "Container logs:"
+            docker logs "$CONTAINER_ID" 2>/dev/null || true
+            docker stop "$CONTAINER_ID" 2>/dev/null || true
+            docker rm "$CONTAINER_ID" 2>/dev/null || true
+            exit 1
+          fi
+          
+          # Clean up
+          echo "Cleaning up container..."
+          docker stop "$CONTAINER_ID" 2>/dev/null || true
+          docker rm "$CONTAINER_ID" 2>/dev/null || true 

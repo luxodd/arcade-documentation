@@ -2,11 +2,21 @@
 FROM node:18-alpine AS build
 WORKDIR /app
 
-# Add build argument for environment variable
+# Add build arguments for all environment variables
 ARG LANDING_PAGE_URL
+ARG ADMIN_PAGE_URL
+ARG APP_PAGE_URL
+ARG UNITY_DOCS_URL
+ARG POSTHOG_KEY
+ARG POSTHOG_HOST
 
-# Set environment variable
+# Set environment variables
 ENV LANDING_PAGE_URL=$LANDING_PAGE_URL
+ENV ADMIN_PAGE_URL=$ADMIN_PAGE_URL
+ENV APP_PAGE_URL=$APP_PAGE_URL
+ENV UNITY_DOCS_URL=$UNITY_DOCS_URL
+ENV POSTHOG_KEY=$POSTHOG_KEY
+ENV POSTHOG_HOST=$POSTHOG_HOST
 
 # Copy package files
 COPY package*.json ./
@@ -24,11 +34,21 @@ RUN npm run build
 FROM node:18-alpine
 WORKDIR /app
 
-# Declare build arg again in second stage
+# Declare build args again in second stage
 ARG LANDING_PAGE_URL
+ARG ADMIN_PAGE_URL
+ARG APP_PAGE_URL
+ARG UNITY_DOCS_URL
+ARG POSTHOG_KEY
+ARG POSTHOG_HOST
 
-# Set environment variable in runtime stage
+# Set environment variables in runtime stage
 ENV LANDING_PAGE_URL=$LANDING_PAGE_URL
+ENV ADMIN_PAGE_URL=$ADMIN_PAGE_URL
+ENV APP_PAGE_URL=$APP_PAGE_URL
+ENV UNITY_DOCS_URL=$UNITY_DOCS_URL
+ENV POSTHOG_KEY=$POSTHOG_KEY
+ENV POSTHOG_HOST=$POSTHOG_HOST
 
 # Copy only necessary files from build stage
 COPY --from=build /app/build ./build

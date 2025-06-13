@@ -1,0 +1,150 @@
+.apiMethodTable {
+	margin: 1.5rem 0;
+}
+
+.tableTitle {
+	margin-bottom: 1rem;
+	font-size: 1.25rem;
+	font-weight: 600;
+	color: var(--ifm-font-color-base);
+}
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+	background-color: var(--ifm-background-color);
+	margin: 0;
+}
+
+.table thead {
+	background-color: var(--ifm-table-head-background);
+}
+
+.table th {
+	padding: 12px 16px;
+	text-align: left;
+	font-weight: 600;
+	color: var(--ifm-table-head-color);
+	border-bottom: 2px solid var(--ifm-table-border-color);
+	font-size: 0.9rem;
+}
+
+.table td {
+	padding: 12px 16px;
+	border-bottom: 1px solid var(--ifm-table-border-color);
+	vertical-align: top;
+}
+
+.table tbody tr:hover {
+	background-color: var(--ifm-table-row-hover-background);
+}
+
+.methodColumn {
+	width: 40%;
+	min-width: 300px;
+}
+
+.descriptionColumn {
+	width: 60%;
+}
+
+.methodCell {
+	padding: 8px 16px !important;
+}
+
+.descriptionCell {
+	color: var(--ifm-font-color-base);
+	line-height: 1.6;
+}
+
+.descriptionCell code {
+	background-color: var(--ifm-code-background) !important;
+	border: 1px solid var(--ifm-color-emphasis-300) !important;
+	border-radius: 3px !important;
+	padding: 2px 4px !important;
+	font-size: 0.85em !important;
+	font-family: var(--ifm-font-family-monospace) !important;
+	color: var(--ifm-code-color) !important;
+}
+
+.descriptionCell strong {
+	font-weight: 600 !important;
+	color: var(--ifm-font-color-base) !important;
+}
+
+.descriptionCell em {
+	font-style: italic !important;
+	color: var(--ifm-font-color-base) !important;
+}
+
+.codeBlock {
+	margin: 0 !important;
+	font-size: 0.85rem !important;
+	max-width: 100% !important;
+	overflow: hidden !important;
+	position: relative !important;
+}
+
+.codeBlock pre {
+	margin: 0 !important;
+	padding: 8px 12px 8px 12px !important;
+	border-radius: 4px !important;
+	background-color: var(--ifm-code-background) !important;
+	max-width: 100% !important;
+	overflow: hidden !important;
+	white-space: pre-wrap !important;
+	word-wrap: break-word !important;
+	hyphens: none !important;
+	position: relative !important;
+}
+
+.codeBlock code {
+	font-family: var(--ifm-font-family-monospace) !important;
+	font-size: 0.85rem !important;
+	line-height: 1.5 !important;
+	white-space: pre-wrap !important;
+	word-wrap: break-word !important;
+	max-width: 100% !important;
+	display: block !important;
+	hyphens: none !important;
+	overflow-wrap: anywhere !important;
+	padding-right: 2rem !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+	.methodColumn {
+		min-width: 250px;
+	}
+
+	.table th,
+	.table td {
+		padding: 8px 12px;
+	}
+
+	.codeBlock {
+		font-size: 0.8rem !important;
+	}
+
+	.codeBlock code {
+		font-size: 0.8rem !important;
+	}
+}
+
+/* Dark theme specific adjustments */
+[data-theme="dark"] .table {
+	border-color: var(--ifm-table-border-color);
+}
+
+[data-theme="dark"] .table th {
+	background-color: var(--ifm-table-head-background);
+	color: var(--ifm-table-head-color);
+}
+
+[data-theme="dark"] .table td {
+	color: var(--ifm-font-color-base);
+}
+
+[data-theme="dark"] .codeBlock pre {
+	background-color: var(--ifm-code-background) !important;
+}

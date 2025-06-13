@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 4
 title: WebSocket Postman Collection
 description: Learn how to use Postman collection to test with websocket connection
 ---
@@ -103,7 +103,7 @@ Using the Postman collection is the fastest way to get familiar with our WebSock
 	"type": "AddBalanceRequest",
 	"payload": {
 		"amount": 5,
-		"pin": "12345"
+		"pin": "WUFLXVU="
 	}
 }
 ```
@@ -139,7 +139,7 @@ The PIN is a sensitive piece of information and should be handled securely.
 	"type": "ChargeUserBalanceRequest",
 	"payload": {
 		"amount": 7,
-		"pin": "12345"
+		"pin": "WUFLXVU="
 	}
 }
 ```
@@ -335,9 +335,9 @@ Use this command to check connectivity before starting a game session.
 
 ```json
 {
-    "type": "GetUserDataRequest",
-    "version": "1.0",
-    "payload": {}
+	"type": "GetUserDataRequest",
+	"version": "1.0",
+	"payload": {}
 }
 ```
 
@@ -345,24 +345,25 @@ Use this command to check connectivity before starting a game session.
 
 ```json
 {
-    "msgver":"1",
-    "type":"GetUserDataResponse",
-    "ts":"2025-05-09T12:47:52.437584407Z",
-    "status":200,
-    "payload":{
-        "user_data":{
-            "user_data":{
-                "player_progress":{
-                    "current_level":1,
-                    "level_states":[2]
-                }
-            }
-        }
-    }
+	"msgver": "1",
+	"type": "GetUserDataResponse",
+	"ts": "2025-05-09T12:47:52.437584407Z",
+	"status": 200,
+	"payload": {
+		"user_data": {
+			"user_data": {
+				"player_progress": {
+					"current_level": 1,
+					"level_states": [2]
+				}
+			}
+		}
+	}
 }
 ```
 
 **Description:** Returns the player's stored custom data object. In this example, it includes `player_progress` with fields:
+
 - `current_level`: current level the player is on
 - `level_states`: array of completed or unlocked levels
 
@@ -378,15 +379,15 @@ This structure is flexible and can store more nested progress or settings.
 
 ```json
 {
-    "type":"SetUserDataRequest",
-    "payload":{
-        "user_data":{
-            "player_progress":{
-                "current_level":1,
-                "level_states":[2]
-            }
-        }
-    }
+	"type": "SetUserDataRequest",
+	"payload": {
+		"user_data": {
+			"player_progress": {
+				"current_level": 1,
+				"level_states": [2]
+			}
+		}
+	}
 }
 ```
 
@@ -394,20 +395,21 @@ This structure is flexible and can store more nested progress or settings.
 
 ```json
 {
-    "msgver":"1",
-    "type":"SetUserDataResponse",
-    "ts":"2025-05-09T12:58:08.715786687Z",
-    "status":200,
-    "payload":{
-        "status":"ok",
-        "timestamp":"2025-05-09T12:58:08.715783738Z"
-    }
+	"msgver": "1",
+	"type": "SetUserDataResponse",
+	"ts": "2025-05-09T12:58:08.715786687Z",
+	"status": 200,
+	"payload": {
+		"status": "ok",
+		"timestamp": "2025-05-09T12:58:08.715783738Z"
+	}
 }
 ```
 
 **Description:** Saves or updates the specified custom user data on the server. The structure inside `user_data` is flexible and defined by the client, but must be JSON-serializable.
 
 **Common Use Cases:**
+
 - Store level progress
 - Save achievements
 - Sync settings across arcades

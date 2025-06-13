@@ -3,6 +3,6 @@
 	"position": 2,
 	"link": {
 		"type": "generated-index",
-		"description": "The project content will be structured according to the planned outline."
+		"description": "The Luxodd Games arcade system hosts webgl games on a local client for paying players. The arcade leverages a web interface which pulls down hosted webgl games.\n\nA backend api gives access to a player's profile based on a session token. Games given a session token are granted access to the customer's account.\n\nThis enables developers to host their own infrastructure for a game."
 	}
 }
