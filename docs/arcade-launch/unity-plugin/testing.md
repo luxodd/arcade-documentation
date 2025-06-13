@@ -50,6 +50,8 @@ These are only test parameters for internal state, not actual gameplay values.
 Error handling for incorrect PIN codes is not implemented in this sample.
 :::
 
+A detailed description of the JSON request and response for each command, as well as additional explanations, can be found in the [WebSocket Postman Collection ](../websocket.mdx) section.
+
 ## Next Steps
 - [Start integrating the plugin](./integration.md)
 - [Review API documentation](./api-reference.md) 
