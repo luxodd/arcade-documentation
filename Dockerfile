@@ -1,5 +1,5 @@
 # Build Stage 1
-FROM node:18-alpine AS build
+FROM node:alpine AS build
 WORKDIR /app
 
 # Add build arguments for all environment variables
@@ -31,7 +31,7 @@ COPY . .
 RUN npm run build
 
 # Production Stage
-FROM node:18-alpine
+FROM node:alpine
 WORKDIR /app
 
 # Declare build args again in second stage
