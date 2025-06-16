@@ -432,6 +432,16 @@ Sends a new user state object to the server to be saved. Can be used to persist 
   This key–value format makes it easier to handle complex state updates and partial modifications.
   :::
 
+## 10 Input and Navigation
+
+Please remember that your game will run on an arcade machine, so all UI navigation will be handled using a joystick and 6 arcade buttons.
+Therefore, you need to implement button selection and activation logic in your game.
+This functionality is not included in the Unity Plugin, since implementation approaches may vary.
+However, you can refer to our sample game for guidance, including descriptions of the approaches we used.
+
+- Link to the sample game description: [link to document]
+- Link to the repository and specifically to the class responsible for this functionality: [link]
+
 ## Next Steps
 
 - [Review API documentation](./api-reference.mdx)
