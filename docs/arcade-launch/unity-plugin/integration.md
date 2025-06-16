@@ -439,8 +439,10 @@ Therefore, you need to implement button selection and activation logic in your g
 This functionality is not included in the Unity Plugin, since implementation approaches may vary.
 However, you can refer to our sample game for guidance, including descriptions of the approaches we used.
 
-- Link to the sample game description: [link to document]
-- Link to the repository and specifically to the class responsible for this functionality: [link]
+- Link to the sample game description: [arcade style input navigation](../../example-arcade-shooter.md#7-arcade-style-input--navigation), [joystick navigation glue](../../example-arcade-shooter.md#64-joystick-navigation-glue) and [checklist for your own windows](../../example-arcade-shooter.md#65-checklist-for-your-own-windows)
+- Link to the repository and specifically to the class responsible for this functionality: [repository](https://github.com/luxodd/example-game-arcade-shooter)
+
+As an example, in our sample project you can review the `MainMenuView`, `MainMenuHandler` classes, and the `MainMenuView` prefab to see how this navigation is implemented.
 
 ## Next Steps
 
