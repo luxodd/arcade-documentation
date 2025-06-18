@@ -16,7 +16,7 @@ const POSTHOG_KEY = process.env.POSTHOG_KEY;
 const POSTHOG_HOST = process.env.POSTHOG_HOST || "https://us.i.posthog.com";
 
 // Check if we're in staging environment to disable PostHog
-const isStaging = LANDING_PAGE_URL.toLowerCase().includes('staging');
+const isStaging = LANDING_PAGE_URL.toLowerCase().includes("staging");
 
 const config: Config = {
 	title: "Luxodd Game Docs",
@@ -86,15 +86,19 @@ const config: Config = {
 
 	plugins: [
 		// Only include PostHog plugin if not in staging and we have a key
-		...((!isStaging && POSTHOG_KEY) ? [[
-			"posthog-docusaurus",
-			{
-				apiKey: POSTHOG_KEY,
-				appUrl: POSTHOG_HOST,
-				enableInDevelopment: false, // Disabled in development, but we handle staging separately
-			},
-		]] : []),
-		'./src/plugins/posthog-enhancements.js',
+		...(!isStaging && POSTHOG_KEY
+			? [
+					[
+						"posthog-docusaurus",
+						{
+							apiKey: POSTHOG_KEY,
+							appUrl: POSTHOG_HOST,
+							enableInDevelopment: false, // Disabled in development, but we handle staging separately
+						},
+					],
+			  ]
+			: []),
+		"./src/plugins/posthog-enhancements.js",
 	],
 
 	themeConfig: {
@@ -125,8 +129,8 @@ const config: Config = {
 					target: "_self",
 				},
 				{
-					to: `${LANDING_PAGE_URL}/#timeline`,
-					label: "Timeline",
+					to: `${LANDING_PAGE_URL}/products`,
+					label: "Products",
 					position: "left",
 					target: "_self",
 				},

@@ -1,0 +1,8 @@
+{
+	"label": "Unity - Export tips",
+	"position": 3,
+	"link": {
+		"type": "generated-index",
+		"description": "The following tips may help you to reduce the final build size and increase the performance of your game, thus increasing your revenue."
+	}
+}

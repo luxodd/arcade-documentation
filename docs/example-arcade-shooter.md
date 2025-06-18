@@ -1,12 +1,12 @@
 ---
 sidebar_position: 4
-title: Example Arcade Shooter – Developer Guide
+title: Game Sample – Developer Guide
 description: A compact but complete handbook for newcomers who will extend our arcade platform
 toc_min_heading_level: 2
 toc_max_heading_level: 4
 ---
 
-# Example Arcade Shooter – Developer Guide
+# Game Sample – Developer Guide
 
 Link to the repository: [Github Link](https://github.com/luxodd/example-game-arcade-shooter)
 

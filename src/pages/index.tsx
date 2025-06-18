@@ -18,6 +18,13 @@ export default function Home(): ReactNode {
 					</p>
 
 					<div className={styles.links}>
+						<a
+							href="/docs/category/development-and-export-tips-for-arcade"
+							className={styles.link}
+						>
+							<h2>New To Arcade Games ?</h2>
+							<p>Discover Luxodd game sample to get started</p>
+						</a>
 						<a href="/docs/intro" className={styles.link}>
 							<h2>Onboard your game</h2>
 							<p>Discover Luxodd game integration in less than 5 minutes</p>
