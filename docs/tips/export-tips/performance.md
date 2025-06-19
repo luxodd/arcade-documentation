@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Performance
 
-This section contains various tips for improving the performance of your game. There are a lot of users that may play your game from weaker devices, for example, Chromebooks. So ensuring everyone can play it as smoothly as possible will result in increased revenue.
+This section contains various tips for improving the performance of your game. So ensuring everyone can play it as smoothly as possible will result in increased revenue.
 
 ## Sprite atlases
 

@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Memory optimization
 
-Unity uses a memory heap to store the objects, scenes, shaders, etc. when your game is running in the browser. The memory heap is resized automatically by Unity when needed. However, errors may happen during the resizing process, since the browser may fail to allocate more memory for resizing the heap. That's why it's important to keep your memory usage as low as possible. This also benefits the game when running on weaker devices, like mobile devices. You can find more information about memory usage on the [official Unity documentation.](https://docs.unity3d.com/Manual/webgl-memory.html)
+Unity uses a memory heap to store the objects, scenes, shaders, etc. when your game is running in the browser. The memory heap is resized automatically by Unity when needed. However, errors may happen during the resizing process, since the browser may fail to allocate more memory for resizing the heap. That's why it's important to keep your memory usage as low as possible. You can find more information about memory usage on the [official Unity documentation.](https://docs.unity3d.com/Manual/webgl-memory.html)
 
 ## Garbage collection
 
