@@ -58,6 +58,7 @@ body {
   background: #0f3f27;
   border-radius: 6px;
   padding: 0px;
+  top: 40px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   animation: slideDown 0.2s ease forwards;
@@ -86,13 +87,6 @@ body {
   background: #1d5f3e;
   cursor: pointer;
 }
-
-/* .submenu-item:nth-child(1) {
-  border-radius: 6px 6px 0px 0px;
-}
-.submenu-item:last-child {
-  border-radius: 0px 0px 6px 6px;
-} */
 
 .submenu-item::before {
   content: "";

@@ -98,3 +98,14 @@
   padding-left: 1rem;
   border-left: 3px solid var(--ifm-color-primary-lighter);
 }
+
+.table-of-contents,
+.table-of-contents ul,
+.sidebar_re4s,
+.col article header {
+  padding-top: 40px;
+}
+
+.sidebar_njMd {
+  padding-top: 100px;
+}
