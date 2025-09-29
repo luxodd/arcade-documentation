@@ -34,13 +34,28 @@ body {
   margin: 0 0 0 30px;
 }
 
+.dropdown > .navbar__link:after {
+  width: 10px;
+  height: 8px;
+  top: 4px;
+
+  /* Remove the triangle */
+  border: none;
+
+  /* Use your SVG as background */
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 9 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.16669 5.27253C4.06982 5.27253 3.97285 5.2355 3.89889 5.16155L0.111009 1.37367C-0.0370028 1.22565 -0.0370028 0.985976 0.111009 0.838059C0.25902 0.690143 0.498698 0.690048 0.646615 0.838059L4.16669 4.35814L7.68677 0.838059C7.83478 0.690048 8.07446 0.690048 8.22237 0.838059C8.37029 0.986071 8.37039 1.22575 8.22237 1.37367L4.43449 5.16155C4.36054 5.2355 4.26357 5.27253 4.16669 5.27253Z' fill='white'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
 .customNavBarItem,
 .dropdown .navbar__link {
   color: var(--color-white);
   font-family: "figtree-regular";
 	font-size: var(--font-1);
 	font-weight: 700;
-  padding: 5px 0;
+  padding: 5px 0px;
   transition: all 0.3s;
   margin-top: -5px;
 }
