@@ -88,15 +88,15 @@ const config: Config = {
 		// Only include PostHog plugin if not in staging and we have a key
 		...(!isStaging && POSTHOG_KEY
 			? [
-					[
-						"posthog-docusaurus",
-						{
-							apiKey: POSTHOG_KEY,
-							appUrl: POSTHOG_HOST,
-							enableInDevelopment: false, // Disabled in development, but we handle staging separately
-						},
-					],
-			  ]
+				[
+					"posthog-docusaurus",
+					{
+						apiKey: POSTHOG_KEY,
+						appUrl: POSTHOG_HOST,
+						enableInDevelopment: false, // Disabled in development, but we handle staging separately
+					},
+				],
+			]
 			: []),
 		"./src/plugins/posthog-enhancements.js",
 	],
@@ -123,6 +123,12 @@ const config: Config = {
 					target: "_self",
 				},
 				{
+					to: `${LANDING_PAGE_URL}/about`,
+					label: "About",
+					position: "left",
+					target: "_self",
+				},
+				{
 					to: `${LANDING_PAGE_URL}/pre-order`,
 					label: "Pre-Order",
 					position: "left",
@@ -131,6 +137,29 @@ const config: Config = {
 				{
 					to: `${LANDING_PAGE_URL}/products`,
 					label: "Products",
+					position: "left",
+					target: "_self",
+					items: [
+						{
+							label: 'Arcade Cabinets',
+							to: '/products#flagship-cabinets',
+							className: 'submenu-item',
+						},
+						{
+							label: 'Games',
+							to: '/products#game-development',
+							className: 'submenu-item',
+						},
+						{
+							label: 'Games Conversion',
+							to: '/products#bring-retro-games',
+							className: 'submenu-item',
+						},
+					],
+				},
+				{
+					to: `${LANDING_PAGE_URL}/waitlist`,
+					label: "Waitlist",
 					position: "left",
 					target: "_self",
 				},
@@ -151,13 +180,7 @@ const config: Config = {
 					label: "Feedback",
 					href: "https://github.com/luxodd/arcade-documentation/issues/new?title=Feedback&labels=feedback",
 					position: "right",
-				},
-				{
-					to: "/",
-					label: "Documentation",
-					position: "left",
-					activeBaseRegex: "^(/($|docs))",
-				},
+				}
 			],
 		},
 		footer: {

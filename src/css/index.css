@@ -37,11 +37,12 @@ body {
 .customNavBarItem,
 .dropdown .navbar__link {
   color: var(--color-white);
-  font-family: var(--regular);
-  font-size: 0.97rem;
-  font-weight: 600;
+  font-family: "figtree-regular";
+	font-size: var(--font-1);
+	font-weight: 700;
   padding: 5px 0;
   transition: all 0.3s;
+  margin-top: -5px;
 }
 
 .customNavBarItem:hover {
@@ -51,14 +52,14 @@ body {
 
 .dropdown {
   padding: 0px;
-  margin: 0 0 0 30px;
+  margin: -3px 0 0 30px;
 }
 
 .dropdown__menu {
   background: #0f3f27;
   border-radius: 6px;
   padding: 0px;
-  top: 40px;
+  /* top: 0px; */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   animation: slideDown 0.2s ease forwards;
