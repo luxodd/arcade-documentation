@@ -142,18 +142,21 @@ const config: Config = {
 					items: [
 						{
 							label: 'Arcade Cabinets',
-							to: '/products#flagship-cabinets',
+							href: `${LANDING_PAGE_URL}/products#flagship-cabinets`,
 							className: 'submenu-item',
+							target: "_self",
 						},
 						{
 							label: 'Games',
-							to: '/products#game-development',
+							href: `${LANDING_PAGE_URL}/products#game-development`,
 							className: 'submenu-item',
+							target: "_self",
 						},
 						{
 							label: 'Games Conversion',
-							to: '/products#bring-retro-games',
+							href: `${LANDING_PAGE_URL}/products#bring-retro-games`,
 							className: 'submenu-item',
+							target: "_self",
 						},
 					],
 				},
