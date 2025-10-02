@@ -175,7 +175,12 @@ const config: Config = {
 					position: "left",
 					target: "_self",
 				},
-				{ to: "/blog", label: "Articles", position: "left" },
+				{
+					to: `${LANDING_PAGE_URL}/articles`,
+					label: "Articles",
+					position: "left",
+					target: "_self",
+				},
 				{
 					label: "Feedback",
 					href: "https://github.com/luxodd/arcade-documentation/issues/new?title=Feedback&labels=feedback",
