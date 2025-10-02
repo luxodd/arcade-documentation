@@ -32,9 +32,9 @@ body {
 
 .customNavBarItem {
 	color: var(--color-white);
-	font-family: var(--regular);
-	font-size: 0.97rem;
-	font-weight: 600;
+	font-family: "figtree-regular";
+	font-size: clamp(0.8rem, 1vw, 1rem);
+	font-weight: bold;
 	margin: 0 0 0 30px;
 	padding: 0.5rem 0;
 	transition: all 0.3s;
@@ -125,6 +125,9 @@ html[data-theme="dark"] {
 	}
 	strong {
 		font-family: var(--bold), sans-serif;
+	}
+	a {
+		-webkit-text-size-adjust: 100%;
 	}
 }
 
