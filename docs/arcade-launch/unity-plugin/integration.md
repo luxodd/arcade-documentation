@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 title: Integration Guide
 description: Step-by-step guide to integrate the Unity plugin into your game
 ---
@@ -13,6 +13,7 @@ Below are the required steps and code changes to integrate your game into our sy
 Drag the Network prefab to your scene: `Assets/Luxodd.Game/Prefabs/Network`
 This prefab contains all essential components to initialize the plugin.
 ![Prefab Path Screenshot](./assets/image21.png)
+
 ## 2. WebSocket Connection
 
 Use WebSocketService to connect to the server:
@@ -91,7 +92,7 @@ public class PlayerProfileRequestTest : MonoBehaviour
 
     public void GetPlayerProfile()
     {
-        _webSocketCommandHandler.SendProfileRequestCommand(OnPlayerProfileRequestSuccessHandler, 
+        _webSocketCommandHandler.SendProfileRequestCommand(OnPlayerProfileRequestSuccessHandler,
             OnPlayerProfileRequestFailureHandler);
     }
 
@@ -123,7 +124,7 @@ public class UserBalanceRequestTest : MonoBehaviour
 
     public void GetUserBalanceRequest()
     {
-        _webSocketCommandHandler.SendUserBalanceRequestCommand(OnUserBalanceRequestSuccessHandler, 
+        _webSocketCommandHandler.SendUserBalanceRequestCommand(OnUserBalanceRequestSuccessHandler,
             OnUserBalanceRequestFailureHandler);
     }
 
@@ -155,7 +156,7 @@ public class TrackingGameEventsTest : MonoBehaviour
 
     public void TrackLevelBeginRequest(int levelNumber)
     {
-        _webSocketCommandHandler.SendLevelBeginRequestCommand(levelNumber, OnLevelBeginRequestSuccessHandler, 
+        _webSocketCommandHandler.SendLevelBeginRequestCommand(levelNumber, OnLevelBeginRequestSuccessHandler,
             OnLevelBeginRequestFailureHandler);
     }
 
@@ -185,7 +186,7 @@ public class TrackingGameEventsTest : MonoBehaviour
 
     public void TrackLevelEndRequest(int levelNumber, int score)
     {
-        _webSocketCommandHandler.SendLevelEndRequestCommand(levelNumber, score, OnLevelEndRequestSuccessHandler, 
+        _webSocketCommandHandler.SendLevelEndRequestCommand(levelNumber, score, OnLevelEndRequestSuccessHandler,
             OnLevelEndRequestFailureHandler);
     }
 
@@ -219,7 +220,7 @@ public class CreditsOperationTest : MonoBehaviour
 
     public void AddBalanceRequest(int creditsAmount, int pinCode)
     {
-        _webSocketCommandHandler.SendAddBalanceRequestCommand(creditsAmount, pinCode, OnAddBalanceSuccessHandler, 
+        _webSocketCommandHandler.SendAddBalanceRequestCommand(creditsAmount, pinCode, OnAddBalanceSuccessHandler,
             OnAddBalanceFailureHandler);
     }
 
@@ -250,7 +251,7 @@ public class CreditsOperationTest : MonoBehaviour
 
     public void ChargeUserBalanceRequest(int creditsAmount, int pinCode)
     {
-        _webSocketCommandHandler.SendAddBalanceRequestCommand(creditsAmount, pinCode, OnChargeUserBalanceSuccessHandler, 
+        _webSocketCommandHandler.SendAddBalanceRequestCommand(creditsAmount, pinCode, OnChargeUserBalanceSuccessHandler,
             OnChargeUserBalanceFailureHandler);
     }
 
@@ -302,7 +303,7 @@ public class LeaderboardsRequestTest : MonoBehaviour
 
     public void LeaderboardsRequest()
     {
-        _webSocketCommandHandler.SendLeaderboardRequestCommand(OnLeaderboardsSuccessHandler, 
+        _webSocketCommandHandler.SendLeaderboardRequestCommand(OnLeaderboardsSuccessHandler,
             OnLeaderboardsFailureHandler);
     }
 
@@ -321,15 +322,16 @@ public class LeaderboardsRequestTest : MonoBehaviour
 ```
 
 `SendLeaderboardRequestCommand` — this command sends a request to retrieve the leaderboard for the game. It accepts a callback method with a LeaderboardDataResponse argument. LeaderboardDataResponse is a DTO that contains the response data for the leaderboard. What does it include?
+
 - `public LeaderboardData CurrentUserData {get; set;}` — information about the current player
 - `public List<LeaderboardData> Leaderboard {get; set;}` — a list of other players in the leaderboard
 
 `LeaderboardData` is also a DTO that contains the specific data for each leaderboard entry.
 What data does it include?
+
 - `int Rank` — the player's position in the leaderboard
 - `string PlayerName` — the player's name
 - `int TotalScore` — the number of points (this is the highest score among all records for the specified player)
-
 
 :::tip
 Fetches the latest leaderboard data to show top players and their ranks.
@@ -351,7 +353,7 @@ public class UserStateRequestTest : MonoBehaviour
 
     public void UserStateRequest()
     {
-        _webSocketCommandHandler.SendGetUserDataRequestCommand(OnUserStateRequestSuccessHandler, 
+        _webSocketCommandHandler.SendGetUserDataRequestCommand(OnUserStateRequestSuccessHandler,
             OnUserStateRequestFailureHandler);
     }
 
@@ -391,10 +393,10 @@ public class UserStateRequestTest : MonoBehaviour
             CurrentLevel = 1,
             SkinId = 1,
         };
-        
+
         var userStateRaw = JsonConvert.SerializeObject(userState);
-        
-        _webSocketCommandHandler.SendSetUserDataRequestCommand(userStateRaw, OnSetUserStateRequestSuccessHandler, 
+
+        _webSocketCommandHandler.SendSetUserDataRequestCommand(userStateRaw, OnSetUserStateRequestSuccessHandler,
             OnUserStateRequestFailureHandler);
     }
 
@@ -427,8 +429,8 @@ Sends a new user state object to the server to be saved. Can be used to persist 
 - It is recommended to use a simple class containing primitive types (`int`, `float`, `string`) that can be easily serialized into JSON.
 - For more flexible or dynamic data structures, use:
   `csharp
-    Dictionary<string, object> userData
-    `
+  Dictionary<string, object> userData
+  `
   This key–value format makes it easier to handle complex state updates and partial modifications.
   :::
 
