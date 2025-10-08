@@ -34,6 +34,11 @@ body {
   margin: 0 0 0 30px;
 }
 
+.sidebarViewport_aRkj, 
+.sidebar_njMd{
+  height: auto !important;
+}
+
 .dropdown > .navbar__link:after {
   width: 10px;
   height: 8px;
