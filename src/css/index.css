@@ -39,6 +39,10 @@ body {
   height: auto !important;
 }
 
+.breadcrumbsContainer_Z_bl{
+  margin-top: 28px !important;
+}
+
 .dropdown > .navbar__link:after {
   width: 10px;
   height: 8px;
