@@ -100,9 +100,8 @@
 }
 
 .table-of-contents,
-.table-of-contents ul,
-.sidebar_re4s,
-.col article header {
+.table-of-contents > ul,
+.sidebar_re4s {
   padding-top: 40px;
 }
 
