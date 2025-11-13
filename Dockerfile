@@ -1,5 +1,5 @@
 # Build Stage 1
-FROM node:alpine AS build
+FROM node:lts-alpine AS build
 WORKDIR /app
 
 # Add build arguments for all environment variables
