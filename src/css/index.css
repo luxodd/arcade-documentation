@@ -9,63 +9,154 @@
 
 /* You can override the default Infima variables here. */
 :root {
-	--ifm-color-primary: #2e8555;
-	--ifm-color-primary-dark: #29784c;
-	--ifm-color-primary-darker: #277148;
-	--ifm-color-primary-darkest: #205d3b;
-	--ifm-color-primary-light: #33925d;
-	--ifm-color-primary-lighter: #359962;
-	--ifm-color-primary-lightest: #3cad6e;
-	--ifm-code-font-size: 95%;
-	--docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
-	/* Apply fonts globally */
-	--ifm-font-family-base: "figtree-regular", Helvetica, Arial, sans-serif;
-	--ifm-heading-font-family: "alexandria-extrabold", Helvetica, Arial,
-		sans-serif;
+  /* Apply fonts globally */
+  --ifm-font-family-base: "figtree-regular", Helvetica, Arial, sans-serif;
+  --ifm-heading-font-family: "alexandria-extrabold", Helvetica, Arial,
+    sans-serif;
 }
 
 /* Force font-family on body */
 body {
-	font-family: "figtree-regular", Helvetica, Arial, sans-serif !important;
+  font-family: "figtree-regular", Helvetica, Arial, sans-serif !important;
 }
 
 .customNavBarItem {
-	color: var(--color-white);
-	font-family: "figtree-regular";
-	font-size: clamp(0.8rem, 1vw, 1rem);
-	font-weight: bold;
-	margin: 0 0 0 30px;
-	padding: 0.5rem 0;
-	transition: all 0.3s;
+  margin: 0 0 0 30px;
+}
+
+
+
+.breadcrumbsContainer_Z_bl{
+  margin-top: 28px !important;
+}
+
+.dropdown > .navbar__link:after {
+  width: 10px;
+  height: 8px;
+  top: 4px;
+
+  /* Remove the triangle */
+  border: none;
+
+  /* Use your SVG as background */
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 9 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.16669 5.27253C4.06982 5.27253 3.97285 5.2355 3.89889 5.16155L0.111009 1.37367C-0.0370028 1.22565 -0.0370028 0.985976 0.111009 0.838059C0.25902 0.690143 0.498698 0.690048 0.646615 0.838059L4.16669 4.35814L7.68677 0.838059C7.83478 0.690048 8.07446 0.690048 8.22237 0.838059C8.37029 0.986071 8.37039 1.22575 8.22237 1.37367L4.43449 5.16155C4.36054 5.2355 4.26357 5.27253 4.16669 5.27253Z' fill='white'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.customNavBarItem,
+.dropdown .navbar__link {
+  color: var(--color-white);
+  font-family: var(--regular);
+	font-size: var(--font-1);
+	font-weight: 700;
+  padding: 5px 0px;
+  transition: all 0.3s;
+  margin-top: -5px;
+}
+
+.customNavBarItem:hover {
+  cursor: pointer;
+  color: var(--color-green);
+}
+
+.dropdown {
+  padding: 0px;
+  margin: -5px 0 0 30px;
+}
+
+.dropdown__menu {
+  background: #0f3f27;
+  border-radius: 6px;
+  padding: 0px;
+  /* top: 0px; */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  animation: slideDown 0.2s ease forwards;
+}
+
+.dropdown__link {
+  margin-top: 0px;
+  border-radius: 0px;
+}
+
+/* Submenu items */
+.submenu-item {
+  padding: 0.8rem 1rem;
+  color: var(--color-white);
+  font-size: var(--font-1);
+  font-weight: bold;
+  transition: background 0.2s;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  border: none;
+  white-space: nowrap;
+}
+
+.submenu-item:hover {
+  background: #1d5f3e;
+  cursor: pointer;
+}
+
+.submenu-item::before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.submenu-item[href*="flagship-cabinets"]::before {
+  background-image: url("/img/submenu-icons/arcade-cabinets.png");
+}
+
+.submenu-item[href*="game-development"]::before {
+  background-image: url("/img/submenu-icons/games.png");
+}
+
+.submenu-item[href*="bring-retro-games"]::before {
+  background-image: url("/img/submenu-icons/games-conversion.png");
 }
 
 .activeNavbarItem {
-	color: var(--color-green) !important;
-	position: relative;
+  color: var(--color-green) !important;
+  position: relative;
 }
 
 .activeNavbarItem::after {
-	content: "";
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 2px;
-	background-color: var(--color-green);
-	display: block !important;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-green);
+  display: block !important;
 }
 
 /* Override Docusaurus built-in active class to ensure it's visible */
 .navbar__link--active::after {
-	content: "";
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 2px;
-	background-color: var(--color-green);
-	display: block !important;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-green);
+  display: block !important;
 }
 
 /* Force font-family on headings */
@@ -75,45 +166,45 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "alexandria-extrabold", Helvetica, Arial, sans-serif !important;
+  font-family: "alexandria-extrabold", Helvetica, Arial, sans-serif !important;
 }
 
 strong {
-	font-family: "figtree-bold", Helvetica, Arial, sans-serif !important;
+  font-family: "figtree-bold", Helvetica, Arial, sans-serif !important;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme="dark"] {
-	--ifm-background-color: var(--color-green-dark-2);
-	--ifm-color-primary: #1afd80;
-	--ifm-color-primary-dark: #02f971;
-	--ifm-color-primary-darker: #02eb6b;
-	--ifm-color-primary-darkest: #02c258;
-	--ifm-color-primary-light: #36fd8f;
-	--ifm-color-primary-lighter: #43fd97;
-	--ifm-color-primary-lightest: #6dfeae;
-	--docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-background-color: var(--color-green-dark-2);
+  --ifm-color-primary: #1afd80;
+  --ifm-color-primary-dark: #02f971;
+  --ifm-color-primary-darker: #02eb6b;
+  --ifm-color-primary-darkest: #02c258;
+  --ifm-color-primary-light: #36fd8f;
+  --ifm-color-primary-lighter: #43fd97;
+  --ifm-color-primary-lightest: #6dfeae;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
-	/* footer colors */
-	--ifm-footer-background-color: var(--color-green-dark-1);
+  /* footer colors */
+  --ifm-footer-background-color: var(--color-green-dark-1);
 
-	/* fonts */
-	--ifm-font-family-base: var(--regular), sans-serif;
-	--ifm-heading-font-family: var(--extrabold), sans-serif;
-	h1,
-	h2 {
-		font-family: var(--extrabold), sans-serif;
-		font-size: 43.41px;
-		line-height: 105%;
-		text-transform: uppercase;
-		background: var(--gradient-white);
-		background-clip: text;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		font-optical-sizing: auto;
-		font-weight: 800;
-		font-style: normal;
-	}
+  /* fonts */
+  --ifm-font-family-base: var(--regular), sans-serif;
+  --ifm-heading-font-family: var(--extrabold), sans-serif;
+  h1,
+  h2 {
+    font-family: var(--extrabold), sans-serif;
+    font-size: 43.41px;
+    line-height: 105%;
+    text-transform: uppercase;
+    background: var(--gradient-white);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+  }
 
 	h2 {
 		font-size: 26.81px;
@@ -133,179 +224,179 @@ html[data-theme="dark"] {
 
 /* Mobile navbar styles */
 @media screen and (max-width: 1024px) {
-	.navbar {
-		padding: 20px 30px !important;
-	}
+  .navbar {
+    padding: 20px 30px !important;
+  }
 
-	.navbar.navbar--fixed-top {
-		padding: 10px 30px !important;
-	}
+  .navbar.navbar--fixed-top {
+    padding: 10px 30px !important;
+  }
 
-	.navbar__logo img {
-		max-width: 110px;
-	}
+  .navbar__logo img {
+    max-width: 110px;
+  }
 
-	.navbar__toggle {
-		display: flex !important;
-		align-items: center;
-		justify-content: center;
-		margin-left: auto;
-		position: relative;
-		z-index: 101;
-	}
+  .navbar__toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    position: relative;
+    z-index: 101;
+  }
 
-	.navbar__items {
-		justify-content: space-between;
-	}
+  .navbar__items {
+    justify-content: space-between;
+  }
 
-	.navbar-sidebar {
-		background-color: var(--color-green-dark-3) !important;
-		border-right: 1px solid var(--color-green-dark-2) !important;
-		width: 50% !important;
-		padding-top: 0 !important;
-	}
+  .navbar-sidebar {
+    background-color: var(--color-green-dark-3) !important;
+    border-right: 1px solid var(--color-green-dark-2) !important;
+    width: 50% !important;
+    padding-top: 0 !important;
+  }
 
-	/* Adjust the logo area styling */
-	.navbar-sidebar__brand {
-		margin-bottom: 50px;
-		padding: 100px 30px 0 !important;
-		box-shadow: none !important;
-		position: relative;
-		border-bottom: none !important;
-		width: 100%;
-	}
+  /* Adjust the logo area styling */
+  .navbar-sidebar__brand {
+    margin-bottom: 50px;
+    padding: 100px 30px 0 !important;
+    box-shadow: none !important;
+    position: relative;
+    border-bottom: none !important;
+    width: 100%;
+  }
 
-	.navbar-sidebar__brand .navbar__logo {
-		margin-top: 10px;
-		margin-bottom: 30px;
-		display: block;
-	}
+  .navbar-sidebar__brand .navbar__logo {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    display: block;
+  }
 
-	.navbar-sidebar__brand .navbar__logo img {
-		max-width: 110px;
-	}
+  .navbar-sidebar__brand .navbar__logo img {
+    max-width: 110px;
+  }
 
-	.navbar-sidebar__items {
-		padding: 0 !important;
-	}
+  .navbar-sidebar__items {
+    padding: 0 !important;
+  }
 
-	.navbar-sidebar__items .menu {
-		padding: 0 30px 30px !important;
-		margin-top: 20px;
-	}
+  .navbar-sidebar__items .menu {
+    padding: 0 30px 30px !important;
+    margin-top: 20px;
+  }
 
-	.menu__list {
-		margin: 0 !important;
-	}
+  .menu__list {
+    margin: 0 !important;
+  }
 
-	.menu__link {
-		font-size: var(--font-2);
-		padding: 15px 0 !important;
-		width: 100%;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-		transition: all 0.3s;
-		color: var(--color-white) !important;
-		font-weight: 600 !important;
-	}
+  .menu__link {
+    font-size: var(--font-2);
+    padding: 15px 0 !important;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+    color: var(--color-white) !important;
+    font-weight: 600 !important;
+  }
 
-	.menu__link:last-child {
-		border-bottom: none;
-	}
+  .menu__link:last-child {
+    border-bottom: none;
+  }
 
-	.menu__link:hover {
-		color: var(--color-green) !important;
-		background: transparent !important;
-	}
+  .menu__link:hover {
+    color: var(--color-green) !important;
+    background: transparent !important;
+  }
 
-	.menu__link--active {
-		color: var(--color-green) !important;
-		background: transparent !important;
-		font-weight: 700 !important;
-	}
+  .menu__link--active {
+    color: var(--color-green) !important;
+    background: transparent !important;
+    font-weight: 700 !important;
+  }
 
-	/* Add separator line for menu items */
-	.menu__list-item {
-		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-		width: 100%;
-	}
+  /* Add separator line for menu items */
+  .menu__list-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+  }
 
-	.menu__list-item:last-child {
-		border-bottom: none;
-	}
+  .menu__list-item:last-child {
+    border-bottom: none;
+  }
 
-	.navbar-sidebar__backdrop {
-		background-color: rgba(0, 0, 0, 0.5) !important;
-	}
+  .navbar-sidebar__backdrop {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
 
-	/* Ensure no shadow on navbar items */
-	.navbar-sidebar * {
-		box-shadow: none !important;
-	}
+  /* Ensure no shadow on navbar items */
+  .navbar-sidebar * {
+    box-shadow: none !important;
+  }
 }
 
 /* Custom hamburger icon - need to override Docusaurus default */
 .navbar__toggle {
-	position: relative !important;
-	padding: 0 !important;
-	width: 40px !important;
-	height: 40px !important;
-	border: none !important;
-	background-color: transparent !important;
+  position: relative !important;
+  padding: 0 !important;
+  width: 40px !important;
+  height: 40px !important;
+  border: none !important;
+  background-color: transparent !important;
 }
 
 .navbar__toggle::before,
 .navbar__toggle::after {
-	content: "";
-	position: absolute;
-	height: 3px;
-	border-radius: 50px;
-	background-color: var(--color-white);
-	transition: all 0.3s;
+  content: "";
+  position: absolute;
+  height: 3px;
+  border-radius: 50px;
+  background-color: var(--color-white);
+  transition: all 0.3s;
 }
 
 .navbar__toggle::before {
-	width: 40px;
-	top: 12px;
-	right: 0;
+  width: 40px;
+  top: 12px;
+  right: 0;
 }
 
 .navbar__toggle::after {
-	width: 30px;
-	bottom: 12px;
-	right: 0;
+  width: 30px;
+  bottom: 12px;
+  right: 0;
 }
 
 .navbar__toggle[aria-expanded="true"]::before {
-	transform: rotate(45deg);
-	top: 19px;
+  transform: rotate(45deg);
+  top: 19px;
 }
 
 .navbar__toggle[aria-expanded="true"]::after {
-	width: 40px;
-	transform: rotate(-45deg);
-	bottom: 19px;
+  width: 40px;
+  transform: rotate(-45deg);
+  bottom: 19px;
 }
 
 /* Hide the default Docusaurus hamburger icon */
 .navbar__toggle .navbar__toggle-icon,
 .navbar__toggle svg,
 button.navbar__toggle svg {
-	display: none !important;
-	opacity: 0 !important;
-	pointer-events: none !important;
-	visibility: hidden !important;
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
 }
 
 /* Hide menu toggle icon in sidebar */
 .menu__button,
 .navbar-sidebar button.clean-btn {
-	display: none !important;
-	opacity: 0 !important;
-	pointer-events: none !important;
-	visibility: hidden !important;
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
 }
 
 /* Also hide any extra hamburger icons in mobile menu */
 .navbar-sidebar .clean-btn {
-	display: none !important;
+  display: none !important;
 }
