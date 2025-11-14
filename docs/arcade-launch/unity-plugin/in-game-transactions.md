@@ -50,6 +50,7 @@ This popup is used when the player can **continue the current game session**, fo
 
 - If the player selects **Continue** → returns `SessionOptionAction.Continue`. The game developer should implement the logic for resuming the game (e.g., adding lives, extra time, or other continuation mechanics).
 - If the player selects **End** → returns `SessionOptionAction.End`. In this case, the game developer must:
+
   1. Prepare and send the current player session statistics to the server using the command `_webSocketCommandHandler.SendLevelEndRequestCommand`.
   2. After receiving a successful callback from this command, call `_webSocketService.BackToSystem()` to return control back to the system.
 
@@ -62,10 +63,12 @@ This popup is used when the player can **restart** and begin a new game session.
 **Behavior:**
 
 - Before showing the Restart popup, the game developer **must send the current session results to the server** using `_webSocketCommandHandler.SendLevelEndRequestCommand`. This is important because if the player chooses **Restart**, a new session will start and the previous progress will be lost.
-- If the player selects **Restart** → returns `SessionOptionAction.Restart`. The system will automatically create a new session, and the game should initialize a clean start (reset level progress, scene, etc.).
+- If the player selects **Restart** → the **system automatically processes the choice** and **creates a new game session**. The game does **not** receive any callback or response — no additional logic is required on the game side beyond sending the session results beforehand.
 - If the player selects **End** → returns `SessionOptionAction.End`. In this case, control is returned back to the game, and the developer should call `_webSocketService.BackToSystem()` to return control to the system.
 
-> **Tip:** Use a unified handler for results and route behavior with a simple `switch`.
+> **Important:** The Restart flow is fully automated after sending session results. The game should not attempt to manually restart or reinitialize the session.
+
+> **Tip:** Use a unified handler for results and route behavior with a simple `switch` for Continue popups only.
 
 ---
 
@@ -73,10 +76,11 @@ This popup is used when the player can **restart** and begin a new game session.
 
 1. Detect the **Game Over** state (no lives, timer expired, etc.).
 2. Depending on your UX, call either the **Continue** or **Restart** popup.
-3. Wait for the callback returning a `SessionOptionAction`.
+3. Wait for the callback returning a `SessionOptionAction` (for Continue popups only).
 4. Execute the appropriate logic:
+
    - Continue → resume gameplay.
-   - Restart → ensure results are sent, then start a new session.
+   - Restart → ensure results are sent; the system will automatically create a new session.
    - End → send session results, then return to system.
 
 ---
@@ -99,7 +103,11 @@ public class InGameTransactionExample : MonoBehaviour
         _webSocketService.SendSessionOptionContinue(OnSessionOptionContinueCallback);
 
         // Option B: offer to restart
-        // _webSocketService.SendSessionOptionRestart(OnSessionOptionRestartCallback);
+        // Before calling this popup, always send session results first
+        // _webSocketCommandHandler.SendLevelEndRequestCommand(() =>
+        // {
+        //     _webSocketService.SendSessionOptionRestart(OnSessionOptionRestartCallback);
+        // });
     }
 
     private void OnSessionOptionContinueCallback(SessionOptionAction action)
@@ -120,19 +128,11 @@ public class InGameTransactionExample : MonoBehaviour
     {
         Debug.Log($"[Restart Popup] Player choice: {action}");
 
-        // Always send current results before showing the popup
-        _webSocketCommandHandler.SendLevelEndRequestCommand(() =>
+        // Note: if player selects Restart, the system handles it automatically — no callback will be returned
+        if (action == SessionOptionAction.End)
         {
-            switch (action)
-            {
-                case SessionOptionAction.Restart:
-                    HandleRestartNewSession();
-                    break;
-                case SessionOptionAction.End:
-                    _webSocketService.BackToSystem();
-                    break;
-            }
-        });
+            _webSocketService.BackToSystem();
+        }
     }
 
     private void HandleContinue()
@@ -143,8 +143,8 @@ public class InGameTransactionExample : MonoBehaviour
 
     private void HandleRestartNewSession()
     {
-        // Start a clean session: reset progress, reinitialize systems/scenes, etc.
-        Debug.Log("Restarting with a new session...");
+        // No manual restart logic is needed — handled automatically by the system
+        Debug.Log("Restart choice handled automatically by system.");
     }
 
     private void HandleEndToSystem()
@@ -165,6 +165,7 @@ public class InGameTransactionExample : MonoBehaviour
 - Display **only one popup at a time**. If you have your own overlays/pauses, block additional input while the popup is active.
 - Handlers should be **idempotent**: if a repeated response or signal arrives, it should not break the game state.
 - Always handle **End** as a fallback in all game states (even during pause or scene transitions).
+- For **Restart**, remember: the system restarts automatically — the game only needs to send results before showing the popup.
 
 ---
 
@@ -176,17 +177,16 @@ See the working demo integration in **example-game-arcade-shooter** (transaction
 
 ## 7) FAQ
 
-**Do I need to check the balance manually?**  
+**Do I need to check the balance manually?**
 No. The system performs all balance checks and top-up flows automatically.
 
-**Do I need to send events on End?**  
+**Do I need to send events on End?**
 Yes. You must send session results using `_webSocketCommandHandler.SendLevelEndRequestCommand`, and then call `_webSocketService.BackToSystem()` to correctly finalize the session.
 
-**What about old code expecting `Cancel`?**  
+**What about Restart?**
+Before showing the popup, send session results. If the player chooses Restart, the system automatically creates a new session — no response is returned to the game.
+
+**What about old code expecting `Cancel`?**
 Remove any `Cancel` handling in `switch` statements and related logic. Replace UX with explicit **End**.
 
 ---
-
-:::tip
-The two popups — **Continue** and **Restart** — give flexibility in session economy: either continue from the current point or start a new session. Client logic stays simple — just handle one of three `SessionOptionAction` results and follow the correct sequence of commands for `SendLevelEndRequestCommand` and `BackToSystem`.
-:::
