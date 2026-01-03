@@ -3,6 +3,6 @@
 	"position": 3,
 	"link": {
 		"type": "generated-index",
-		"description": "TEST"
+		"description": "Learn how to work with arcade joystick and button inputs in Unity. Includes visual mapping tools, practical implementation examples, and complete API reference for arcade controls."
 	}
 }
