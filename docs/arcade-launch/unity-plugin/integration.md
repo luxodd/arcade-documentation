@@ -429,8 +429,8 @@ Sends a new user state object to the server to be saved. Can be used to persist 
 - It is recommended to use a simple class containing primitive types (`int`, `float`, `string`) that can be easily serialized into JSON.
 - For more flexible or dynamic data structures, use:
   `csharp
-  Dictionary<string, object> userData
-  `
+Dictionary<string, object> userData
+`
   This key–value format makes it easier to handle complex state updates and partial modifications.
   :::
 
