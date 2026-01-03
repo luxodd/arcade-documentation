@@ -14,6 +14,8 @@ That's exactly the question Luxodd asked and answered. With our seamless onboard
 
 How exactly have we made this possible? Read on to find out how our integrated payment system, player profiles, and lightning-fast startup experience are changing the game for players, operators, and developers alike.
 
+<!-- truncate -->
+
 ## What Seamless Onboarding Solves
 
 Walk into any arcade and you can spot the relics of gaming's past: coin slots taped over, change machines coughing up tokens, and confused newcomers wondering where to start.

@@ -12,9 +12,11 @@ Unlike traditional gambling where you're at the mercy of a spinning wheel or the
 
 So this isn't about mindlessly pumping quarters into a cabinet hoping for a payout. With Luxodd, players take on missions, unlock achievements, and dive into actual challenges where they control the outcome. And the best part? If you're good, you can walk away with real rewards.
 
-In this deep article, we're going to break down exactly how it works, what makes it so different from traditional gambling, and why players, parents, investors, and arcade owners are all paying attention. 
+In this deep article, we're going to break down exactly how it works, what makes it so different from traditional gambling, and why players, parents, investors, and arcade owners are all paying attention.
 
 Spoiler: it's not just another gimmick; it's a smarter, fairer, and way more fun approach to skill-based gaming.
+
+<!-- truncate -->
 
 ## What Is Strategic Betting™ (and Why It's a Game-Changer)?
 
