@@ -50,7 +50,7 @@ How a session is finalized depends on whether the player **continues** or **rest
 
 ### Continue
 
-![Continue Popup Screenshot](./assets/Image28.png)
+![Continue Popup Screenshot](./assets/image28.png)
 
 The **Continue popup** is used when the player can resume the **same game session** by spending credits.
 
@@ -75,7 +75,7 @@ Typical use cases:
 
 ### Restart
 
-![Restart Popup Screenshot](./assets/Image27.png)
+![Restart Popup Screenshot](./assets/image27.png)
 
 The **Restart popup** is used when the player starts a **new game session** from the beginning, without leaving the game.
 
@@ -434,7 +434,7 @@ _Note_: Restart does **not** return a callback on success.
 
 ## 9. Admin Panel Configuration
 
-![Admin Panel Edit Game Screenshot](./assets/Image25.png)
+![Admin Panel Edit Game Screenshot](./assets/image25.png)
 
 ### Continue Popup
 
@@ -479,7 +479,7 @@ The following issues may occur during integration and should be carefully avoide
 
 Only the **End** button will be shown.
 
-![Zero price Screenshot](./assets/Image26.png)
+![Zero price Screenshot](./assets/image26.png)
 
 **Do I need to handle credit logic?**
 
