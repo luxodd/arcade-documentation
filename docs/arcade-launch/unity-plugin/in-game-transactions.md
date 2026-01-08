@@ -1,23 +1,202 @@
 ---
 sidebar_position: 6
 title: In-Game Transactions
-description: Integration and usage of in-game transaction popups in Unity after API update
+description: Integration and usage of in-game transaction popups in Unity
 ---
 
 # In-Game Transactions
 
-The Unity plugin provides built-in **in-game transaction popups**. After the API update, the behavior has been split into **two independent popups**:
+## 1. Overview
 
-- **Continue Popup** — for continuing the current session (buttons: **Continue**, **End**)
-- **Restart Popup** — for starting a new session (buttons: **Restart**, **End**)
+**In-Game Transactions** provide a seamless way to work with player credits directly inside the game, without forcing the player to leave the gameplay flow or return to the system UI.
 
-The system still **automatically handles balance/credit checks**, triggering the built-in top-up flow if needed — no extra logic is required on the game side.
+This mechanism is designed to:
+
+- preserve player immersion,
+- support paid gameplay scenarios,
+- ensure session data integrity,
+- maintain a smooth and predictable user experience.
 
 ---
 
-## 1) New/Updated API Methods
+## 2. Core Concept
 
-In `WebSocketService`, you can call the appropriate popups and handle the player's choice through callbacks:
+In-Game Transactions are built around **two intentionally separate flows**:
+
+- **Continue**
+- **Restart**
+
+Although these options may appear similar visually, they represent **fundamentally different session states** and must be handled differently.
+
+---
+
+## Key Definitions
+
+### Game Session
+
+A **game session** represents a single continuous run of gameplay and includes:
+
+- progress,
+- score,
+- time played,
+- achievements,
+- any other session-specific metrics.
+
+How a session is finalized depends on whether the player **continues** or **restarts** the game.
+
+---
+
+## Transaction Types
+
+### Continue
+
+![Continue Popup Screenshot](./assets/Image28.png)
+
+The **Continue popup** is used when the player can resume the **same game session** by spending credits.
+
+Typical use cases:
+
+- restoring lives,
+- extending time,
+- resuming from the last checkpoint.
+
+**Characteristics:**
+
+- The session is **not finalized**.
+- Gameplay continues within the same session.
+- All continuation logic is handled by the **game**.
+
+**Buttons:**
+
+- Continue
+- End
+
+---
+
+### Restart
+
+![Restart Popup Screenshot](./assets/Image27.png)
+
+The **Restart popup** is used when the player starts a **new game session** from the beginning, without leaving the game.
+
+**Characteristics:**
+
+- The current session **must be finalized before restart**.
+- A new session is created by the **system**.
+- The game does not manually restart or reinitialize the session.
+
+**Buttons:**
+
+- Restart
+- End
+
+---
+
+## Responsibility Matrix
+
+| Action                     | Game | System |
+| -------------------------- | ---- | ------ |
+| Pause gameplay             | ✅   |        |
+| Resume gameplay (Continue) | ✅   |        |
+| Restore lives / time       | ✅   |        |
+| Show Continue popup        | ✅   |        |
+| Handle Continue logic      | ✅   |        |
+| Send session results       | ✅   |        |
+| Show Restart popup         | ✅   |        |
+| Create new session         |      | ✅     |
+| Restart session            |      | ✅     |
+| Balance & credit checks    |      | ✅     |
+| Top-up flow                |      | ✅     |
+
+---
+
+## 3. Why Continue and Restart Are Separate Flows
+
+Continue and Restart represent **different session lifecycles**.
+
+- **Continue** keeps the current session active.
+- **Restart** finalizes the session and creates a new one.
+
+At the moment a popup is displayed, the player’s choice is **unknown**.  
+Finalizing a session too early can lead to:
+
+- lost session data,
+- incorrect statistics,
+- broken paid gameplay flows.
+
+For this reason:
+
+- Continue logic is handled by the **game**.
+- Restart logic is handled by the **system**, after session results are safely sent.
+
+This separation is intentional and required for data safety.
+
+---
+
+## 4. Example Game Genres & Usage
+
+### Vertical Top-Down Shooter
+
+- Player starts with limited lives.
+- Lives are depleted during gameplay.
+
+**Continue**
+
+- Player restores lives.
+- Session continues.
+
+**Restart**
+
+- Session is finalized.
+- New session starts from the beginning.
+
+---
+
+### Puzzle Game (e.g. 2048)
+
+- No natural continuation.
+- Only restart is supported.
+
+**Usage**
+
+- Restart popup only.
+
+---
+
+### Racing Game
+
+- Time- or lap-based gameplay.
+
+**Continue**
+
+- Extend race time or resume from checkpoint.
+
+**Restart**
+
+- Restart race from the beginning.
+
+---
+
+## 5. Preconditions Before Integration
+
+### For Continue
+
+- Ability to pause gameplay systems.
+- Ability to resume gameplay safely.
+- Ability to restore session-specific state.
+- Ability to handle cancellation (End).
+
+### For Restart
+
+- Ability to finalize session results.
+- Ability to show session summary.
+- Ability to cleanly exit gameplay.
+
+---
+
+## 6. API Integration
+
+### Available Methods
 
 ```csharp
 public void SendSessionOptionContinue(Action<SessionOptionAction> callback);
@@ -31,162 +210,281 @@ public enum SessionOptionAction
 }
 ```
 
-**Key changes:**
+## 7. Unity Integration Example (Step-by-step)
 
-- `SessionOptionAction` reflects the **player’s actual choice** and is returned in your callback.
-- **Cancel** has been removed from the enum — it no longer needs to be handled.
+This section shows a **minimal, working** integration example for Unity and explains **where to place** it and **how to use it.**
 
----
+### Where to put this code
 
-## 2) When to Call Each Popup
+Recommended structure:
 
-### Continue Popup
+- Create a script called `InGameTransactionController.cs`
+- Place it in: `Assets/Scripts/Gameplay/` (or similar)
+- Attach it to a scene object that exists during gameplay, e.g. `GameManager` or `GameplayRoot`
 
-This popup is used when the player can **continue the current game session**, for example when all lives, time, or attempts are over.
+### What you need in the scene
 
-- Call `_webSocketService.SendSessionOptionContinue(OnSessionOptionContinueCallback)` to show the popup with **Continue** and **End** buttons.
+You need references to:
 
-**Behavior:**
+- `WebSocketService` (plugin service)
+- `WebSocketCommandHandler` (to send session results)
 
-- If the player selects **Continue** → returns `SessionOptionAction.Continue`. The game developer should implement the logic for resuming the game (e.g., adding lives, extra time, or other continuation mechanics).
-- If the player selects **End** → returns `SessionOptionAction.End`. In this case, the game developer must:
+These are usually created/bound by your plugin bootstrap / DI.
 
-  1. Prepare and send the current player session statistics to the server using the command `_webSocketCommandHandler.SendLevelEndRequestCommand`.
-  2. After receiving a successful callback from this command, call `_webSocketService.BackToSystem()` to return control back to the system.
-
-### Restart Popup
-
-This popup is used when the player can **restart** and begin a new game session.
-
-- Call `_webSocketService.SendSessionOptionRestart(OnSessionOptionRestartCallback)` to show the popup with **Restart** and **End** buttons.
-
-**Behavior:**
-
-- Before showing the Restart popup, the game developer **must send the current session results to the server** using `_webSocketCommandHandler.SendLevelEndRequestCommand`. This is important because if the player chooses **Restart**, a new session will start and the previous progress will be lost.
-- If the player selects **Restart** → the **system automatically processes the choice** and **creates a new game session**. The game does **not** receive any callback or response — no additional logic is required on the game side beyond sending the session results beforehand.
-- If the player selects **End** → returns `SessionOptionAction.End`. In this case, control is returned back to the game, and the developer should call `_webSocketService.BackToSystem()` to return control to the system.
-
-> **Important:** The Restart flow is fully automated after sending session results. The game should not attempt to manually restart or reinitialize the session.
-
-> **Tip:** Use a unified handler for results and route behavior with a simple `switch` for Continue popups only.
+If you don’t use DI, you can assign them via Inspector (as shown below).
 
 ---
 
-## 3) Basic Integration Flow
+### Minimal working example (Unity C#)
 
-1. Detect the **Game Over** state (no lives, timer expired, etc.).
-2. Depending on your UX, call either the **Continue** or **Restart** popup.
-3. Wait for the callback returning a `SessionOptionAction` (for Continue popups only).
-4. Execute the appropriate logic:
+This section demonstrates a minimal, production-ready integration example for Unity
+and explains how to correctly use In-Game Transactions in a real game project.
 
-   - Continue → resume gameplay.
-   - Restart → ensure results are sent; the system will automatically create a new session.
-   - End → send session results, then return to system.
-
----
-
-## 4) Example Script (Unity C#)
+:::note
+This example assumes you already detect **Game Over** in your gameplay.
+:::
 
 ```csharp
 using System;
 using UnityEngine;
-using Luxodd.Game.Scripts.Network; // service namespace
+using Luxodd.Game.Scripts.Network;
 
-public class InGameTransactionExample : MonoBehaviour
+public class InGameTransactionController : MonoBehaviour
 {
+    [Header("Plugin references")]
     [SerializeField] private WebSocketService _webSocketService;
     [SerializeField] private WebSocketCommandHandler _webSocketCommandHandler;
 
-    private void OnGameOver()
+    // Call this from your gameplay when the run ends (0 lives, timer expired, etc.)
+    public void OnGameOver(bool allowContinue, bool allowRestart)
     {
-        // Option A: offer to continue
-        _webSocketService.SendSessionOptionContinue(OnSessionOptionContinueCallback);
+        // 1) Freeze/pause gameplay first (VERY IMPORTANT)
+        PauseGameplay();
 
-        // Option B: offer to restart
-        // Before calling this popup, always send session results first
-        // _webSocketCommandHandler.SendLevelEndRequestCommand(() =>
-        // {
-        //     _webSocketService.SendSessionOptionRestart(OnSessionOptionRestartCallback);
-        // });
+        // 2) Choose which popup you want to show based on your game design.
+        // Typically you show ONE popup:
+        // - Continue OR Restart (not both at the same time)
+        if (allowContinue)
+        {
+            ShowContinuePopup();
+            return;
+        }
+
+        if (allowRestart)
+        {
+            ShowRestartPopup();
+            return;
+        }
+
+        // If neither is supported, finish the session normally
+        EndSessionAndReturnToSystem();
     }
 
-    private void OnSessionOptionContinueCallback(SessionOptionAction action)
+    private void ShowContinuePopup()
+    {
+        _webSocketService.SendSessionOptionContinue(OnContinuePopupResult);
+    }
+
+    private void OnContinuePopupResult(SessionOptionAction action)
     {
         Debug.Log($"[Continue Popup] Player choice: {action}");
+
         switch (action)
         {
             case SessionOptionAction.Continue:
-                HandleContinue();
+                // Player paid credits -> you must implement continuation logic
+                ResumeGameplayWithContinueBonus();
                 break;
+
             case SessionOptionAction.End:
-                HandleEndToSystem();
+                // Player ended the run -> send results + return to system
+                EndSessionAndReturnToSystem();
+                break;
+
+            default:
+                // Safety fallback (shouldn’t happen, but keep stable behavior)
+                EndSessionAndReturnToSystem();
                 break;
         }
     }
 
-    private void OnSessionOptionRestartCallback(SessionOptionAction action)
+    private void ShowRestartPopup()
+    {
+        // IMPORTANT:
+        // Before showing Restart popup you MUST send session results.
+        _webSocketCommandHandler.SendLevelEndRequestCommand(() =>
+        {
+            // After results are safely sent, show Restart popup
+            _webSocketService.SendSessionOptionRestart(OnRestartPopupResult);
+        });
+    }
+
+    private void OnRestartPopupResult(SessionOptionAction action)
     {
         Debug.Log($"[Restart Popup] Player choice: {action}");
 
-        // Note: if player selects Restart, the system handles it automatically — no callback will be returned
+        // NOTE:
+        // If player selects Restart, the system starts a new session automatically
+        // and your game will NOT receive a callback for the Restart choice.
+        //
+        // You usually only receive callback when player selects End.
         if (action == SessionOptionAction.End)
         {
             _webSocketService.BackToSystem();
         }
     }
 
-    private void HandleContinue()
+    private void EndSessionAndReturnToSystem()
     {
-        // Resume the game: unpause, restore state, lives/time, update UI, etc.
-        Debug.Log("Continuing the game...");
-    }
-
-    private void HandleRestartNewSession()
-    {
-        // No manual restart logic is needed — handled automatically by the system
-        Debug.Log("Restart choice handled automatically by system.");
-    }
-
-    private void HandleEndToSystem()
-    {
-        // Send results before returning control to the system
+        // Send results first, then return control to system UI/platform
         _webSocketCommandHandler.SendLevelEndRequestCommand(() =>
         {
             _webSocketService.BackToSystem();
         });
     }
+
+    // -------------------------
+    // Game-specific helpers
+    // -------------------------
+
+    private void PauseGameplay()
+    {
+        // Implement in your game:
+        // - stop enemies, bullets, movement, timers
+        // - block input
+        // - pause animations if needed
+        Time.timeScale = 0f; // example only (not always recommended for all games)
+    }
+
+    private void ResumeGameplayWithContinueBonus()
+    {
+        // 1) Restore time scale / unpause systems
+        Time.timeScale = 1f;
+
+        // 2) Implement your game rules:
+        // - add lives
+        // - restore HP
+        // - give extra time
+        // - respawn at checkpoint, etc.
+        //
+        // IMPORTANT: this is GAME responsibility
+        Debug.Log("Continuing the same session: restoring gameplay state...");
+    }
 }
+
 ```
 
----
+## How you should use this
 
-## 5) UX & Stability Notes
+### Step 1 - Add the controller
 
-- Display **only one popup at a time**. If you have your own overlays/pauses, block additional input while the popup is active.
-- Handlers should be **idempotent**: if a repeated response or signal arrives, it should not break the game state.
-- Always handle **End** as a fallback in all game states (even during pause or scene transitions).
-- For **Restart**, remember: the system restarts automatically — the game only needs to send results before showing the popup.
+- Add `InGameTransactionController` to your gameplay scene.
+- Assign `WebSocketService` and `WebSocketCommandHandler` (Inspector or DI).
 
----
+### Step 2 - Call it at Game Over
 
-## 6) Demo Project Example
+In your existing Game Over logic (example):
 
-See the working demo integration in **example-game-arcade-shooter** (transaction popup sections, navigation glue code, etc.).
+```csharp
+// Somewhere in your GameManager:
+_transactionController.OnGameOver(
+    allowContinue: true,   // if your game supports continue
+    allowRestart: true     // if your game supports restart
+);
+```
 
----
+### Step 3 - Implement your Continue behavior
 
-## 7) FAQ
+Edit `ResumeGameplayWithContinueBonus()` to match your game:
 
-**Do I need to check the balance manually?**
-No. The system performs all balance checks and top-up flows automatically.
-
-**Do I need to send events on End?**
-Yes. You must send session results using `_webSocketCommandHandler.SendLevelEndRequestCommand`, and then call `_webSocketService.BackToSystem()` to correctly finalize the session.
-
-**What about Restart?**
-Before showing the popup, send session results. If the player chooses Restart, the system automatically creates a new session — no response is returned to the game.
-
-**What about old code expecting `Cancel`?**
-Remove any `Cancel` handling in `switch` statements and related logic. Replace UX with explicit **End**.
+- restore 2 lives
+- restore 10 seconds
+- respawn at safe point
+- etc.
 
 ---
+
+## 8. Integration Flow
+
+### Continue Flow
+
+1. Detect Game Over.
+2. Pause gameplay.
+3. Call `SendSessionOptionContinue`.
+4. Player chooses:
+   - **Continue** → resume gameplay.
+   - **End** → send results → return to system.
+
+---
+
+### Restart Flow
+
+1. Detect Game Over.
+2. Send session results.
+3. Call `SendSessionOptionRestart`.
+4. Player chooses:
+   - **Restart** → system creates a new session.
+   - **End** → return to system.
+
+:::note
+_Note_: Restart does **not** return a callback on success.
+:::
+
+---
+
+## 9. Admin Panel Configuration
+
+![Admin Panel Edit Game Screenshot](./assets/Image25.png)
+
+### Continue Popup
+
+- Set **Continue Price > 0**.
+- Supports fractional values (e.g. 0.5, 0.01)
+- 0 disables the popup.
+
+### Res Popup
+
+- Set **Restart Price > 0**.
+- Supports fractional values (e.g. 0.5, 0.01)
+- 0 disables the popup.
+
+---
+
+## 10. Verification Checklist
+
+- Game supports Continue and/or Restart.
+- Correct popup method is used.
+- Session results are sent at the correct time.
+- Admin Panel prices are configured.
+- End action is handled correctly.
+- No manual restart logic is implemented.
+
+---
+
+## 11. Common Integration Pitfalls
+
+The following issues may occur during integration and should be carefully avoided:
+
+- Treating Continue and Restart as the same flow.
+- Sending session results after showing the Restart popup.
+- Expecting a callback for Restart.
+- Handling Continue logic on the system side.
+- Finalizing a session before the player makes a choice.
+
+---
+
+## 12. FAQ
+
+**What happens if Continue price is set to 0?**
+
+Only the **End** button will be shown.
+
+![Zero price Screenshot](./assets/Image26.png)
+
+**Do I need to handle credit logic?**
+
+No. All credit checks and top-up flows are handled by the system.
+
+**Can Continue and Restart be unified?**
+
+No. This may lead to session data loss and is not supported.
