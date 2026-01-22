@@ -59,11 +59,15 @@ body {
 .dropdown .navbar__link {
   color: var(--color-white);
   font-family: var(--regular);
-	font-size: var(--font-1);
-	font-weight: 700;
-  padding: 5px 0px;
+	font-size: var(--font-2);
+	font-weight: 400;
+  padding: 0px;
   transition: all 0.3s;
-  margin-top: -5px;
+  margin-top: -10px;
+}
+
+.customNavBarItem:nth-child(3) {
+  margin-left: 15px;
 }
 
 .customNavBarItem:hover {
@@ -110,16 +114,16 @@ body {
   cursor: pointer;
 }
 
-.submenu-item::before {
+/* .submenu-item::before {
   content: "";
   display: inline-block;
   width: 28px;
   height: 28px;
   background-size: contain;
   background-repeat: no-repeat;
-}
+} */
 
-.submenu-item[href*="flagship-cabinets"]::before {
+/* .submenu-item[href*="flagship-cabinets"]::before {
   background-image: url("/img/submenu-icons/arcade-cabinets.png");
 }
 
@@ -129,7 +133,7 @@ body {
 
 .submenu-item[href*="bring-retro-games"]::before {
   background-image: url("/img/submenu-icons/games-conversion.png");
-}
+} */
 
 .activeNavbarItem {
   color: var(--color-green) !important;
