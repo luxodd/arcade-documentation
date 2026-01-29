@@ -10,7 +10,7 @@ Below are the required steps and code changes to integrate your game into our sy
 
 ## 1. Add Plugin Prefab
 
-Drag the Network prefab to your scene: `Assets/Luxodd.Game/Prefabs/Network`
+Drag the Network prefab to your scene: `Assets/Luxodd.Game/Prefabs/UnityPluginPrefab`
 This prefab contains all essential components to initialize the plugin.
 ![Prefab Path Screenshot](./assets/image21.png)
 
