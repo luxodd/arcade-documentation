@@ -106,7 +106,7 @@ If UI appears clipped on mobile:
 
 ## FAQ
 
-### Why is my Back button still clipped on mobile?
+### Why is my Back button on the Example scene still clipped on mobile?
 Most common causes:
 1. LuxoddWebGLSafeAreaApplier is not attached to the correct root panel.
 2. The root panel is not stretch-stretch.
